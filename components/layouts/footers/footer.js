@@ -33,8 +33,9 @@ const headers = () => {
             </div>
           </div>
           <div className="section2 text-center">
-            <div className="align-middle line1">
+            <div className="text-align-bottom line1">
               {/* Powered by */}
+              {/* <span class="align-middle" style={{top:"-8px", position:"relative"}}>Powered by</span> */}
               <span class="align-middle" style={{top:"-8px", position:"relative"}}>Powered by</span>
               <div
               className="dsLogo"
@@ -46,11 +47,18 @@ const headers = () => {
                   marginLeft: "16px",
                 }}
               >
-                <Image
+                {/* <Image
                   src="/public/assets/footer-logo.svg"
                   objectFit="contain"
                   layout="fill"
                   quality={100}
+                /> */}
+                <img
+                  src="/assets/footer-logo.svg"
+                  className="dsLogo"
+                  style={{objectFit:"contain"}}
+                  width="auto"
+                  // height="46"
                 />
               </div>
             </div>
