@@ -1,11 +1,9 @@
 .footer {
-  height: 360px;
+  height: auto;
   width: 100%;
   background: #f2f2f2;
-
   & .self-container {
-    width: auto;
-    margin: 0 440px;
+    width: 54%;
     padding-top: 40px;
     & .section1 {
       margin-bottom: 60px;
@@ -21,7 +19,7 @@
         color: #333333;
         margin-right: 48px;
         margin-bottom: 40px;
-        text-align: left;
+        text-align: center;
       }
     }
 
@@ -35,8 +33,6 @@
           font-weight: normal;
           font-size: 14px;
           line-height: 16px;
-          /* identical to box height */
-
           color: #333333;
         }
         & .ds-logo {
@@ -53,9 +49,121 @@
         font-weight: normal;
         font-size: 14px;
         line-height: 16px;
-        /* identical to box height */
         margin-top: 45px;
         color: #a19e9e;
+        padding-bottom: 96px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1400px) {
+    & .self-container {
+      width: 74%;
+      padding-top: 40px;
+      & .section1 {
+        margin-bottom: 60px;
+        & .logoFooter {
+          margin-right: 120px;
+        }
+        & .menu {
+          font-family: Helvetica;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 18px;
+          color: #333333;
+          margin-right: 48px;
+          margin-bottom: 40px;
+          text-align: center;
+        }
+      }
+
+      & .section2 {
+        & .line1 {
+          height: 50px;
+          width: 100%;
+          & .powered {
+            font-family: Helvetica;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 16px;
+            color: #333333;
+          }
+          & .ds-logo {
+            height: 46.00022506713867px;
+            width: 172.00177001953125px;
+            left: 0px;
+            top: 0px;
+            border-radius: 0px;
+          }
+        }
+        & .line2 {
+          font-family: Helvetica;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 14px;
+          line-height: 16px;
+          margin-top: 45px;
+          color: #a19e9e;
+          padding-bottom: 96px;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 500px) {
+    & .self-container {
+      width: 94%;
+      padding-top: 40px;
+      & .section1 {
+        margin-bottom: 60px;
+        & .logoFooter {
+          margin-right: 120px;
+        }
+        & .menu {
+          font-family: Helvetica;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 12px;
+          line-height: 18px;
+          color: #333333;
+          // margin-right: 48px;
+          padding: 0 24px;
+          margin-bottom: 40px;
+          margin: 0;
+        }
+      }
+
+      & .section2 {
+        & .line1 {
+          height: 50px;
+          width: 100%;
+          & .powered {
+            font-family: Helvetica;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 16px;
+            color: #333333;
+          }
+          & .ds-logo {
+            height: 46.00022506713867px;
+            width: 172.00177001953125px;
+            left: 0px;
+            top: 0px;
+            border-radius: 0px;
+          }
+        }
+        & .line2 {
+          font-family: Helvetica;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 14px;
+          line-height: 16px;
+          margin-top: 45px;
+          color: #a19e9e;
+          padding-bottom: 96px;
+        }
       }
     }
   }

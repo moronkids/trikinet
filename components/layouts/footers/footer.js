@@ -1,24 +1,35 @@
-import Logo from "../../../assets/logo-trickynet.svg";
+import Logo from "../../../assets/logo-trickynetFooter.svg";
 import DailySocial from "../../../assets/footer-logo.svg";
 // import Logo from "assets/logo-trickynet.svg";
 const headers = () => {
   return (
     <>
       <div className="footer">
-        <div className="self-container">
+        <div className="self-container mx-auto">
           <div className="row section1">
-            <div className="col-3">
-              <Logo className="logoFooter" />
+            <div className="col-sm-3 col-12 d-none d-lg-block position-absolute">
+              <Logo
+                className="d-none d-sm-block logoFooter"
+                // style={{ width: "220px", height: "53px" }}
+              />
             </div>
-            <div className="d-flex flex-wrap col-7">
-              <span className="menu">INTERNET</span>
-              <span className="menu">MOBILE</span>
-              <span className="menu">PC</span>
-              <span className="menu">WEB</span>
-              <span className="menu">ABOUT</span>
-              <span className="menu">CONTACT US</span>
-              <span className="menu">PRIVACY POLICY</span>
-              <span className="menu">CYBER MEDIA GUIDE</span>
+            <div className="col-12 d-block d-lg-none">
+              <Logo
+                className="logoFooter d-block d-lg-none mx-auto"
+                // style={{ width: "220px", height: "53px" }}
+              />
+            </div>
+            <div className="d-flex flex-wrap col-lg-6 col-md-7 mt-lg-0 mt-4 mx-auto">
+              <span className="menu mx-auto">INTERNET</span>
+              <span className="menu mx-auto">MOBILE</span>
+              <span className="menu mx-auto">PC</span>
+              <span className="menu mx-auto">WEB</span>
+              <span className="menu mx-auto">ABOUT</span>
+            </div>
+            <div className="d-flex flex-wrap col-lg-7 col-md-8 mt-sm-0 mt-4 mx-auto">
+              <span className="menu mx-auto">CONTACT US</span>
+              <span className="menu mx-auto">PRIVACY POLICY</span>
+              <span className="menu mx-auto">CYBER MEDIA GUIDE</span>
             </div>
           </div>
           <div className="section2 text-center">
