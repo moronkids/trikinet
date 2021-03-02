@@ -1,7 +1,7 @@
 import Headers from "components/layouts/headers/headers";
 import Head from "next/head";
 const Index = () => (
-  <div>
+  <>
     <Head>
       <meta
         name="description"
@@ -15,8 +15,8 @@ const Index = () => (
     <Head>
       <meta property="og:title" content="My new title" key="title" />
     </Head>
-    <Headers />
-  </div>
+
+  </>
 );
 
 export default Index;

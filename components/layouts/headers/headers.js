@@ -2,8 +2,8 @@ import Logo from "../../../assets/logo-trickynet.svg";
 
 const headers = () => {
   return (
-    <div className="headers">
-      <nav className="navbar  navbar-expand-lg navbar-light container">
+    <div className="headers" style={{padding : "0px", margin: "0px"}}>
+      <nav className="navbar navbar-expand-lg navbar-light container">
         <a className="navbar-brand" href="#">
           <Logo className="logoNavbar" />
         </a>
