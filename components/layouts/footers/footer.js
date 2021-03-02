@@ -1,6 +1,6 @@
-import Logo from "../../../assets/logo-trickynetFooter.svg";
-import DailySocial from "../../../assets/footer-logo.svg";
-import Image from "next/image"
+import Logo from "../../../public/assets/logo-trickynetFooter.svg";
+import DailySocial from "../../../public/assets/footer-logo.svg";
+import Image from "next/image";
 // import Logo from "assets/logo-trickynet.svg";
 const headers = () => {
   return (
@@ -36,25 +36,28 @@ const headers = () => {
             </div>
           </div>
           <div className="section2 text-center">
-            <div className="text-align-bottom line1">
+            <div className="align-middle line1">
               {/* Powered by */}
-              <div className="mx-auto">
-                <p
-                  className="d-inline"
-                  style={{ marginRight: "17px", verticalAlign: "text-bottom" }}
-                >
-                  Powered by
-                </p>
-                <DailySocial
-                  className="ds-logo"
-                  style={{ verticalAlign: "text-bottom" }}
-                  height={5} width={"auto"}
+              <span class="align-middle" style={{top:"-8px", position:"relative"}}>Powered by</span>
+              <div
+              className="dsLogo"
+                style={{
+                  position: "relative",
+                  width: "172px",
+                  height: "46px",
+                  display: "inline-block",
+                  marginLeft: "16px",
+                }}
+              >
+                <Image
+                  src="/assets/footer-logo.svg"
+                  // width={172}
+                  // height={46}
+                  // sizes={[320, 520]}
+                  objectFit="contain"
+                  layout="fill"
+                  quality={100}
                 />
-                {/* <Image
-                  src="../../../assets/ds-footer.png"
-                  className="ds-logo"
-                  style={{ verticalAlign: "text-bottom" }}
-                /> */}
               </div>
             </div>
             <div className="line2">

@@ -140,6 +140,12 @@
           height: 50px;
           width: 100%;
           font-size: 12px;
+          & .align-middle {
+            top: -15px !important;
+          }
+          & .dsLogo {
+            width: 130px !important;
+          }
           & .powered {
             font-family: Montserrat;
             font-style: normal;
