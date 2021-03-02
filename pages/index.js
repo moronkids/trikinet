@@ -1,6 +1,8 @@
+import Headers from 'components/headers';
 const Index = () => (
   <div>
-    <h1 className="h4">test</h1>
+    <Headers/>
+    <h1 className="h4">home</h1>
   </div>
 );
 

@@ -10,6 +10,9 @@ module.exports = {
         defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
       },
     ],
-    "postcss-preset-env",
+    ["postcss-assets",{}],
+    ["postcss-inline-svg",{}],
+    ["postcss-preset-env",{}],
+    // ["postcss-preset-env",{}],
   ],
 };
