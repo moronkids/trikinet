@@ -1,7 +1,5 @@
 import Logo from "../../../public/assets/logo-trickynetFooter.svg";
-import DailySocial from "../../../public/assets/footer-logo.svg";
 import Image from "next/image";
-// import Logo from "assets/logo-trickynet.svg";
 const headers = () => {
   return (
     <>
@@ -11,7 +9,6 @@ const headers = () => {
             <div className="col-sm-3 col-12 d-none d-lg-block position-absolute">
               <Logo
                 className="d-none d-sm-block logoFooter"
-                // style={{ width: "220px", height: "53px" }}
               />
             </div>
             <div className="col-12 d-block d-lg-none">
@@ -50,10 +47,7 @@ const headers = () => {
                 }}
               >
                 <Image
-                  src="/assets/footer-logo.svg"
-                  // width={172}
-                  // height={46}
-                  // sizes={[320, 520]}
+                  src="/public/assets/footer-logo.svg"
                   objectFit="contain"
                   layout="fill"
                   quality={100}
