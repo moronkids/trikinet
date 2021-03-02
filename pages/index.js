@@ -1,8 +1,24 @@
-import Headers from 'components/headers';
+import Headers from "components/headers";
+import Head from "next/head";
 const Index = () => (
   <div>
-    <Headers/>
-    <h1 className="h4">home</h1>
+    <Head>
+      {/* <meta name="robots" content="noindex" /> */}
+      <meta
+        name="description"
+        content="Mary's simple recipe for maple bacon donuts
+           makes a sticky, sweet treat with just a hint
+           of salt that you'll keep coming back for."
+      ></meta>
+      {/* <meta name="AdsBot-Google" content="noindex" /> */}
+      <title>My page title</title>
+      <meta property="og:title" content="My page title" key="title" />
+    </Head>
+    <Head>
+      <meta property="og:title" content="My new title" key="title" />
+    </Head>
+    <Headers />
+    <p>Hello world!</p>
   </div>
 );
 
