@@ -37,3 +37,9 @@ body {
     color: #de4628 !important;
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .headers .logoNavbar {
+    margin-right: 0;
+  }
+}

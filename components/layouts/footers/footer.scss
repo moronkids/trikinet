@@ -6,12 +6,12 @@
     width: 54%;
     padding-top: 40px;
     & .section1 {
-      margin-bottom: 60px;
+      margin-bottom: 30px;
       & .logoFooter {
         margin-right: 120px;
       }
       & .menu {
-        font-family: Helvetica;
+        font-family: Montserrat;
         font-style: normal;
         font-weight: normal;
         font-size: 16px;
@@ -25,10 +25,18 @@
 
     & .section2 {
       & .line1 {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        /* identical to box height */
+
+        color: #333333;
         height: 50px;
         width: 100%;
         & .powered {
-          font-family: Helvetica;
+          font-family: Montserrat;
           font-style: normal;
           font-weight: normal;
           font-size: 14px;
@@ -44,7 +52,7 @@
         }
       }
       & .line2 {
-        font-family: Helvetica;
+        font-family: Montserrat;
         font-style: normal;
         font-weight: normal;
         font-size: 14px;
@@ -58,15 +66,15 @@
 
   @media only screen and (max-width: 1400px) {
     & .self-container {
-      width: 74%;
+      width: 94%;
       padding-top: 40px;
       & .section1 {
-        margin-bottom: 60px;
+        margin-bottom: 30px;
         & .logoFooter {
           margin-right: 120px;
         }
         & .menu {
-          font-family: Helvetica;
+          font-family: Montserrat;
           font-style: normal;
           font-weight: normal;
           font-size: 16px;
@@ -83,7 +91,7 @@
           height: 50px;
           width: 100%;
           & .powered {
-            font-family: Helvetica;
+            font-family: Montserrat;
             font-style: normal;
             font-weight: normal;
             font-size: 14px;
@@ -99,7 +107,7 @@
           }
         }
         & .line2 {
-          font-family: Helvetica;
+          font-family: Montserrat;
           font-style: normal;
           font-weight: normal;
           font-size: 14px;
@@ -116,21 +124,14 @@
       width: 94%;
       padding-top: 40px;
       & .section1 {
-        margin-bottom: 60px;
+        margin-bottom: 30px;
         & .logoFooter {
           margin-right: 120px;
         }
         & .menu {
-          font-family: Helvetica;
-          font-style: normal;
-          font-weight: normal;
           font-size: 12px;
-          line-height: 18px;
-          color: #333333;
-          // margin-right: 48px;
-          padding: 0 24px;
-          margin-bottom: 40px;
-          margin: 0;
+          padding: 0 18px;
+          margin-bottom: 0;
         }
       }
 
@@ -138,11 +139,12 @@
         & .line1 {
           height: 50px;
           width: 100%;
+          font-size: 12px;
           & .powered {
-            font-family: Helvetica;
+            font-family: Montserrat;
             font-style: normal;
             font-weight: normal;
-            font-size: 14px;
+            font-size: 12px;
             line-height: 16px;
             color: #333333;
           }
@@ -155,10 +157,10 @@
           }
         }
         & .line2 {
-          font-family: Helvetica;
+          font-family: Montserrat;
           font-style: normal;
           font-weight: normal;
-          font-size: 14px;
+          font-size: 12px;
           line-height: 16px;
           margin-top: 45px;
           color: #a19e9e;

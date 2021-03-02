@@ -1,5 +1,6 @@
 import Logo from "../../../assets/logo-trickynetFooter.svg";
 import DailySocial from "../../../assets/footer-logo.svg";
+import Image from "next/image"
 // import Logo from "assets/logo-trickynet.svg";
 const headers = () => {
   return (
@@ -19,17 +20,19 @@ const headers = () => {
                 // style={{ width: "220px", height: "53px" }}
               />
             </div>
-            <div className="d-flex flex-wrap col-lg-6 col-md-7 mt-lg-0 mt-4 mx-auto">
-              <span className="menu mx-auto">INTERNET</span>
-              <span className="menu mx-auto">MOBILE</span>
-              <span className="menu mx-auto">PC</span>
-              <span className="menu mx-auto">WEB</span>
-              <span className="menu mx-auto">ABOUT</span>
+            <div className="d-flex flex-wrap col-lg-6 col-md-7  mx-auto">
+              <span className="menu mx-auto mt-lg-0 mt-4">INTERNET</span>
+              <span className="menu mx-auto mt-lg-0 mt-4">MOBILE</span>
+              <span className="menu mx-auto mt-lg-0 mt-4">PC</span>
+              <span className="menu mx-auto mt-lg-0 mt-4">WEB</span>
+              <span className="menu mx-auto mt-lg-0 mt-4">ABOUT</span>
             </div>
-            <div className="d-flex flex-wrap col-lg-7 col-md-8 mt-sm-0 mt-4 mx-auto">
-              <span className="menu mx-auto">CONTACT US</span>
-              <span className="menu mx-auto">PRIVACY POLICY</span>
-              <span className="menu mx-auto">CYBER MEDIA GUIDE</span>
+            <div className="d-flex flex-wrap col-lg-7 col-md-8  mx-auto">
+              <span className="menu mx-auto mt-sm-0 mt-4">CONTACT US</span>
+              <span className="menu mx-auto mt-sm-0 mt-4">PRIVACY POLICY</span>
+              <span className="menu mx-auto mt-sm-0 mt-4">
+                CYBER MEDIA GUIDE
+              </span>
             </div>
           </div>
           <div className="section2 text-center">
@@ -45,7 +48,13 @@ const headers = () => {
                 <DailySocial
                   className="ds-logo"
                   style={{ verticalAlign: "text-bottom" }}
+                  height={5} width={"auto"}
                 />
+                {/* <Image
+                  src="../../../assets/ds-footer.png"
+                  className="ds-logo"
+                  style={{ verticalAlign: "text-bottom" }}
+                /> */}
               </div>
             </div>
             <div className="line2">
