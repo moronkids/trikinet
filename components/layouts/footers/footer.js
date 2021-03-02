@@ -36,7 +36,7 @@ const headers = () => {
             <div className="text-align-bottom line1">
               {/* Powered by */}
               {/* <span class="align-middle" style={{top:"-8px", position:"relative"}}>Powered by</span> */}
-              <span class="align-middle" style={{top:"-8px", position:"relative"}}>Powered by</span>
+              <span class="align-middle" style={{position:"relative"}}>Powered by</span>
               <div
               className="dsLogo"
                 style={{
