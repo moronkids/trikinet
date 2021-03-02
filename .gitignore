@@ -3,4 +3,4 @@
 /.vscode
 # Local Netlify folder
 .netlify
-/out
+# /out
