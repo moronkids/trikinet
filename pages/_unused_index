@@ -1,4 +1,4 @@
-import Headers from "components/headers";
+// import Headers from "components/headers";
 import Head from "next/head";
 const Index = () => (
   <div>
@@ -17,7 +17,7 @@ const Index = () => (
     <Head>
       <meta property="og:title" content="My new title" key="title" />
     </Head>
-    <Headers />
+    {/* <Headers /> */}
     <p>Hello world!</p>
   </div>
 );

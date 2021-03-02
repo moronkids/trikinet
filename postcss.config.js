@@ -9,16 +9,15 @@ let environment = {
 
 // Only run PurgeCSS in production (you can also add staging here)
 if (process.env.mode === "production") {
-  environment.plugins.push(
-    require('@fullhuman/postcss-purgecss')({
+  environment.plugins.push([
+    "@fullhuman/postcss-purgecss",
+    {
       content: [
-
-            // Matcher for haml
-        './app/**/*.html.haml'
-
+        "./pages/**/*.{js,jsx,ts,tsx}",
+        "./components/**/*.{js,jsx,ts,tsx}",
       ],
-      defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
-    })
-  )
+      defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
+    },
+  ]);
 }
 module.exports = environment;
