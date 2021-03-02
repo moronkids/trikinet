@@ -1,4 +1,4 @@
-import Headers from "components/layouts/headers/headers";
+import Section1 from "components/searchContainers";
 import Head from "next/head";
 const Index = () => (
   <>
@@ -15,7 +15,7 @@ const Index = () => (
     <Head>
       <meta property="og:title" content="My new title" key="title" />
     </Head>
-
+    <Section1/>
   </>
 );
 
