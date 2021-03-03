@@ -3,7 +3,7 @@ import React from 'react';
 const SearchBox = () => {
     return (
       <>
-        <div className="box mx-auto d-flex">
+        <div className="box mx-auto d-flex ">
           <input
             className="h-100"
             type="text"

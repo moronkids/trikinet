@@ -3,12 +3,9 @@ import React from "react";
 const News = () => {
   return (
     <>
-      <div
-        className="container h-100"
-        style={{ minHeight: "900px", paddingTop: "80px" }}
-      >
+      <div className="container h-100 newsSection">
         <div className="row headline h-100">
-          <div className="col-md-6 col-12 w-100" style={{ minHeight: "324px" }}>
+          <div className="col-md-6 col-12 w-100 imgHeadline">
             <img
               src="../assets/section1_1.svg"
               alt=""
@@ -35,12 +32,12 @@ const News = () => {
         </div>
         <div className="row news">
           <div className="pl-5 title row w-100">MORE TO READ</div>
-          <div className="w-75">
-            <div className="redBorder mx-3" />
+          <div className="w-75 col-12 col-md-9">
+            <div className="redBorder" />
           </div>
-          <div className="row">
-            <div className="col-12 d-flex">
-              <div className="col-3 newsBox">
+          <div className="row col-12 px-0 mx-0">
+            <div className="col-12 d-flex mx-0 px-0">
+              <div className="col-sm-3 col-12 newsBox">
                 <div className="list">
                   Apa itu Zoom, Fitur dan Cara Pakainya
                 </div>
@@ -48,7 +45,7 @@ const News = () => {
                   Apa itu Zoom, Fitur dan Cara Pakainya
                 </div>
               </div>
-              <div className="col-3 newsBox">
+              <div className="col-sm-3 col-12 newsBox">
                 <div className="list">
                   [Panduan Pemula] Cara Backup dan Restore Chat WhatsApp
                 </div>
@@ -59,7 +56,7 @@ const News = () => {
                   [Panduan Pemula] Cara Backup dan Restore Chat WhatsApp
                 </div>
               </div>
-              <div className="col-3 newsBox">
+              <div className="col-sm-3 col-12 newsBox">
                 <div className="list">
                   Cara Melindungi Tulisan Blog WordPress dengan Password
                 </div>
@@ -71,7 +68,7 @@ const News = () => {
                 </div>
               </div>
               <div
-                className="col-auto float-right mt-3 ml-3"
+                className="col-auto d-none d-sm-block float-right mt-3 ml-3"
                 style={{
                   width: "300px",
                   height: "250px",
@@ -79,7 +76,7 @@ const News = () => {
                 }}
               />
             </div>
-            <div className="w-75 seeLatest text-right px-3">
+            <div className="seeLatest text-right px-3">
               SEE ALL LATEST <span className="arrow ml-3" />
             </div>
             <div className="w-75">

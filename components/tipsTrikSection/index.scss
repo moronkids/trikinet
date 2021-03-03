@@ -1,0 +1,14 @@
+.TipsTrik {
+  background: #e5e5e5;
+  min-height: 500px;
+  & .title {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    color: #000000;
+  }
+}
