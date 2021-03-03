@@ -1,6 +1,6 @@
-import SearchContainers from "components/searchContainers";
-import SectionNews from "components/newsSection";
-import SectionTipsTrik from "components/tipsTrikSection";
+import SearchContainers from "components/homepage/searchContainers";
+import SectionNews from "components/homepage/newsSection";
+// import SectionTipsTrik from "components/homepage/tipsTrikSection";
 import Head from "next/head";
 const Index = () => (
   <>

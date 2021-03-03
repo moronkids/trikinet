@@ -1,4 +1,4 @@
-// import Headers from "components/headers";
+// import Headers from "components/homepage/headers";
 import Head from "next/head";
 const Index = () => (
   <div>

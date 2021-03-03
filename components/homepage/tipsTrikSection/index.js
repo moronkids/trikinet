@@ -1,5 +1,5 @@
-import RectangleNews from 'components/tipsTrikSection/rectangleSection';
-import SquareNews from 'components/tipsTrikSection/squareSection';
+import RectangleNews from 'homepage/components/tipsTrikSection/rectangleSection';
+import SquareNews from 'homepage/components/tipsTrikSection/squareSection';
 const TipsTrik = () => {
   return (
     <div className="TipsTrik">

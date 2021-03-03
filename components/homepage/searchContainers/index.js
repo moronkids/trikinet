@@ -1,5 +1,5 @@
 import React from 'react';
-import Box from "components/searchContainers/searchbox"
+import Box from "components/homepage/searchContainers/searchbox"
 const SearchContainer = () => {
     return (
       <>
@@ -9,7 +9,7 @@ const SearchContainer = () => {
               SITUS YANG MENYAJIKAN TRIK DAN TIPS INTERNET SERTA INFORMASI
               DIGITAL TERKINI
             </div>
-            <div className="text-center col-sm-10 col-md-12">
+            <div className="text-center col-sm-10 col-md-12 mx-auto">
               <Box />
             </div>
           </div>
