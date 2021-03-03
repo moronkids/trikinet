@@ -10,7 +10,7 @@ const SearchBox = () => {
             placeholder="Search..."
             style={{ width: "90%" }}
           />
-          <div className="minify justify-content-center align-self-center"></div>
+          <div className="minify justify-content-center align-self-center"/>
         </div>
       </>
     );
