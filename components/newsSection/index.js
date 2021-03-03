@@ -32,12 +32,12 @@ const News = () => {
         </div>
         <div className="row news">
           <div className="pl-5 title row w-100">MORE TO READ</div>
-          <div className="w-75 col-12 col-md-9">
+          <div className="w-75 col-12 col-md-9 col-lg-9">
             <div className="redBorder" />
           </div>
-          <div className="row col-12 px-0 mx-0">
+          <div className="row col-12 col-lg-9 px-0 mx-0">
             <div className="col-12 d-flex mx-0 px-0">
-              <div className="col-sm-3 col-12 newsBox">
+              <div className="col-sm-4 col-md-4 col-lg-4 col-12 newsBox">
                 <div className="list">
                   Apa itu Zoom, Fitur dan Cara Pakainya
                 </div>
@@ -45,7 +45,7 @@ const News = () => {
                   Apa itu Zoom, Fitur dan Cara Pakainya
                 </div>
               </div>
-              <div className="col-sm-3 col-12 newsBox">
+              <div className="col-sm-4 col-md-4 col-lg-4 col-12 newsBox">
                 <div className="list">
                   [Panduan Pemula] Cara Backup dan Restore Chat WhatsApp
                 </div>
@@ -56,7 +56,7 @@ const News = () => {
                   [Panduan Pemula] Cara Backup dan Restore Chat WhatsApp
                 </div>
               </div>
-              <div className="col-sm-3 col-12 newsBox">
+              <div className="col-sm-4 col-md-4 col-lg-4 col-12 newsBox">
                 <div className="list">
                   Cara Melindungi Tulisan Blog WordPress dengan Password
                 </div>
@@ -79,9 +79,9 @@ const News = () => {
             <div className="seeLatest text-right px-3">
               SEE ALL LATEST <span className="arrow ml-3" />
             </div>
-            <div className="w-75">
-              <div className="adsBottom mx-auto" />
-            </div>
+            {/* <div className=""> */}
+              <div className="adsBottom text-left mx-3 mx-sm-0" />
+            {/* </div> */}
           </div>
         </div>
       </div>
