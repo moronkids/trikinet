@@ -1,0 +1,29 @@
+.NewestArticle {
+  & .title {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    border-bottom: 1px solid gray;
+    text-align: center;
+    color: #333333;
+  }
+  & .articleContent {
+    border-bottom: 1px solid gray;
+
+    & .articleImage {
+      width: 100px;
+      height: 100px;
+      background: #c4c4c4;
+    }
+    & .articleTitle {
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 20px;
+      color: #000000;
+    }
+  }
+}

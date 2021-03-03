@@ -1,0 +1,71 @@
+@import "./newestArticle/index.scss";
+.article {
+  & #leftSide {
+    & .breadcrumbCustom {
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 20px;
+      // color: #000000;
+    }
+    & .articleTitle {
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 45px;
+      color: #000000;
+    }
+    & .articleKeyword {
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 22px;
+      color: #000000;
+    }
+    & .articleMainImage {
+      width: 800px;
+      height: 498px;
+      display: block;
+    }
+    & .articleContent {
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 500;
+    }
+  }
+  & #rightSide {
+    & .articleCategory {
+      width: 172px;
+      height: 40px;
+      left: 1014px;
+      top: 607px;
+      background: #ff002e;
+      border-radius: 4px;
+      & span {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        /* identical to box height */
+        text-align: center;
+        color: #ffffff;
+      }
+    }
+    & .writtenBy {
+      font-family: Montserrat;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 20px;
+      /* identical to box height */
+      color: #000000;
+    }
+    & .postedTime {
+      @extend .writtenBy;
+    }
+  }
+}
