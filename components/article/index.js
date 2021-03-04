@@ -4,14 +4,14 @@ import NewestArticle from "components/article/newestArticle"
 const Article = () => {
   return (
     <div className="container article">
-      <div className="col-lg-9">
-        <Ads type="rectangle" class="mx-auto mt-5" />
+      <div className="col-lg-9 col-12">
+        <Ads type="rectangle" class="rectangle mx-auto mt-5" />
         <div className="breadcrumbCustom" style={{ marginTop: "43px" }}>
           Trikinet / Web
         </div>
       </div>
-      <div className="w-100 d-flex">
-        <div id="leftSide" className="col-lg-9">
+      <div className="w-100 d-flex row col-12 m-0 p-0">
+        <div id="leftSide" className="col-lg-9 col-12">
           <div className="articleTitle pt-4">
             5 Teknik SEO yang Tidak Lagi Efektif di 2020
           </div>
@@ -111,7 +111,7 @@ const Article = () => {
                 Adalah dengan menyematkan kombinasi keyword mulai keyword exact
                 atau utama dan bebarapa keyword LSI yang memiliki kedekatan
                 makna.
-                <Ads type="rectangle" class="mx-auto mt-5" />
+                <Ads type="rectangle" class="rectangle mx-auto mt-5" />
                 <h3 className="font-weight-bold">Keyword Dijadikan Tags</h3>
                 Tags semestinya tidak diindeks, tetapi jika situasinya berbeda,
                 misalnya Anda menggunakan keywords sebagai tags dan Google
@@ -146,14 +146,14 @@ const Article = () => {
             </div>
           </div>
         </div>
-        <div id="rightSide" className="col-lg-3">
+        <div id="rightSide" className="col-lg-3 col-12">
           <div className="d-flex articleCategory mt-4">
             <span className="mx-auto my-auto">Web</span>
           </div>
           <div className="writtenBy pt-4">Oleh Bambang Winarso</div>
           <div className="postedTime">2 jam lalu</div>
           <Ads type="square" class="mt-5 mb-5"></Ads>
-          <NewestArticle/>
+          <NewestArticle />
         </div>
       </div>
     </div>
