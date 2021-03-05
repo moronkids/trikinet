@@ -3,7 +3,7 @@ let environment = {
     ["postcss-assets", {}],
     ["postcss-inline-svg", {}],
     ["postcss-preset-env", {}],
-    ["cssnano", {}],
+    ["cssnano", {preset:"default"}],
     //   [
     //   "@fullhuman/postcss-purgecss",
     //   {
