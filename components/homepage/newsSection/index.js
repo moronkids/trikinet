@@ -1,5 +1,5 @@
 import React from "react";
-
+import Link from 'next/link'
 const News = () => {
   return (
     <>
@@ -67,6 +67,7 @@ const News = () => {
                   Cara Melindungi Tulisan Blog WordPress dengan Password
                 </div>
               </div>
+
               <div
                 className="col-auto d-none d-sm-block float-right mt-3 ml-3"
                 style={{
@@ -76,8 +77,9 @@ const News = () => {
                 }}
               />
             </div>
+
             <div className="seeLatest text-right px-3">
-              SEE ALL LATEST <span className="arrow ml-3" />
+             <Link href="/article"><a> SEE ALL LATEST <span className="arrow ml-3"/></a></Link>
             </div>
             {/* <div className=""> */}
               <div className="adsBottom text-left mx-3 mx-sm-0" />

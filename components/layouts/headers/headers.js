@@ -1,12 +1,18 @@
 import Logo from "../../../public/assets/logo-trickynet.svg";
-
+import Link from "next/link";
 const headers = () => {
   return (
-    <div className="headers sticky-top" style={{padding : "0px", margin: "0px", background: "#FFFFFF"}}>
+    <div
+      className="headers sticky-top"
+      style={{ padding: "0px", margin: "0px", background: "#FFFFFF" }}
+    >
       <nav className="navbar navbar-expand-lg navbar-light container">
-        <a className="navbar-brand" href="#">
-          <Logo className="logoNavbar" />
-        </a>
+        <Link href="/">
+
+          <a className="navbar-brand" href="#">
+            <Logo className="logoNavbar" />
+          </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
