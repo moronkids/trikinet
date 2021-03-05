@@ -1,8 +1,9 @@
 import SearchContainers from "components/homepage/searchContainers";
 import SectionNews from "components/homepage/newsSection";
+import SectionNewsMobile from "components/homepage/newsSection/mobile";
 // import SectionTipsTrik from "components/homepage/tipsTrikSection";
 import Head from "next/head";
-const Index = () => (
+const Index = (props) => (
   <>
     <Head>
       <meta
@@ -17,8 +18,17 @@ const Index = () => (
     <Head>
       <meta property="og:title" content="My new title" key="title" />
     </Head>
-    <SearchContainers />
-    <SectionNews />
+    {props.device ? (
+      <>
+        <SectionNewsMobile />
+      </>
+    ) : (
+      <>
+        <SearchContainers />
+        <SectionNews />
+      </>
+    )}
+
     {/* <SectionTipsTrik/> */}
   </>
 );
