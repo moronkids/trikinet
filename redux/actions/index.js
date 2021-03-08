@@ -5,4 +5,6 @@
 //NEWS
 export const HIT_NEWS_LATEST = "HIT_NEWS_LATEST";
 export const GET_NEWS_LATEST = "GET_NEWS_LATEST";
+export const HIT_DETAIL_NEWS = "HIT_DETAIL_NEWS";
+export const GET_DETAIL_NEWS = "GET_DETAIL_NEWS";
 //NEWS

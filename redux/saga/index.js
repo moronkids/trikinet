@@ -5,18 +5,27 @@ import { put, call, takeLatest, takeEvery } from "redux-saga/effects";
 import {
   HIT_NEWS_LATEST,
   GET_NEWS_LATEST,
+  HIT_DETAIL_NEWS,
+  GET_DETAIL_NEWS
+
 } from "redux/actions/index";
 // Import all actions
 
 //Import api call
-import {newsLatest} from 'redux/api/news';
+import {newsLatest, detailNews} from 'redux/api/news';
 //Import api call
+
 function* getNewsLatest({payload}) {
   const newsLatest_ = yield call(newsLatest);
-  console.log(newsLatest_)
   yield put({type: GET_NEWS_LATEST, payload: newsLatest_})
+}
+function* getDetailNews({ payload }) {
+  const detailNews_ = yield call(detailNews);
+  console.log(detailNews_, "ceki")
+  yield put({ type: GET_DETAIL_NEWS, payload: detailNews_ });
 }
 
 export default function* protra() {
 yield takeEvery(HIT_NEWS_LATEST, getNewsLatest)
+yield takeEvery(HIT_DETAIL_NEWS, getDetailNews)
 }

@@ -12,7 +12,7 @@ const axios = defaultAxios.create({
 
 export const newsLatest = async (data, props) => {
   const todos = await axios
-    .get("news/latest?page=1&limit5")
+    .get("news/latest?page=1&limit=16")
     .catch(function (error) {
       if (error.response.status !== 200) {
         console.log(error, "response failed");
@@ -26,6 +26,26 @@ export const newsLatest = async (data, props) => {
     return {
       newsLatest : {
         data: todos.data.data,
+        status : todos.status
+      },
+
+    }
+};
+export const detailNews = async (data, props) => {
+  const todos = await axios
+    .get("news/slug/cara-menghapus-akun-tiktok")
+    .catch(function (error) {
+      if (error.response.status !== 200) {
+        console.log(error, "response failed");
+        return {
+          status: "failed",
+        };
+      }
+    });
+    console.log(todos, "response success")
+    return {
+      detailNews : {
+        data: todos.data.data[0],
         status : todos.status
       },
 

@@ -75,7 +75,7 @@ const News = () => {
                 {newsLatest !== undefined ? (
                   newsLatest.map((val, i) => {
                     let data;
-                    if (i <= 2) {
+                    if (i <= 4) {
                        data = <div className="list">{val.title.rendered}</div>
                     }
                     return (
@@ -92,7 +92,7 @@ const News = () => {
                 {newsLatest !== undefined ? (
                   newsLatest.map((val, i) => {
                     let data;
-                    if (i <= 5 && i >= 3) {
+                    if (i <= 9 && i >= 5) {
                        data = <div className="list">{val.title.rendered}</div>
                     }
                     return (
@@ -109,7 +109,7 @@ const News = () => {
                 {newsLatest !== undefined ? (
                   newsLatest.map((val, i) => {
                     let data;
-                    if (i <= 8 && i >= 6) {
+                    if (i <= 14 && i >= 10) {
                        data = <div className="list">{val.title.rendered}</div>
                     }
                     return (
