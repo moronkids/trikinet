@@ -1,77 +1,22 @@
 // Import the redux-saga/effects
 import { put, call, takeLatest, takeEvery } from "redux-saga/effects";
+
 // Import all actions
 import {
-  SET_LOADING,
-  SET_LOADING_,
-  POST_SIGNIN,
-  HIT_SIGNIN,
-  POST_SIGNUP,
-  HIT_SIGNUP,
-  HIT_VERIFY,
-  GET_VERIFY,
-  HIT_GETUSER,
-  GET_USER,
-  HIT_SIGNOUT,
-  HIT_UPDATEUSER,
-  PUT_UPDATEUSER,
-  HIT_CREATEPROJECT,
-  POST_CREATEPROJECT,
-  GET_PROJECT,
-  HIT_GETPROJECT,
-  DELETE_PROJECT,
-  HIT_DELETEPROJECT,
-  HIT_EDITPROJECT,
-  POST_EDITPROJECT,
-  HIT_GOOGLE,
-  GET_DETAILPROJECT,
-  HIT_DETAILPROJECT,
-  HIT_DETAILPROJECT2,
-  HIT_CREATETASK,
-  POST_CREATETASK,
-  SET_DATA,
-  HIT_DATA,
-  HIT_REORDER_LIST,
-  SET_REORDER_TASK,
-  HIT_CARD_UPDATE,
-  SET_CARD_UPDATE,
-  HIT_REORDER_CARD,
-  SET_REORDER_CARD,
-  HIT_INVITEMEMBER,
-  INVITE_MEMBER,
-  HIT_REMOVEMEMBER,
-  REMOVE_MEMBER,
-  VIEW_PROJECT,
-  HIT_VIEWPROJECT,
-  PUT_UPDATELIST,
-  HIT_UPDATELIST,
-  HIT_DELETELIST,
-  PUT_DELETELIST,
-  HIT_ADDLIST,
-  PUT_ADDLIST,
-  POST_ADDLIST,
-  HIT_DELETECARD,
-  DEL_DELETECARD,
-  HIT_UPDATECARD,
-  PUT_UPDATECARD,
-  HIT_ATTACHFILE,
-  PUT_ATTACHFILE,
-  HIT_ASSIGNTASK,
-  PUT_ASSIGNTASK,
-  HIT_REVOKETASK,
-  PUT_REVOKETASK,
-  SET_DATA2,
-  WEBSOCKET_ALLTASK,
-  HIT_WEBSOCKET_ALLTASK,
-  HIT_WEBSOCKET_PROJECT,
-  WEBSOCKET_PROJECT,
-  HIT_MIDTRANS,
-  HIT_GETNEWSFEED,
-  GET_NEWSFEED,
-  POST_SIGNOUT,
+  HIT_NEWS_LATEST,
+  GET_NEWS_LATEST,
 } from "redux/actions/index";
 // Import all actions
 
-export default function* protra() {
+//Import api call
+import {newsLatest} from 'redux/api/news';
+//Import api call
+function* getNewsLatest({payload}) {
+  const newsLatest_ = yield call(newsLatest);
+  console.log(newsLatest_)
+  yield put({type: GET_NEWS_LATEST, payload: newsLatest_})
+}
 
+export default function* protra() {
+yield takeEvery(HIT_NEWS_LATEST, getNewsLatest)
 }

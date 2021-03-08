@@ -2,7 +2,8 @@ import SearchContainers from "components/homepage/searchContainers";
 import SectionNews from "components/homepage/newsSection";
 // import SectionTipsTrik from "components/homepage/tipsTrikSection";
 import Head from "next/head";
-const Index = () => (
+const Index = () => {
+  return (
   <>
     <Head>
       <meta
@@ -21,6 +22,6 @@ const Index = () => (
     <SectionNews />
     {/* <SectionTipsTrik/> */}
   </>
-);
+);}
 
 export default Index;

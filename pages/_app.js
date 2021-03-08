@@ -3,11 +3,14 @@ import Headers from "components/layouts/headers/headers";
 import HeadersMobile from "components/mobile/layouts/headers";
 import Footers from "components/layouts/footers/footer";
 import Body from "components/layouts/body";
-
+//redux
+import {Provider} from "react-redux"
+import {store} from "redux/index"
 function MyApp({ Component, pageProps, isMobileView }) {
   console.log(isMobileView, "device");
   return (
     <>
+    <Provider store={store}>
       <style jsx global>{`
         body {
           margin: 0px;
@@ -20,6 +23,7 @@ function MyApp({ Component, pageProps, isMobileView }) {
         <Component {...pageProps} />
       </Body>
       <Footers />
+    </Provider>
     </>
   );
 }
