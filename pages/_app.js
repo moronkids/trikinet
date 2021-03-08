@@ -8,11 +8,16 @@ import Body from "components/layouts/body";
 import {Provider} from "react-redux"
 import {store} from "redux/index"
 import { Hooks } from "providers/hooks";
+import Head from 'next/head'
 function MyApp({ Component, pageProps, isMobileView }) {
   return (
     <>
       <Provider store={store}>
         <Hooks>
+          <Head>
+            {" "}
+            <link rel="manifest" href="/manifest.json" />
+          </Head>
           <style jsx global>{`
             body {
               margin: 0px;

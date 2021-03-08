@@ -6,6 +6,9 @@ import Head from "next/head";
 const Index = (props) => (
   <>
     <Head>
+
+<link rel="manifest" href="/manifest.json" />
+<meta name="theme-color" content="#90cdf4" />
       <meta
         name="description"
         content="Mary's simple recipe for maple bacon donuts
