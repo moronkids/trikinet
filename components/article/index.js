@@ -3,15 +3,22 @@ import Ads from "components/ads";
 import ShareButton from "components/share_buttons";
 import NewestArticle from "components/article/newestArticle"
 import { useSelector, useDispatch, connect } from "react-redux";
-import { HIT_DETAIL_NEWS } from "redux/actions";
+import { HIT_DETAIL_NEWS, HIT_NEWS_LATEST } from "redux/actions";
+import { useRouter } from "next/router";
 import Truncate from "react-truncate";
 const Article = () => {
     const dispatch = useDispatch();
-    const { detailNews } = useSelector((state) => ({
+    const { detailNews, latestNews } = useSelector((state) => ({
       detailNews: state.news.detailNews.data,
+      latestNews: state.news.newsLatest
     }));
+    const router = useRouter();
+    const { slug } = router.query;
     useEffect(() => {
-      dispatch({ type: HIT_DETAIL_NEWS });
+      dispatch({ type: HIT_DETAIL_NEWS, payload: slug});
+      if(latestNews.data.length === 0) {
+        dispatch({ type: HIT_NEWS_LATEST});
+      }
     }, []);
   return (
     <div className="container article">
@@ -34,7 +41,7 @@ const Article = () => {
             ) : null}
           </div>
           <div className="pt-3">
-            {detailNews.content !== undefined ? (
+            {/* {detailNews.content !== undefined ? (
               <>
                 <img
                   src={detailNews.yoast_meta[6].content}
@@ -44,10 +51,10 @@ const Article = () => {
               </>
             ) : (
               <>null</>
-            )}
+            )} */}
 
             <div className="articleContent pt-3">
-              {console.log(detailNews, "cek")}
+
               {detailNews.content !== undefined ? (
                 <>
                   <div
@@ -67,10 +74,10 @@ const Article = () => {
           <div className="d-flex articleCategory mt-4">
             <span className="mx-auto my-auto">Web</span>
           </div>
-          <div className="writtenBy pt-4">Oleh Bambang Winarso</div>
+          <div className="writtenBy pt-4">Oleh {detailNews._embedded && detailNews._embedded.author[0].name }</div>
           <div className="postedTime">2 jam lalu</div>
           <Ads type="square" class="mt-5 mb-5"></Ads>
-          <NewestArticle />
+          <NewestArticle data={latestNews}/>
         </div>
       </div>
     </div>

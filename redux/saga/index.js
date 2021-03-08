@@ -20,8 +20,7 @@ function* getNewsLatest({payload}) {
   yield put({type: GET_NEWS_LATEST, payload: newsLatest_})
 }
 function* getDetailNews({ payload }) {
-  const detailNews_ = yield call(detailNews);
-  console.log(detailNews_, "ceki")
+  const detailNews_ = yield call(detailNews, payload);
   yield put({ type: GET_DETAIL_NEWS, payload: detailNews_ });
 }
 

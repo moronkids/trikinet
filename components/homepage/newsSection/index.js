@@ -16,7 +16,7 @@ const News = () => {
   const headlineLatestNews = newsLatest[0];
   newsLatest.shift();
   // console.log(listLatestNews, "tes1");
-  console.log(newsLatest, "tes2");
+
   return (
     <>
       <div className="container h-100 newsSection">
@@ -55,9 +55,13 @@ const News = () => {
                     />
                   </Truncate>
                 </div>
-                <div className="readMore d-flex ">
-                  Read more <span className="ml-2 arrowReadMore"></span>
-                </div>
+                <Link href={"page/" + headlineLatestNews.slug}>
+                  <a href="" className="">
+                    <div className="readMore d-flex ">
+                      Read more <span className="ml-2 arrowReadMore"></span>
+                    </div>
+                  </a>
+                </Link>
               </div>
             </div>
           </>
@@ -76,13 +80,16 @@ const News = () => {
                   newsLatest.map((val, i) => {
                     let data;
                     if (i <= 4) {
-                       data = <div className="list">{val.title.rendered}</div>
+                      // data = <div className="list">{val.title.rendered}</div>;
+                      data = (
+                        <Link href={`page/${val.slug}`}>
+                          <a>
+                            <div className="list">{val.title.rendered}</div>
+                          </a>
+                        </Link>
+                      );
                     }
-                    return (
-                      <>
-                      {data}
-                      </>
-                    );
+                    return <>{data}</>;
                   })
                 ) : (
                   <>null</>
@@ -93,13 +100,15 @@ const News = () => {
                   newsLatest.map((val, i) => {
                     let data;
                     if (i <= 9 && i >= 5) {
-                       data = <div className="list">{val.title.rendered}</div>
+                      data = (
+                        <Link href={`page/${val.slug}`}>
+                          <a>
+                            <div className="list">{val.title.rendered}</div>
+                          </a>
+                        </Link>
+                      );
                     }
-                    return (
-                      <>
-                      {data}
-                      </>
-                    );
+                    return <>{data}</>;
                   })
                 ) : (
                   <>null</>
@@ -110,13 +119,15 @@ const News = () => {
                   newsLatest.map((val, i) => {
                     let data;
                     if (i <= 14 && i >= 10) {
-                       data = <div className="list">{val.title.rendered}</div>
+                      data = (
+                        <Link href={`page/${val.slug}`}>
+                          <a>
+                            <div className="list">{val.title.rendered}</div>
+                          </a>
+                        </Link>
+                      );
                     }
-                    return (
-                      <>
-                      {data}
-                      </>
-                    );
+                    return <>{data}</>;
                   })
                 ) : (
                   <>null</>
@@ -128,7 +139,7 @@ const News = () => {
                 style={{
                   width: "300px",
                   height: "250px",
-                  background: "#C4C4C4;",
+                  backgroundColor: "#C4C4C4;",
                 }}
               />
             </div>

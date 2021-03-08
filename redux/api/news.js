@@ -31,9 +31,11 @@ export const newsLatest = async (data, props) => {
 
     }
 };
-export const detailNews = async (data, props) => {
+export const detailNews = async (data) => {
+  console.log(data, "bree")
+  const slug = data
   const todos = await axios
-    .get("news/slug/cara-menghapus-akun-tiktok")
+    .get("news/slug/"+data)
     .catch(function (error) {
       if (error.response.status !== 200) {
         console.log(error, "response failed");
