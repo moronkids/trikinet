@@ -4,6 +4,10 @@ import { useSelector, useDispatch, connect } from "react-redux";
 import { HIT_NEWS_LATEST } from "redux/actions";
 import TruncateMarkup from "react-truncate-markup";
 import Truncate from "react-truncate";
+var dayjs = require("dayjs");
+var relativeTime = require("dayjs/plugin/relativeTime");
+dayjs.extend(relativeTime);
+dayjs().format();
 const News = () => {
   const dispatch = useDispatch();
   const { newsLatest } = useSelector((state) => ({
@@ -12,11 +16,11 @@ const News = () => {
   useEffect(() => {
     dispatch({ type: HIT_NEWS_LATEST });
   }, []);
-  // console.log(newsLatest.length, "page")
   const headlineLatestNews = newsLatest[0];
   newsLatest.shift();
-  // console.log(listLatestNews, "tes1");
 
+  let publishedDate;
+  if (newsLatest.length > 0) publishedDate = dayjs(headlineLatestNews.date).fromNow(); // 20 years ago
   return (
     <>
       <div className="container h-100 newsSection">
@@ -35,26 +39,33 @@ const News = () => {
               <div className="col-md-6 col-12 h-100 w-100">
                 <div className="redBorder mt-4" />
                 <div className="category">Web</div>
-                <div
-                  className="title"
-                  dangerouslySetInnerHTML={{
-                    __html: headlineLatestNews.title.rendered,
-                  }}
-                >
-                  {/* 5 Teknik SEO yang Tidak lagi Efektif di 2020 */}
-                </div>
-                <div className="writtenBy">
-                  {`Written by ${headlineLatestNews._embedded.author[0].name}`}
-                </div>
-                <div className="textCrop">
-                  <Truncate lines={2}>
+                <Link href={"page/" + headlineLatestNews.slug}>
+                  <a>
                     <div
+                      className="title"
                       dangerouslySetInnerHTML={{
-                        __html: headlineLatestNews.content.rendered,
+                        __html: headlineLatestNews.title.rendered,
                       }}
                     />
-                  </Truncate>
+                  </a>
+                </Link>
+
+                <div className="writtenBy">
+                  {`Written by ${headlineLatestNews._embedded.author[0].name} - ${publishedDate}`}
                 </div>
+                <Link href={"page/" + headlineLatestNews.slug}>
+                  <a>
+                    <div className="textCrop">
+                      <Truncate lines={2}>
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: headlineLatestNews.content.rendered,
+                          }}
+                        />
+                      </Truncate>
+                    </div>
+                  </a>
+                </Link>
                 <Link href={"page/" + headlineLatestNews.slug}>
                   <a href="" className="">
                     <div className="readMore d-flex ">

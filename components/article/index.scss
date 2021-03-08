@@ -35,10 +35,14 @@
       font-family: Montserrat;
       font-style: normal;
       font-weight: 500;
-
-      & img {
-        width: 100%;
+      & figure {
+        width: 100% !important;
         object-fit: contain;
+      }
+      & img {
+        width: 100% !important;
+        object-fit: contain;
+        height: 100% !important;
       }
     }
   }

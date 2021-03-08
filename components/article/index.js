@@ -1,25 +1,33 @@
 import React, { useEffect, useLayoutEffect } from "react";
 import Ads from "components/ads";
 import ShareButton from "components/share_buttons";
-import NewestArticle from "components/article/newestArticle"
+import NewestArticle from "components/article/newestArticle";
 import { useSelector, useDispatch, connect } from "react-redux";
 import { HIT_DETAIL_NEWS, HIT_NEWS_LATEST } from "redux/actions";
 import { useRouter } from "next/router";
 import Truncate from "react-truncate";
+var dayjs = require("dayjs");
+var relativeTime = require("dayjs/plugin/relativeTime");
+dayjs.extend(relativeTime);
+dayjs().format();
 const Article = () => {
-    const dispatch = useDispatch();
-    const { detailNews, latestNews } = useSelector((state) => ({
-      detailNews: state.news.detailNews.data,
-      latestNews: state.news.newsLatest
-    }));
-    const router = useRouter();
-    const { slug } = router.query;
-    useEffect(() => {
-      dispatch({ type: HIT_DETAIL_NEWS, payload: slug});
-      if(latestNews.data.length === 0) {
-        dispatch({ type: HIT_NEWS_LATEST});
-      }
-    }, []);
+  const dispatch = useDispatch();
+  const { detailNews, latestNews } = useSelector((state) => ({
+    detailNews: state.news.detailNews.data,
+    latestNews: state.news.newsLatest,
+  }));
+  const router = useRouter();
+  const { slug } = router.query;
+  useEffect(() => {
+    dispatch({ type: HIT_DETAIL_NEWS, payload: slug });
+    if (latestNews.data.length === 0) {
+      dispatch({ type: HIT_NEWS_LATEST });
+    }
+  }, [slug]);
+  // dayjs.extend(relativeTime);
+  let publishedDate;
+  if (detailNews.length !== 0) publishedDate = dayjs(detailNews.date).fromNow(); // 20 years ago
+  console.log(detailNews.length,detailNews.date, "beroo")
   return (
     <div className="container article">
       <div className="col-lg-9 col-12">
@@ -54,7 +62,6 @@ const Article = () => {
             )} */}
 
             <div className="articleContent pt-3">
-
               {detailNews.content !== undefined ? (
                 <>
                   <div
@@ -74,14 +81,16 @@ const Article = () => {
           <div className="d-flex articleCategory mt-4">
             <span className="mx-auto my-auto">Web</span>
           </div>
-          <div className="writtenBy pt-4">Oleh {detailNews._embedded && detailNews._embedded.author[0].name }</div>
-          <div className="postedTime">2 jam lalu</div>
+          <div className="writtenBy pt-4">
+            Oleh {detailNews._embedded && detailNews._embedded.author[0].name}
+          </div>
+          <div className="postedTime">{publishedDate}</div>
           <Ads type="square" class="mt-5 mb-5"></Ads>
-          <NewestArticle data={latestNews}/>
+          <NewestArticle data={latestNews} />
         </div>
       </div>
     </div>
   );
-};
+};;;
 
 export default Article;

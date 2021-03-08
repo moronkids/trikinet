@@ -1,5 +1,5 @@
 import React from "react";
-
+import Link from 'next/link';
 const NewestArticle = ({data}) => {
   return (
     <>
@@ -10,35 +10,27 @@ const NewestArticle = ({data}) => {
 
            if (i <= 9) {
              return (
-             <div className="d-flex articleContent py-4">
-               <div
-                 className="col-auto articleImage"
-                 style={{
-                   backgroundImage: `url(${val.yoast_meta[6].content})`,
-                   backgroundSize: "cover",
-                  backgroundPosition: "center"
-                 }}
-               />
-               <div className="col flex-wrap articleTitle">
-                 {val.title.rendered}
-               </div>
-             </div>
-           );
+               <Link href={`/page/${val.slug}`}>
+                 <a>
+                   <div className="d-flex articleContent py-4">
+                     <div
+                       className="col-auto articleImage"
+                       style={{
+                         backgroundImage: `url(${val.yoast_meta[6].content})`,
+                         backgroundSize: "cover",
+                         backgroundPosition: "center",
+                       }}
+                     />
+                     <div className="col flex-wrap articleTitle">
+                       {val.title.rendered}
+                     </div>
+                   </div>
+                 </a>
+               </Link>
+             );
            }
           })
          : (<></>)}
-        {/* <div className="d-flex articleContent py-4">
-          <div className="col-auto articleImage" />
-          <div className="col flex-wrap articleTitle">
-            Apa itu Zoom, Fitur dan Cara Pakainya
-          </div>
-        </div>
-        <div className="d-flex articleContent py-4">
-          <div className="col-auto articleImage" />
-          <div className="col flex-wrap articleTitle">
-            Apa itu Zoom, Fitur dan Cara Pakainya
-          </div>
-        </div> */}
       </div>
     </>
   );
