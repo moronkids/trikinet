@@ -24,19 +24,21 @@ const News = () => {
   if (newsLatest.length > 0)
     publishedDate = dayjs(headlineLatestNews.date).fromNow(); // 20 years ago
 
+  const ArticleSmall_ = newsLatest.map((val, i) => {
+    return (
+      <>
+        <ArticleSmall data={val} />
+      </>
+    );
+  });
+
   return (
     <>
       <div className="container news pt-4 px-4">
         <Ads type="rectangle" class="reactangle w-100" />
         <ArticleBig data={headlineLatestNews} />
-        <Ads type="rectangle" class="reactangle w-100" />
-        {newsLatest.map((val, i) => {
-          return (
-            <>
-              <ArticleSmall data={val} />
-            </>
-          );
-        })}
+        <Ads type="rectangle" class="reactangle w-100 mb-2" />
+        {ArticleSmall_}
       </div>
     </>
   );
