@@ -88,7 +88,7 @@ const Web = () => {
   };
   return (
     <>
-      <div className="container">
+      <div className="container pt-5">
         <div className="row col-12 news m-0 ">
           <div className="col-12 col-sm-6">
             <ArticleBig

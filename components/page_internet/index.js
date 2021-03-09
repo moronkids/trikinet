@@ -5,26 +5,28 @@ import { HIT_NEWS_LATEST } from "redux/actions";
 import Truncate from "react-truncate";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import { HIT_CATEGORY_NEWS } from "../../redux/actions";
+import { useRouter } from "next/router";
 var dayjs = require("dayjs");
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 dayjs().format();
 const Web = () => {
   const dispatch = useDispatch();
+  const router = useRouter();
+  const { slug } = router.query;
   const { newsLatest } = useSelector((state) => ({
-    newsLatest: state.news.newsLatest.data,
+    newsLatest: state.news.category[slug].data,
   }));
   useEffect(() => {
-    dispatch({ type: HIT_NEWS_LATEST });
+    dispatch({ type: HIT_CATEGORY_NEWS, payload: [slug, null, null] });
   }, []);
-  console.log(newsLatest, "cekiceki");
   const headlineLatestNews_1 = newsLatest[0];
   const headlineLatestNews_2 = newsLatest[1];
   newsLatest.splice(0, 1);
 
   let publishedDate_1;
   let publishedDate_2;
-  console.log(newsLatest.length, "tess");
   if (newsLatest.length > 0)
     publishedDate_1 = dayjs(headlineLatestNews_1.date).fromNow();
   const chunk = function (array, size) {
@@ -36,7 +38,9 @@ const Web = () => {
 
     return [head, ...chunk(tail, size)];
   };
-  const reStructure = newsLatest && chunk(newsLatest, 3);
+  console.log(newsLatest, "heyho");
+  const reStructure = newsLatest && chunk(newsLatest, newsLatest.length / 3);
+  console.log(reStructure, "ancuk");
   const newsImagePhoto = {
     width: "inherit",
   };
@@ -88,7 +92,7 @@ const Web = () => {
   };
   return (
     <>
-      <div className="container">
+      <div className="container pt-5">
         <div className="row col-12 news m-0 ">
           <div className="col-12 col-sm-6">
             <ArticleBig

@@ -53,3 +53,26 @@ export const detailNews = async (data) => {
 
     }
 };
+
+export const sortByCategory = async (data) => {
+  const category = data[0]
+  const page = data[1] !== null ? data[1] : 1;
+  const limit = data[2] !== null ? data[2] : 20;
+  const todos = await axios
+    .get(`news/category/${category}?page=${page}&limit=${limit}`)
+    .catch(function (error) {
+      if (error.response.status !== 200) {
+        console.log(error, "response failed");
+        return {
+          status: "failed",
+        };
+      }
+    });
+    console.log(todos, "response success")
+    return {
+        data: todos.data.data,
+        status : todos.status,
+        page: page,
+        category: category
+    }
+};
