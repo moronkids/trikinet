@@ -2,7 +2,6 @@ import React, { useEffect, useLayoutEffect } from "react";
 import Link from "next/link";
 import { useSelector, useDispatch, connect } from "react-redux";
 import { HIT_NEWS_LATEST } from "redux/actions";
-import TruncateMarkup from "react-truncate-markup";
 import Truncate from "react-truncate";
 var dayjs = require("dayjs");
 var relativeTime = require("dayjs/plugin/relativeTime");

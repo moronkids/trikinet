@@ -1,4 +1,4 @@
-import SearchContainers from "components/homepage/searchContainers";
+import SearchContainers from "components/layouts/searchContainers";
 import Articlex from "components/article";
 import { useSelector } from "react-redux";
 import Head from "next/head";

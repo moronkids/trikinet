@@ -35,14 +35,24 @@
       font-family: Montserrat;
       font-style: normal;
       font-weight: 500;
+
       & figure {
         width: 100% !important;
         object-fit: contain;
+      }
+      & p {
+        text-align: center;
+      }
+      & iframe {
+        width: 100% !important;
       }
       & img {
         width: 100% !important;
         object-fit: contain;
         height: 100% !important;
+        align-items: center;
+        text-align: center;
+        max-height: 500px;
       }
     }
   }

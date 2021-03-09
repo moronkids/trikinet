@@ -1,4 +1,4 @@
-import SearchContainers from "components/homepage/searchContainers";
+import SearchContainers from "components/layouts/searchContainers";
 import SectionNews from "components/homepage/newsSection";
 import SectionNewsMobile from "components/homepage/newsSection/mobile";
 // import SectionTipsTrik from "components/homepage/tipsTrikSection";
