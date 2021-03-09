@@ -1,6 +1,7 @@
 import React from "react";
 import Web_ from "components/page_category";
 import SearchContainers from "components/layouts/searchContainers";
+import Head from "next/head";
 const Web = () => {
   return (
     <>
