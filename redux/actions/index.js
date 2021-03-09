@@ -2,6 +2,11 @@
 // action starting with HIT it's mean for triggers
 // action starting with GET/POST/DELETE etc it's for reducers works
 
+//LOADING
+export const HIT_LOADING = "HIT_LOADING"
+export const DO_LOADING = "DO_LOADING"
+//LOADING
+
 //NEWS
 export const HIT_NEWS_LATEST = "HIT_NEWS_LATEST";
 export const GET_NEWS_LATEST = "GET_NEWS_LATEST";

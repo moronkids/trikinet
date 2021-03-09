@@ -15,6 +15,7 @@ import {
 
 //Import api call
 import {newsLatest, detailNews, sortByCategory} from 'redux/api/news';
+import { HIT_LOADING } from "../actions";
 //Import api call
 
 function* getNewsLatest({payload}) {
@@ -26,8 +27,10 @@ function* getDetailNews({ payload }) {
   yield put({ type: GET_DETAIL_NEWS, payload: detailNews_ });
 }
 function* getInternetNews({ payload }) {
+  yield put({type: HIT_LOADING, payload : true})
   const internetNews_ = yield call(sortByCategory, payload);
   yield put({ type: GET_CATEGORY_NEWS, payload: internetNews_ });
+  yield put({type: HIT_LOADING, payload : false})
 }
 
 export default function* protra() {

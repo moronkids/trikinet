@@ -33,28 +33,28 @@ const headers = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="internet">
+              <Link href="/category/internet">
                 <a className="nav-link" href="#">
                   Internet
                 </a>
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="mobile">
+              <Link href="/category/mobile">
                 <a className="nav-link" href="#">
                   Mobile
                 </a>
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="web">
+              <Link href="/category/web">
                 <a className="nav-link" href="#">
                   Web
                 </a>
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="pc">
+              <Link href="/category/pc">
                 <a className="nav-link" href="#">
                   PC
                 </a>

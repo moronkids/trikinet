@@ -4,7 +4,7 @@ const Article = ({data, articleBig, boxTitle}) => {
   console.log("jirr", data)
     return (
       <>
-        <Link href={`page/${data && data.slug}`}>
+        <Link href={`/page/${data && data.slug}`}>
           <a>
             <div className="articleBig mx-auto position-relative my-3" style={{height: articleBig && articleBig.height}}>
               <div className="boxTitle position-absolute" style={{height : boxTitle && boxTitle.height, width : boxTitle && boxTitle.width}}>

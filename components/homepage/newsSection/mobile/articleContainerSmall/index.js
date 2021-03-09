@@ -5,7 +5,7 @@ const Article = ({ data, image, truncatex }) => {
   // alert(truncatex)
   return (
     <>
-      <Link href={`page/${data && data.slug}`}>
+      <Link href={`/page/${data && data.slug}`}>
         <a>
           <div className="articleSmall d-flex mb-3">
             <div className="newsPhoto">
