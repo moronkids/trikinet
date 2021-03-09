@@ -17,7 +17,10 @@ const News = () => {
   useEffect(() => {
     dispatch({ type: HIT_NEWS_LATEST });
   }, []);
+  console.log(newsLatest, "cekiceki")
   const headlineLatestNews = newsLatest[0];
+  console.log(newsLatest[0], "cekiceki");
+  console.log(newsLatest, "cekiceki");
   newsLatest.shift();
 
   let publishedDate;
