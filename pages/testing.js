@@ -1,6 +1,6 @@
 // posts will be populated at build time by getStaticProps()
 function Blog({ asu }) {
-  console.log(asu, "cek");
+
   return (
     <ul>
       {/* {posts.map((post) => (

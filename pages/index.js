@@ -12,7 +12,6 @@ var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 dayjs().format();
 const Index = (props) => {
-  console.log(props, "ceke")
   return (
     <>
       <>
@@ -55,7 +54,7 @@ const Index = (props) => {
     </>
   );
 }
-export async function getStaticProps() {
+export async function getStaticProps(context) {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
 
@@ -80,27 +79,19 @@ export async function getStaticProps() {
         };
       }
     });
-    const newsLatest = todos.data.data;
+  const newsLatest = todos.data.data;
   const headlineLatestNews = newsLatest[0];
   newsLatest.shift();
 
   let publishedDate;
-  if (newsLatest.length > 0) publishedDate = dayjs(headlineLatestNews.date).fromNow(); // 20 years ago
+  if (newsLatest.length > 0)
+    publishedDate = dayjs(headlineLatestNews.date).fromNow(); // 20 years ago
   return {
     props: {
       newsLatest: newsLatest,
       headlineLatestNews: headlineLatestNews,
-      publishedDate : publishedDate
+      publishedDate: publishedDate,
     },
   };
-
-  // By returning { props: posts }, the Blog component
-  // will receive `posts` as a prop at build time
-  return {
-    props: {
-      newsLatest,
-      headlineLatestNews,
-    },
-  };
-}
+};
 export default Index;

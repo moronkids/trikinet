@@ -9,7 +9,7 @@ import {Provider} from "react-redux"
 import {store} from "redux/index"
 import { Hooks } from "providers/hooks";
 import Head from 'next/head'
-function MyApp({ Component, pageProps, isMobileView }) {
+function MyApp({ Component, pageProps }) {
   return (
     <>
       <Provider store={store}>
@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps, isMobileView }) {
               padding: 0px;
             }
           `}</style>
-          {isMobileView ? (
+          {/* {isMobileView ? (
             <>
               <HeadersMobile />
               <Body>
@@ -32,28 +32,28 @@ function MyApp({ Component, pageProps, isMobileView }) {
               </Body>
               <Footers />
             </>
-          ) : (
+          ) : ( */}
             <>
               <HeadersWeb />
               <Body>
-                <Component device={isMobileView} {...pageProps} />
+                <Component  {...pageProps} />
               </Body>
               <Footers />
             </>
-          )}
+          {/* )} */}
         </Hooks>
       </Provider>
     </>
   );
 }
-MyApp.getInitialProps = async ({ ctx }) => {
-  let isMobileView = (ctx.req
-    ? ctx.req.headers["user-agent"]
-    : navigator.userAgent
-  ).match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i);
-  return {
-    isMobileView: Boolean(isMobileView),
-  };
-};
+// MyApp.getInitialProps = async ({ ctx }) => {
+//   let isMobileView = (ctx.req
+//     ? ctx.req.headers["user-agent"]
+//     : navigator.userAgent
+//   ).match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i);
+//   return {
+//     isMobileView: Boolean(isMobileView),
+//   };
+// };
 
 export default MyApp

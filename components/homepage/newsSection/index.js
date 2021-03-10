@@ -8,7 +8,7 @@ var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 dayjs().format();
 const News = ({headlineLatestNews, newsLatest, publishedDate}) => {
-  console.log(headlineLatestNews, "cek")
+
 
   return (
     <>
