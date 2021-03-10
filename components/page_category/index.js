@@ -20,15 +20,15 @@ const ArticleSmall = dynamic(
   () => import("components/homepage/newsSection/mobile/articleContainerSmall"),
   {
     loading: () => (
-      <>
+
         <SquareLoader />
-      </>
+
     ),
   }
 );
 const ArticleBig = dynamic(
   () => import("components/homepage/newsSection/mobile/articleContainerBig"),
-  { loading: () => <><SquareLoader/></> }
+  { loading: () => <SquareLoader/> }
 );
 
 const Web = ({headlineLatestNews_1, headlineLatestNews_2, newsLatest}) => {
@@ -140,6 +140,7 @@ const Web = ({headlineLatestNews_1, headlineLatestNews_2, newsLatest}) => {
   return (
     <>
       <div className="" style={{ height: "70px" }} id="category"></div>
+      {/* <SquareLoader/> */}
       <div className="container" id="category">
         <div className="row col-12 news m-0 ">
           <div className="col-12 col-sm-6">

@@ -5,7 +5,7 @@ import SquareLoader from "components/layouts/contentLoader";
 const Web_ = dynamic(() => import("components/page_category"), {
   loading: () => (
     <>
-      <SquareLoader />
+      <h1>JINGANn...</h1>
     </>
   ),
 });
