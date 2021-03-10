@@ -15,9 +15,9 @@ export default (state = initialState, { type, payload }) => {
   console.log(payload, "payload reducers");
   switch (type) {
     case DO_LOADING: {
+      state.status = payload
       return {
-        ...state,
-        loading : payload,
+        ...state
       };
     }
     default:

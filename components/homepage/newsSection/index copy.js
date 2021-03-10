@@ -7,9 +7,19 @@ var dayjs = require("dayjs");
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 dayjs().format();
-const News = ({headlineLatestNews, newsLatest, publishedDate}) => {
-  console.log(headlineLatestNews, "cek")
+const News = () => {
+  const dispatch = useDispatch();
+  const { newsLatest } = useSelector((state) => ({
+    newsLatest: state.news.newsLatest.data,
+  }));
+  useEffect(() => {
+    dispatch({ type: HIT_NEWS_LATEST });
+  }, []);
+  const headlineLatestNews = newsLatest[0];
+  newsLatest.shift();
 
+  let publishedDate;
+  if (newsLatest.length > 0) publishedDate = dayjs(headlineLatestNews.date).fromNow(); // 20 years ago
   return (
     <>
       <div className="container h-100 newsSection">
@@ -161,6 +171,5 @@ const News = ({headlineLatestNews, newsLatest, publishedDate}) => {
     </>
   );
 };
-
 
 export default News;

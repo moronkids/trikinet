@@ -1,38 +1,106 @@
 import SearchContainers from "components/layouts/searchContainers";
 import SectionNews from "components/homepage/newsSection";
 import SectionNewsMobile from "components/homepage/newsSection/mobile";
-// import SectionTipsTrik from "components/homepage/tipsTrikSection";
+import React, { useEffect, useLayoutEffect } from "react";
+import Link from "next/link";
+import { useSelector, useDispatch, connect } from "react-redux";
+import { HIT_NEWS_LATEST } from "redux/actions";
+import defaultAxios from "axios";
 import Head from "next/head";
-const Index = (props) => (
-  <>
-    <Head>
-      <link rel="manifest" href="/manifest.json" />
-      <meta name="theme-color" content="#90cdf4" />
-      <meta
-        name="description"
-        content="Mary's simple recipe for maple bacon donuts
+var dayjs = require("dayjs");
+var relativeTime = require("dayjs/plugin/relativeTime");
+dayjs.extend(relativeTime);
+dayjs().format();
+const Index = (props) => {
+  console.log(props, "ceke")
+  return (
+    <>
+      <>
+        <Head>
+          <link rel="manifest" href="/manifest.json" />
+          <meta name="theme-color" content="#90cdf4" />
+          <meta
+            name="description"
+            content="Mary's simple recipe for maple bacon donuts
            makes a sticky, sweet treat with just a hint
            of salt that you'll keep coming back for."
-      ></meta>
-      <title>Home</title>
-      <meta property="og:title" content="My page title" key="title" />
-    </Head>
-    <Head>
-      <meta property="og:title" content="My new title" key="title" />
-    </Head>
-    {props.device ? (
-      <>
-        <SectionNewsMobile />
-      </>
-    ) : (
-      <>
-        <SearchContainers />
-        <SectionNews />
-      </>
-    )}
+          ></meta>
+          <title>Home</title>
+          <meta property="og:title" content="My page title" key="title" />
+        </Head>
+        <Head>
+          <meta property="og:title" content="My new title" key="title" />
+        </Head>
+        {props.device ? (
+          <>
+            <SectionNewsMobile
+              headlineLatestNews={props.headlineLatestNews}
+              newsLatest={props.newsLatest}
+              publishedDate={props.publishedDate}
+            />
+          </>
+        ) : (
+          <>
+            <SearchContainers />
+            <SectionNews
+              headlineLatestNews={props.headlineLatestNews}
+              newsLatest={props.newsLatest}
+              publishedDate={props.publishedDate}
+            />
+          </>
+        )}
 
-    {/* <SectionTipsTrik/> */}
-  </>
-);
+        {/* <SectionTipsTrik/> */}
+      </>
+    </>
+  );
+}
+export async function getStaticProps() {
+  // Call an external API endpoint to get posts.
+  // You can use any data fetching library
 
+  const axios = defaultAxios.create({
+    baseURL: "https://venom.trikinet.com",
+    headers: {
+      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+      "Access-Control-Allow-Origin": "*",
+      // Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+    withCredentials: false,
+    crossorigin: true,
+  });
+
+  const todos = await axios
+    .get("news/latest?page=1&limit=16")
+    .catch(function (error) {
+      if (error.response.status !== 200) {
+        console.log(error, "response failed");
+        return {
+          status: "failed",
+        };
+      }
+    });
+    const newsLatest = todos.data.data;
+  const headlineLatestNews = newsLatest[0];
+  newsLatest.shift();
+
+  let publishedDate;
+  if (newsLatest.length > 0) publishedDate = dayjs(headlineLatestNews.date).fromNow(); // 20 years ago
+  return {
+    props: {
+      newsLatest: newsLatest,
+      headlineLatestNews: headlineLatestNews,
+      publishedDate : publishedDate
+    },
+  };
+
+  // By returning { props: posts }, the Blog component
+  // will receive `posts` as a prop at build time
+  return {
+    props: {
+      newsLatest,
+      headlineLatestNews,
+    },
+  };
+}
 export default Index;
