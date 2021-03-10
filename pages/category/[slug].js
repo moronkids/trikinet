@@ -1,10 +1,19 @@
 import React from "react";
-import Web_ from "components/page_category";
+import dynamic from "next/dynamic"
+import SquareLoader from "components/layouts/contentLoader";
+// import Web_ from "components/page_category";
+const Web_ = dynamic(() => import("components/page_category"), {
+  loading: () => (
+    <>
+      <SquareLoader />
+    </>
+  ),
+});
 import SearchContainers from "components/layouts/searchContainers";
 import Head from "next/head";
 import defaultAxios from "axios";
 import { useRouter } from "next/router";
-const Web = () => {
+const Web = ({ headlineLatestNews_1, headlineLatestNews_2, newsLatest }) => {
   return (
     <>
       <Head>
@@ -23,7 +32,7 @@ const Web = () => {
         <meta property="og:title" content="My new title" key="title" />
       </Head>
       <SearchContainers />
-      <Web_ />
+      <Web_ headlineLatestNews_1={headlineLatestNews_1} headlineLatestNews_2={headlineLatestNews_2} newsLatest={newsLatest}/>
     </>
   );
 };
@@ -35,13 +44,13 @@ export async function getStaticPaths() {
       { params: { slug: "internet" } }, // See the "paths" section below
       { params: { slug: "mobile" } }, // See the "paths" section below
       { params: { slug: "web" } }, // See the "paths" section below
-      { params: { slug: "pc" } } // See the "paths" section below
+      { params: { slug: "pc" } }, // See the "paths" section below
     ],
     fallback: true, //or false // See the "fallback" section below
   };
 }
-export async function getStaticProps({params}) {
-  const category = params.slug
+export async function getStaticProps({ params }) {
+  const category = params.slug;
   // const page = data[1] !== null ? data[1] : 1;
   // const limit = data[2] !== null ? data[2] : 20;
   const axios = defaultAxios.create({
@@ -62,10 +71,17 @@ export async function getStaticProps({params}) {
         };
       }
     });
+  let headlineLatestNews_1;
+  let headlineLatestNews_2;
+  let newsLatest = todos.data.data
+  headlineLatestNews_1 = newsLatest[0];
+  headlineLatestNews_2 = newsLatest[1];
+
   return {
     props: {
-      data: todos.data.data,
-      status: todos.status,
+      headlineLatestNews_1,
+      headlineLatestNews_2,
+      newsLatest
     },
   };
 }
