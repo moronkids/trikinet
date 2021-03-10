@@ -73,7 +73,7 @@ export async function getStaticProps(context) {
     .get("news/latest?page=1&limit=16")
     .catch(function (error) {
       if (error.response.status !== 200) {
-        console.log(error, "response failed");
+        // console.log(error, "response failed");
         return {
           status: "failed",
         };
