@@ -2,12 +2,16 @@ import SearchContainers from "components/layouts/searchContainers";
 import Articlex from "components/article";
 import { useSelector } from "react-redux";
 import Head from "next/head";
+import { useEffect } from "react";
 const Article = () => {
   const { detailNews, latestNews } = useSelector((state) => ({
     detailNews: state.news.detailNews.data,
     latestNews: state.news.newsLatest.data,
   }));
   console.log(detailNews, "prep");
+  useEffect(() => {
+
+  }, [input])
   return (
     <>
       <Head>

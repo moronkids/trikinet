@@ -6,13 +6,14 @@ import Link from "next/link";
 import { useSelector, useDispatch, connect } from "react-redux";
 import { HIT_NEWS_LATEST } from "redux/actions";
 import defaultAxios from "axios";
-import { newsLatestx } from "redux/api/news";
+import { useNewsLatestx } from "redux/api/news";
 import Head from "next/head";
 var dayjs = require("dayjs");
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 dayjs().format();
 const Index = (props) => {
+
   return (
     <>
       <>
@@ -43,16 +44,15 @@ const Index = (props) => {
     </>
   );
 };
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
-  const fetch = await newsLatestx({});
+  const fetch = await useNewsLatestx({});
   const newsLatest = fetch.newsLatest.status ? fetch.newsLatest.data : [];
   const headlineLatestNews = newsLatest[0];
   newsLatest.shift();
   let publishedDate;
-  if (newsLatest.length > 0)
-    publishedDate = dayjs(headlineLatestNews.date).fromNow(); // 20 years ago
+  if (newsLatest.length > 0) publishedDate = dayjs(headlineLatestNews.date).fromNow(); // 20 years ago
   return {
     props: {
       newsLatest: newsLatest,

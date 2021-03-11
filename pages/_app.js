@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 import App from "next/app";
 import "../styles/scss/styles.scss";
 import HeadersWeb from "components/layouts/headers/headers";
@@ -10,8 +10,20 @@ import { Provider } from "react-redux";
 import { store } from "redux/index";
 import { Hooks } from "providers/hooks";
 import Head from "next/head";
+import Router from "next/router";
+
+
 function MyApp({ Component, pageProps, deviceType }) {
-  console.log(deviceType, "ceki");
+  const [loading, setLoading] = useState()
+  Router.events.on("routeChangeStart", (url) => {
+    console.log(url, "tes change start");
+    setLoading(true)
+  });
+  Router.events.on("routeChangeComplete", () => {
+    console.log("tes complete")
+    setLoading(false)
+  });
+  Router.events.on("routeChangeError", () => console.log("tes error"));
   return (
     <>
       <Provider store={store}>
@@ -30,7 +42,11 @@ function MyApp({ Component, pageProps, deviceType }) {
             <>
               <HeadersMobile />
               <Body>
-                <Component device={deviceType} {...pageProps} />
+                <Component
+                  device={deviceType}
+                  {...pageProps}
+                  loading={loading}
+                />
               </Body>
               <Footers />
             </>
@@ -38,7 +54,11 @@ function MyApp({ Component, pageProps, deviceType }) {
             <>
               <HeadersWeb />
               <Body>
-                <Component device={deviceType} {...pageProps} />
+                <Component
+                  device={deviceType}
+                  {...pageProps}
+                  loading={loading}
+                />
               </Body>
               <Footers />
             </>

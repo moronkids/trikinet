@@ -11,11 +11,11 @@ const initialState = {
     status : false
 };
 // This export default will control your state for your application
-export default (state = initialState, { type, payload }) => {
+export function FetchLoading(state = initialState, { type, payload }) {
   console.log(payload, "payload reducers");
   switch (type) {
     case DO_LOADING: {
-      state.status = payload
+      state.status = payload;
       return {
         ...state
       };
@@ -23,4 +23,5 @@ export default (state = initialState, { type, payload }) => {
     default:
       return state;
   }
-};
+}
+export default FetchLoading;

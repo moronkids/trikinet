@@ -20,7 +20,7 @@ import { HIT_LOADING } from "../actions";
 //Import api call
 
 function* getNewsLatest({payload}) {
-  const newsLatest_ = yield call(newsLatestx);
+  const newsLatest_ = yield call(useNewsLatestx);
   yield put({type: GET_NEWS_LATEST, payload: newsLatest_})
 }
 function* getDetailNews({ payload }) {

@@ -19,19 +19,20 @@ dayjs().format();
 const ArticleSmall = dynamic(
   () => import("components/homepage/newsSection/mobile/articleContainerSmall"),
   {
-    loading: () => (
-
-        <SquareLoader />
-
-    ),
+    loading: () => <SquareLoader />,
   }
 );
 const ArticleBig = dynamic(
   () => import("components/homepage/newsSection/mobile/articleContainerBig"),
-  { loading: () => <SquareLoader/> }
+  { loading: () => <SquareLoader /> }
 );
 
-const Web = ({headlineLatestNews_1, headlineLatestNews_2, newsLatest}) => {
+const Web = ({
+  headlineLatestNews_1,
+  headlineLatestNews_2,
+  newsLatest,
+  loading,
+}) => {
   // const dispatch = useDispatch();
   // const router = useRouter();
   // const { slug } = router.query;
@@ -76,7 +77,7 @@ const Web = ({headlineLatestNews_1, headlineLatestNews_2, newsLatest}) => {
       width: "inherit",
     };
 
-    if (reStructure.length > 0) {
+    if (!loading) {
       ArticleSmall_1 = reStructure[0].map((val, i) => {
         return (
           <>
@@ -110,16 +111,18 @@ const Web = ({headlineLatestNews_1, headlineLatestNews_2, newsLatest}) => {
           </>
         );
       });
-    }
-    else {
-      let Articlex = []
+    } else {
+      let Articlex = [];
       for (let index = 1; index < 8; index++) {
-        Articlex.push(<><LoaderSmallArticle/></>)
-
+        Articlex.push(
+          <>
+            <LoaderSmallArticle />
+          </>
+        );
       }
-      ArticleSmall_1 = Articlex
-      ArticleSmall_2 = Articlex
-      ArticleSmall_3 = Articlex
+      ArticleSmall_1 = Articlex;
+      ArticleSmall_2 = Articlex;
+      ArticleSmall_3 = Articlex;
     }
 
     articleBig = {
@@ -144,28 +147,32 @@ const Web = ({headlineLatestNews_1, headlineLatestNews_2, newsLatest}) => {
       <div className="container" id="category">
         <div className="row col-12 news m-0 ">
           <div className="col-12 col-sm-6">
+            {loading ? (
+              <SquareLoader />
+            ) : (
               <ArticleBig
                 data={headlineLatestNews_1}
                 articleBig={articleBig}
                 boxTitle={boxTitle}
               />
-
+            )}
           </div>
           <div className="col-12 col-sm-6">
-
+            {loading ? (
+              <SquareLoader />
+            ) : (
               <ArticleBig
                 data={headlineLatestNews_2}
                 articleBig={articleBig}
                 boxTitle={boxTitle}
               />
-
+            )}
           </div>
         </div>
         <div className="row col-12 news m-0 ">
           <div className="col-sm-4 col-12">{ArticleSmall_1}</div>
           <div className="col-sm-4 col-12">{ArticleSmall_2}</div>
           <div className="col-sm-4 col-12">{ArticleSmall_3}</div>
-
         </div>
       </div>
     </>

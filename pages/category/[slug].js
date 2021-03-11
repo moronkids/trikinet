@@ -13,7 +13,7 @@ import SearchContainers from "components/layouts/searchContainers";
 import Head from "next/head";
 import defaultAxios from "axios";
 import { useRouter } from "next/router";
-const Web = ({ headlineLatestNews_1, headlineLatestNews_2, newsLatest, category }) => {
+const Web = ({ headlineLatestNews_1, headlineLatestNews_2, newsLatest, category, loading }) => {
   useEffect(() => {
     // alert("cek")
     return () => {
@@ -38,7 +38,7 @@ const Web = ({ headlineLatestNews_1, headlineLatestNews_2, newsLatest, category 
         <meta property="og:title" content="My new title" key="title" />
       </Head>
       <SearchContainers />
-      <Web_ headlineLatestNews_1={headlineLatestNews_1} headlineLatestNews_2={headlineLatestNews_2} newsLatest={newsLatest}/>
+      <Web_ loading={loading} headlineLatestNews_1={headlineLatestNews_1} headlineLatestNews_2={headlineLatestNews_2} newsLatest={newsLatest}/>
     </>
   );
 };
