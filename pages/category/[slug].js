@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import SquareLoader from "components/layouts/contentLoader";
 // import Web_ from "components/page_category";
@@ -44,9 +44,13 @@ const Web = ({
   //   // }
   //   return () => {};
   // }, [category]);
+  const [loading, setloading] = useState(true)
   useEffect(() => {
-    console.log("after fetch done");
-  }, [])
+    setloading(true)
+    setTimeout(() => {
+      setloading(false)
+    }, 500);
+  }, [category])
   console.log(category, "before fetch done");
   return (
     <>
@@ -67,7 +71,7 @@ const Web = ({
       </Head>
       <SearchContainers />
       <Web_
-        // loading={loading}
+        loading={loading}
         headlineLatestNews_1={headlineLatestNews_1}
         headlineLatestNews_2={headlineLatestNews_2}
         newsLatest={newsLatest}
@@ -122,7 +126,7 @@ export async function getStaticProps({ params }) {
       headlineLatestNews_1,
       headlineLatestNews_2,
       newsLatest,
-      category: params,
+      category: params.slug,
     },
   };
 }
