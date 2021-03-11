@@ -33,6 +33,7 @@ const Web = ({
   newsLatest,
   loading,
 }) => {
+  console.log(newsLatest, "cekbro")
   // const dispatch = useDispatch();
   // const router = useRouter();
   // const { slug } = router.query;
@@ -55,7 +56,9 @@ const Web = ({
   let ArticleSmall_3;
   let truncate = 3;
   let stopLoading = false;
+
   const calculateNews = async () => {
+
     const newsLatest_ = [...newsLatest];
     newsLatest_.splice(0, 2);
     let publishedDate_1;

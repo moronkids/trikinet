@@ -6,7 +6,7 @@ import HeadersMobile from "components/mobile/layouts/headers";
 import Footers from "components/layouts/footers/footer";
 import Body from "components/layouts/body";
 //redux
-import { Provider } from "react-redux";
+import { Provider, useDispatch } from "react-redux";
 import { store } from "redux/index";
 import { Hooks } from "providers/hooks";
 import Head from "next/head";
@@ -14,16 +14,7 @@ import Router from "next/router";
 
 
 function MyApp({ Component, pageProps, deviceType }) {
-  const [loading, setLoading] = useState()
-  Router.events.on("routeChangeStart", (url) => {
-    console.log(url, "tes change start");
-    setLoading(true)
-  });
-  Router.events.on("routeChangeComplete", () => {
-    console.log("tes complete")
-    setLoading(false)
-  });
-  Router.events.on("routeChangeError", () => console.log("tes error"));
+
   return (
     <>
       <Provider store={store}>
@@ -45,7 +36,7 @@ function MyApp({ Component, pageProps, deviceType }) {
                 <Component
                   device={deviceType}
                   {...pageProps}
-                  loading={loading}
+                  // loading={loading}
                 />
               </Body>
               <Footers />
@@ -57,7 +48,7 @@ function MyApp({ Component, pageProps, deviceType }) {
                 <Component
                   device={deviceType}
                   {...pageProps}
-                  loading={loading}
+                  // loading={loading}
                 />
               </Body>
               <Footers />

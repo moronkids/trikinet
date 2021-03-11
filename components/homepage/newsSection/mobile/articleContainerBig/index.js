@@ -6,8 +6,17 @@ const Article = ({data, articleBig, boxTitle}) => {
       <>
         <Link href={`/page/${data && data.slug}`}>
           <a>
-            <div className="articleBig mx-auto position-relative my-3" style={{height: articleBig && articleBig.height}}>
-              <div className="boxTitle position-absolute" style={{height : boxTitle && boxTitle.height, width : boxTitle && boxTitle.width}}>
+            <div
+              className="articleBig mx-auto position-relative my-3"
+              style={{ height: articleBig && articleBig.height }}
+            >
+              <div
+                className="boxTitle position-absolute"
+                style={{
+                  height: boxTitle && boxTitle.height,
+                  width: boxTitle && boxTitle.width,
+                }}
+              >
                 <div
                   className="textTitle"
                   style={{ margin: "20px 20px 18px 20px" }}
@@ -19,7 +28,15 @@ const Article = ({data, articleBig, boxTitle}) => {
                   </Truncate>
                 </div>
               </div>
-              <img class="" src={data && data.yoast_meta[6].content} alt="" />
+              <img
+                class=""
+                src={data && data.yoast_meta[6].content}
+                alt=""
+                style={{
+                  backgroundImage:
+                    "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4))",
+                }}
+              />
             </div>
           </a>
         </Link>

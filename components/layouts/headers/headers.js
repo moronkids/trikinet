@@ -26,7 +26,7 @@ const headers = () => {
         <div className="collapse navbar-collapse" id="navbarText">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <Link href="/">
+              <Link href="/" >
                 <a className="nav-link" href="#">
                   Home <span className="sr-only">(current)</span>
                 </a>

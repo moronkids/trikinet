@@ -13,7 +13,10 @@ var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 dayjs().format();
 const Index = (props) => {
-
+  console.log("buat loading non useEffect")
+  useEffect(() => {
+    console.log("buat loading")
+  }, []);
   return (
     <>
       <>
@@ -44,7 +47,7 @@ const Index = (props) => {
     </>
   );
 };
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
   const fetch = await useNewsLatestx({});

@@ -47,19 +47,21 @@ const headers = () => {
                   marginLeft: "16px",
                 }}
               >
-                {/* <Image
-                  src="/public/assets/footer-logo.svg"
+                <Image
+                  src="/assets/footer-logo.svg"
                   objectFit="contain"
                   layout="fill"
-                  quality={100}
-                /> */}
-                <img
+                  // width={50}
+                  // height={50}
+                  quality={50}
+                />
+                {/* <img
                   src="/assets/footer-logo.svg"
                   className="dsLogo"
                   style={{objectFit:"contain"}}
                   width="auto"
                   // height="46"
-                />
+                /> */}
               </div>
             </div>
             <div className="line2">

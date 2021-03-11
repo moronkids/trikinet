@@ -9,14 +9,14 @@ import {
   GET_DETAIL_NEWS,
   HIT_CATEGORY_NEWS,
   GET_CATEGORY_NEWS,
-  DO_LOADING
+  DO_LOADING,
+  HIT_LOADING
 
 } from "redux/actions/index";
 // Import all actions
 
 //Import api call
 import {newsLatest, detailNews, sortByCategory, newsLatestx} from 'redux/api/news';
-import { HIT_LOADING } from "../actions";
 //Import api call
 
 function* getNewsLatest({payload}) {
@@ -26,6 +26,10 @@ function* getNewsLatest({payload}) {
 function* getDetailNews({ payload }) {
   const detailNews_ = yield call(detailNews, payload);
   yield put({ type: GET_DETAIL_NEWS, payload: detailNews_ });
+}
+
+function* getLoading({ payload }) {
+  yield put({ type: DO_LOADING, payload: payload });
 }
 function* getInternetNews({ payload }) {
   try {
@@ -45,4 +49,5 @@ export default function* protra() {
 yield takeEvery(HIT_NEWS_LATEST, getNewsLatest)
 yield takeEvery(HIT_DETAIL_NEWS, getDetailNews)
 yield takeEvery(HIT_CATEGORY_NEWS, getInternetNews)
+yield takeEvery(HIT_LOADING, getLoading)
 }

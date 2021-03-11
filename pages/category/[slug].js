@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
-import dynamic from "next/dynamic"
+import dynamic from "next/dynamic";
 import SquareLoader from "components/layouts/contentLoader";
 // import Web_ from "components/page_category";
+import Router from "next/router";
 const Web_ = dynamic(() => import("components/page_category"), {
   loading: () => (
     <>
@@ -13,13 +14,40 @@ import SearchContainers from "components/layouts/searchContainers";
 import Head from "next/head";
 import defaultAxios from "axios";
 import { useRouter } from "next/router";
-const Web = ({ headlineLatestNews_1, headlineLatestNews_2, newsLatest, category, loading }) => {
-  useEffect(() => {
-    // alert("cek")
-    return () => {
+import { useDispatch, useSelector } from "react-redux";
+import { DO_LOADING } from "redux/actions";
+const Web = ({
+  headlineLatestNews_1,
+  headlineLatestNews_2,
+  newsLatest,
+  category,
+}) => {
+  //   console.log("buat loading non useEffect");
+  // const dispatch = useDispatch();
+  // const { loading } = useSelector((state) => ({
+  //   loading: state.loading.status,
+  // }));
+  // Router.events.on("routeChangeComplete", () => {
+  //   console.log("tes complete");
+  //   dispatch({ type: DO_LOADING, payload: false });
+  // });
+  // useEffect(() => {
+  //   // alert("cek")
+  //   // console.log("buat loading");
+  //   // if(newsLatest.length > 0) {
 
-    };
-  }, [category]);
+  //   dispatch({ type: DO_LOADING, payload: true });
+  //   // }
+  //   // else {
+  //   // dispatch({type: DO_LOADING, payload: true})
+
+  //   // }
+  //   return () => {};
+  // }, [category]);
+  useEffect(() => {
+    console.log("after fetch done");
+  }, [])
+  console.log(category, "before fetch done");
   return (
     <>
       <Head>
@@ -38,7 +66,12 @@ const Web = ({ headlineLatestNews_1, headlineLatestNews_2, newsLatest, category,
         <meta property="og:title" content="My new title" key="title" />
       </Head>
       <SearchContainers />
-      <Web_ loading={loading} headlineLatestNews_1={headlineLatestNews_1} headlineLatestNews_2={headlineLatestNews_2} newsLatest={newsLatest}/>
+      <Web_
+        // loading={loading}
+        headlineLatestNews_1={headlineLatestNews_1}
+        headlineLatestNews_2={headlineLatestNews_2}
+        newsLatest={newsLatest}
+      />
     </>
   );
 };
@@ -77,9 +110,10 @@ export async function getStaticProps({ params }) {
         };
       }
     });
+
   let headlineLatestNews_1;
   let headlineLatestNews_2;
-  let newsLatest = todos.data.data
+  let newsLatest = todos.data.data;
   headlineLatestNews_1 = newsLatest[0];
   headlineLatestNews_2 = newsLatest[1];
 
@@ -88,7 +122,7 @@ export async function getStaticProps({ params }) {
       headlineLatestNews_1,
       headlineLatestNews_2,
       newsLatest,
-      category : params
+      category: params,
     },
   };
 }
