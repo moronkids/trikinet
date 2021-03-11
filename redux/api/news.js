@@ -10,15 +10,18 @@ const axios = defaultAxios.create({
   crossorigin: true,
 });
 
-export const newsLatest = async (data, props) => {
+export const newsLatestx = async (data, props) => {
   const todos = await axios
     .get("news/latest?page=1&limit=16")
     .catch(function (error) {
       if (error.response.status !== 200) {
         console.log(error, "response failed");
         return {
-          status : "failed"
-        }
+          newsLatest: {
+
+            status: false,
+          },
+        };
       }
 
     });

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useSelector, useDispatch, connect } from "react-redux";
 import { HIT_NEWS_LATEST } from "redux/actions";
 import defaultAxios from "axios";
+import { newsLatestx } from "redux/api/news";
 import Head from "next/head";
 var dayjs = require("dayjs");
 var relativeTime = require("dayjs/plugin/relativeTime");
@@ -30,59 +31,25 @@ const Index = (props) => {
         <Head>
           <meta property="og:title" content="My new title" key="title" />
         </Head>
-        {props.device ? (
-          <>
-            <SectionNewsMobile
-              headlineLatestNews={props.headlineLatestNews}
-              newsLatest={props.newsLatest}
-              publishedDate={props.publishedDate}
-            />
-          </>
-        ) : (
-          <>
-            <SearchContainers />
-            <SectionNews
-              headlineLatestNews={props.headlineLatestNews}
-              newsLatest={props.newsLatest}
-              publishedDate={props.publishedDate}
-            />
-          </>
-        )}
-
-        {/* <SectionTipsTrik/> */}
+        <>
+          <SearchContainers />
+          <SectionNews
+            headlineLatestNews={props.headlineLatestNews}
+            newsLatest={props.newsLatest}
+            publishedDate={props.publishedDate}
+          />
+        </>
       </>
     </>
   );
-}
+};
 export async function getStaticProps(context) {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
-
-  const axios = defaultAxios.create({
-    baseURL: "https://venom.trikinet.com",
-    headers: {
-      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-      "Access-Control-Allow-Origin": "*",
-      // Authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
-    withCredentials: false,
-    crossorigin: true,
-  });
-
-  const todos = await axios
-    .get("news/latest?page=1&limit=16")
-    .catch(function (error) {
-      if (error.response.status !== 200) {
-        // console.log(error, "response failed");
-        return {
-          status: "failed",
-        };
-      }
-    });
-  const newsLatest = todos.data.data;
+  const fetch = await newsLatestx({});
+  const newsLatest = fetch.newsLatest.status ? fetch.newsLatest.data : [];
   const headlineLatestNews = newsLatest[0];
   newsLatest.shift();
-
   let publishedDate;
   if (newsLatest.length > 0)
     publishedDate = dayjs(headlineLatestNews.date).fromNow(); // 20 years ago
@@ -93,5 +60,6 @@ export async function getStaticProps(context) {
       publishedDate: publishedDate,
     },
   };
-};
+}
+
 export default Index;

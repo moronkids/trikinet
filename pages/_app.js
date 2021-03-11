@@ -10,7 +10,8 @@ import { Provider } from "react-redux";
 import { store } from "redux/index";
 import { Hooks } from "providers/hooks";
 import Head from "next/head";
-function MyApp({ Component, pageProps, isMobileView }) {
+function MyApp({ Component, pageProps, deviceType }) {
+  console.log(deviceType, "ceki");
   return (
     <>
       <Provider store={store}>
@@ -25,11 +26,11 @@ function MyApp({ Component, pageProps, isMobileView }) {
               padding: 0px;
             }
           `}</style>
-          {isMobileView ? (
+          {deviceType ? (
             <>
               <HeadersMobile />
               <Body>
-                <Component device={isMobileView} {...pageProps} />
+                <Component device={deviceType} {...pageProps} />
               </Body>
               <Footers />
             </>
@@ -37,7 +38,7 @@ function MyApp({ Component, pageProps, isMobileView }) {
             <>
               <HeadersWeb />
               <Body>
-                <Component device={isMobileView} {...pageProps} />
+                <Component device={deviceType} {...pageProps} />
               </Body>
               <Footers />
             </>
@@ -48,15 +49,19 @@ function MyApp({ Component, pageProps, isMobileView }) {
   );
 }
 
-// MyApp.getInitialProps = async (appContext) => {
-//   const appProps = await App.getInitialProps(appContext);
-//   let isMobileView = (appContext.ctx.req
-//     ? appContext.ctx.req.headers["user-agent"]
-//     : navigator.userAgent
-//   ).match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i);
-
-//   return { ...appProps };
-//   // return { ...appProps, isMobileView: Boolean(isMobileView) };
-// };
+export async function getServerSideProps(context) {
+  const UA = context.req.headers["user-agent"];
+  const isMobile = Boolean(
+    UA.match(
+      /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
+    )
+  );
+      console.log(isMobile, "ceki2")
+  return {
+    props: {
+      deviceType: isMobile ? "mobile" : "desktop",
+    },
+  };
+}
 
 export default MyApp;

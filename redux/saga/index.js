@@ -15,12 +15,12 @@ import {
 // Import all actions
 
 //Import api call
-import {newsLatest, detailNews, sortByCategory} from 'redux/api/news';
+import {newsLatest, detailNews, sortByCategory, newsLatestx} from 'redux/api/news';
 import { HIT_LOADING } from "../actions";
 //Import api call
 
 function* getNewsLatest({payload}) {
-  const newsLatest_ = yield call(newsLatest);
+  const newsLatest_ = yield call(newsLatestx);
   yield put({type: GET_NEWS_LATEST, payload: newsLatest_})
 }
 function* getDetailNews({ payload }) {

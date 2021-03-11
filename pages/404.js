@@ -1,5 +1,6 @@
 import Link from "next/link";
 const PageNotFound = () => {
+  // console.log(deviceType, "ajur")
     return (
       <>
         <div className="d-flex h-100">
@@ -17,5 +18,18 @@ const PageNotFound = () => {
       </>
     );
 };
-
+// export async function getServerSideProps(context) {
+//   const UA = context.req.headers["user-agent"];
+//   const isMobile = Boolean(
+//     UA.match(
+//       /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
+//     )
+//   );
+//   console.log(isMobile, "ceki2");
+//   return {
+//     props: {
+//       deviceType: isMobile ? "mobile" : "desktop",
+//     },
+//   };
+// }
 export default PageNotFound;

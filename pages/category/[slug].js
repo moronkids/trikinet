@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import dynamic from "next/dynamic"
 import SquareLoader from "components/layouts/contentLoader";
 // import Web_ from "components/page_category";
@@ -13,7 +13,13 @@ import SearchContainers from "components/layouts/searchContainers";
 import Head from "next/head";
 import defaultAxios from "axios";
 import { useRouter } from "next/router";
-const Web = ({ headlineLatestNews_1, headlineLatestNews_2, newsLatest }) => {
+const Web = ({ headlineLatestNews_1, headlineLatestNews_2, newsLatest, category }) => {
+  useEffect(() => {
+    alert("cek")
+    return () => {
+
+    };
+  }, [category]);
   return (
     <>
       <Head>
@@ -81,7 +87,8 @@ export async function getStaticProps({ params }) {
     props: {
       headlineLatestNews_1,
       headlineLatestNews_2,
-      newsLatest
+      newsLatest,
+      category : params
     },
   };
 }
