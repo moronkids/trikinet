@@ -37,7 +37,7 @@ const News = () => {
 
   return (
     <>
-      <div className="container news pt-4 px-4">
+      <div className="d-block d-sm-none container news pt-4 px-4">
         <Ads type="rectangle" class="reactangle w-100" />
         <ArticleBig data={headlineLatestNews} />
         <Ads type="rectangle" class="reactangle w-100 mb-2" />

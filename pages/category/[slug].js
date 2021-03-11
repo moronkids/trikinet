@@ -15,7 +15,7 @@ import defaultAxios from "axios";
 import { useRouter } from "next/router";
 const Web = ({ headlineLatestNews_1, headlineLatestNews_2, newsLatest, category }) => {
   useEffect(() => {
-    alert("cek")
+    // alert("cek")
     return () => {
 
     };

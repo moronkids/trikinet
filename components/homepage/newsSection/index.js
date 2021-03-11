@@ -2,17 +2,16 @@ import React, { useEffect, useLayoutEffect } from "react";
 import Link from "next/link";
 import { useSelector, useDispatch, connect } from "react-redux";
 import { HIT_NEWS_LATEST } from "redux/actions";
+import MobileView from "components/homepage/newsSection/mobile";
 import Truncate from "react-truncate";
 var dayjs = require("dayjs");
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 dayjs().format();
-const News = ({headlineLatestNews, newsLatest, publishedDate}) => {
-
-
+const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
   return (
     <>
-      <div className="container h-100 newsSection">
+      <div className="d-none d-sm-block container h-100 newsSection">
         {headlineLatestNews !== undefined ? (
           <>
             <div className="row headline h-100">
@@ -158,9 +157,9 @@ const News = ({headlineLatestNews, newsLatest, publishedDate}) => {
           </div>
         </div>
       </div>
+      <MobileView />
     </>
   );
 };
-
 
 export default News;
