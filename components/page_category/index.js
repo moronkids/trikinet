@@ -33,16 +33,22 @@ const Web = ({
   headlineLatestNews_2,
   newsLatest,
   loading,
+  category
 }) => {
   const dispatch = useDispatch();
   const router = useRouter();
   const { slug } = router.query;
   const { newsLatest_redux, loading_redux } = useSelector((state) => ({
-    newsLatest_redux: state.news.category[slug].data !== undefined ?state.news.category[slug].data : [] ,
+    // newsLatest_redux:  [] ,
     loading_redux: state.loading.status,
+    newsLatest_redux:
+      state.news.category[category] === undefined ||
+      state.news.category[category] === 'undefined'
+        ? []
+        : state.news.category[category].data,
   }));
   let reStructure2 = [];
-  console.log(newsLatest_redux, "cek data state");
+  console.log(newsLatest_redux, newsLatest_redux, "cek data state");
   useEffect(() => {
     reStructure2 = []
     const section = document.querySelector("#category");
@@ -82,11 +88,14 @@ const Web = ({
     setTimeout(() => {
       setPage(page+1)
       dispatch({ type: HIT_CATEGORY_NEWS, payload: [slug, page+1, 18] });
-      console.log("latest redux", newsLatest_redux);
+      // console.log("latest redux", newsLatest_redux);
     }, 1000);
   };
-  if (newsLatest_redux.length > 0) {
-    reStructure2 = chunk(newsLatest_redux, newsLatest_redux.length / 3);
+  if (newsLatest_redux !== undefined) {
+    reStructure2 = chunk(
+      newsLatest_redux,
+      newsLatest_redux.length / 3
+    );
   }
 
   const calculateNews = async () => {

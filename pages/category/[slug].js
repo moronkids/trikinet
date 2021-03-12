@@ -77,6 +77,7 @@ const Web = ({
         headlineLatestNews_1={headlineLatestNews_1}
         headlineLatestNews_2={headlineLatestNews_2}
         newsLatest={newsLatest}
+        category= {category}
       />
     </>
   );
