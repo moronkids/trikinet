@@ -42,6 +42,7 @@ const Index = (props) => {
             newsLatest={props.newsLatest}
             publishedDate={props.publishedDate}
           />
+
         </>
       </>
     </>

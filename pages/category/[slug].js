@@ -24,8 +24,9 @@ const Web = ({
 }) => {
   //   console.log("buat loading non useEffect");
   // const dispatch = useDispatch();
-  // const { loading } = useSelector((state) => ({
-  //   loading: state.loading.status,
+  // const { category_stat, loading_redux } = useSelector((state) => ({
+  //   category_stat: state.category[category].status,
+  //   loading_redux: state.loading.status,
   // }));
   // Router.events.on("routeChangeComplete", () => {
   //   console.log("tes complete");

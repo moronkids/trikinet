@@ -157,7 +157,12 @@ const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
           </div>
         </div>
       </div>
-      <MobileView />
+      <MobileView
+        headlineLatestNews={headlineLatestNews}
+        publishedDate={publishedDate}
+        // headlineLatestNews_2={headlineLatestNews_2}
+        newsLatest={newsLatest}
+      />
     </>
   );
 };
