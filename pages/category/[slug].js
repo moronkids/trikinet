@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
+import defaultAxios from "axios";
 import SquareLoader from "components/layouts/contentLoader";
 // import Web_ from "components/page_category";
 import Router from "next/router";
+import { sortByCategory } from "redux/api/news";
 const Web_ = dynamic(() => import("components/page_category"), {
   loading: () => (
     <>
@@ -12,7 +14,7 @@ const Web_ = dynamic(() => import("components/page_category"), {
 });
 import SearchContainers from "components/layouts/searchContainers";
 import Head from "next/head";
-import defaultAxios from "axios";
+
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { DO_LOADING } from "redux/actions";
@@ -45,13 +47,13 @@ const Web = ({
   //   // }
   //   return () => {};
   // }, [category]);
-  const [loading, setloading] = useState(true)
+  const [loading, setloading] = useState(true);
   useEffect(() => {
-    setloading(true)
+    setloading(true);
     setTimeout(() => {
-      setloading(false)
+      setloading(false);
     }, 500);
-  }, [category])
+  }, [category]);
   return (
     <>
       <Head>
@@ -96,30 +98,43 @@ export async function getStaticProps({ params }) {
   const category = params.slug;
   // const page = data[1] !== null ? data[1] : 1;
   // const limit = data[2] !== null ? data[2] : 20;
+
+  let headlineLatestNews_1;
+  let headlineLatestNews_2;
   const axios = defaultAxios.create({
     baseURL: "https://venom.trikinet.com",
     headers: {
       "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
       "Access-Control-Allow-Origin": "*",
+      // Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
     withCredentials: false,
     crossorigin: true,
   });
   const todos = await axios
-    .get(`news/category/${category}?page=1&limit=20`)
+    .get(`news/category/${category}?page=${1}&limit=${20}`)
     .catch(function (error) {
       if (error.response.status !== 200) {
+        console.log(error, "response failed");
         return {
-          status: "failed",
+          data : {
+            statusCode : false,
+            data: []
+          }
         };
       }
     });
-
-  let headlineLatestNews_1;
-  let headlineLatestNews_2;
-  let newsLatest = todos.data.data;
-  headlineLatestNews_1 = newsLatest[0];
-  headlineLatestNews_2 = newsLatest[1];
+  console.log(todos, "khusus todos");
+  // return {
+  //   data: todos.data.data,
+  //   status: todos.status,
+  //   page: page,
+  //   category: category,
+  // };
+  // console.log(fetchdata, "INI TODOSƒ");
+  const newsLatest = await todos.data.statusCode ? todos.data.data : [];
+  headlineLatestNews_1 = await newsLatest[0];
+  headlineLatestNews_2 = await newsLatest[1];
 
   return {
     props: {

@@ -81,6 +81,7 @@ export const detailNews = async (data) => {
 };
 
 export const sortByCategory = async (data) => {
+  console.log(data)
   const category = data[0];
   const page = data[1] !== null ? data[1] : 1;
   const limit = data[2] !== null ? data[2] : 20;
@@ -94,7 +95,7 @@ export const sortByCategory = async (data) => {
         };
       }
     });
-  console.log(todos, "response success");
+  // console.log(todos, "response success category");
   return {
     data: todos.data.data,
     status: todos.status,
