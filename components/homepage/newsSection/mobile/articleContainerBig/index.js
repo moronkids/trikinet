@@ -1,7 +1,6 @@
 import Truncate from "react-truncate";
 import Link from 'next/link'
 const Article = ({data, articleBig, boxTitle}) => {
-  console.log("jirr", data)
     return (
       <>
         <Link href={`/page/${data && data.slug}`}>

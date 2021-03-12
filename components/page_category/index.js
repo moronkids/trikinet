@@ -11,6 +11,7 @@ import { HIT_CATEGORY_NEWS } from "../../redux/actions";
 import { useRouter } from "next/router";
 import SquareLoader from "components/layouts/contentLoader";
 import LoaderSmallArticle from "components/layouts/contentLoader/loader";
+import InfiniteScroll from "react-infinite-scroll-component";
 var dayjs = require("dayjs");
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
@@ -33,22 +34,26 @@ const Web = ({
   newsLatest,
   loading,
 }) => {
-  console.log(newsLatest, "cekbro")
-  // const dispatch = useDispatch();
-  // const router = useRouter();
-  // const { slug } = router.query;
-  // const { newsLatest, loading } = useSelector((state) => ({
-  //   newsLatest: state.news.category[slug].data,
-  //   loading: state.loading.status,
-  // }));
-  // useEffect(() => {
-  //   dispatch({ type: HIT_CATEGORY_NEWS, payload: [slug, null, null] });
-  //   const section = document.querySelector("#category");
-  //   setTimeout(() => {
-  //     section.scrollIntoView({ behavior: "smooth", block: "start" });
-  //   }, 500);
-  // }, [slug]);
-
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const { slug } = router.query;
+  const { newsLatest_redux, loading_redux } = useSelector((state) => ({
+    newsLatest_redux: state.news.category[slug].data,
+    loading_redux: state.loading.status,
+  }));
+  let reStructure2 = [];
+  console.log(newsLatest_redux, "cek data state");
+  useEffect(() => {
+    // dispatch({ type: HIT_CATEGORY_NEWS, payload: [slug, null, null] });
+    reStructure2 = []
+    const section = document.querySelector("#category");
+    setTimeout(() => {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 500);
+  }, [slug]);
+  let newsImagePhoto = {
+    width: "inherit",
+  };
   let articleBig;
   let boxTitle;
   let ArticleSmall_1;
@@ -56,9 +61,42 @@ const Web = ({
   let ArticleSmall_3;
   let truncate = 3;
   let stopLoading = false;
+  const [hasMore, sethasMore] = useState(true);
+
+  const [page, setPage] = useState(1)
+  // const [reStructure2, setReStructure2] = useState([]);
+  const [items, setItems] = useState(Array.from({ length: 18 }));
+  let data_chunk;
+  const chunk = function (array, size) {
+    if (!array.length) {
+      return [];
+    }
+    const head = array.slice(0, size);
+    const tail = array.slice(size);
+
+    return [head, ...chunk(tail, size)];
+  };
+  const fetchMoreData = async () => {
+    // a fake async api call like which sends
+    // 20 more records in .5 secs
+    setItems(items.concat(Array.from({ length: 18 })));
+    setTimeout(() => {
+      setPage(page+1)
+      dispatch({ type: HIT_CATEGORY_NEWS, payload: [slug, page+1, 18] });
+      console.log("latest redux", newsLatest_redux);
+    }, 1000);
+
+    // await setreStructure2(chunk(newsLatest_redux, newsLatest_redux.length / 3));
+    // await setReStructure2(data_chunk);
+  };
+  if (newsLatest_redux.length > 0) {
+    console.log("jingan", chunk(newsLatest_redux, newsLatest_redux.length / 3));
+    reStructure2 = chunk(newsLatest_redux, newsLatest_redux.length / 3);
+  }
+  console.log(reStructure2, "data render");
+  // console.log(data_chunk, "cekbro");
 
   const calculateNews = async () => {
-
     const newsLatest_ = [...newsLatest];
     newsLatest_.splice(0, 2);
     let publishedDate_1;
@@ -76,7 +114,7 @@ const Web = ({
     };
     const reStructure =
       newsLatest_ && chunk(newsLatest_, newsLatest_.length / 3);
-    const newsImagePhoto = {
+    newsImagePhoto = {
       width: "inherit",
     };
 
@@ -137,12 +175,7 @@ const Web = ({
     };
   };
   calculateNews();
-  // if (loading === true) {
 
-  // } else {
-
-  // }
-  // const [detail, setDetails] = useState(false);
   return (
     <>
       <div className="" style={{ height: "70px" }} id="category"></div>
@@ -177,6 +210,77 @@ const Web = ({
           <div className="col-sm-4 col-12">{ArticleSmall_2}</div>
           <div className="col-sm-4 col-12">{ArticleSmall_3}</div>
         </div>
+        <InfiniteScroll
+          dataLength={items.length}
+          next={fetchMoreData}
+          hasMore={hasMore}
+          loader={<h4>Loading...</h4>}
+          endMessage={
+            <p style={{ textAlign: "center" }}>
+              <b>Yay! You have seen it all</b>
+            </p>
+          }
+        >
+          <div className="row col-12 news m-0">
+            <div className="col-sm-4 col-12">
+              {console.log(
+                newsLatest_redux.length,
+                reStructure2,
+                "latest  redux"
+              )}
+              {reStructure2.length > 0 &&
+                reStructure2[0].map((val, i) => {
+                  return (
+                    <>
+                      <ArticleSmall
+                        data={val}
+                        image={newsImagePhoto}
+                        truncatex={truncate}
+                      />
+                    </>
+                  );
+                })}
+            </div>
+            <div className="col-sm-4 col-12">
+              {console.log(
+                newsLatest_redux.length,
+                reStructure2,
+                "latest  redux"
+              )}
+              {reStructure2.length > 0 &&
+                reStructure2[1].map((val, i) => {
+                  return (
+                    <>
+                      <ArticleSmall
+                        data={val}
+                        image={newsImagePhoto}
+                        truncatex={truncate}
+                      />
+                    </>
+                  );
+                })}
+            </div>
+            <div className="col-sm-4 col-12">
+              {console.log(
+                newsLatest_redux.length,
+                reStructure2,
+                "latest  redux"
+              )}
+              {reStructure2.length > 0 &&
+                reStructure2[2].map((val, i) => {
+                  return (
+                    <>
+                      <ArticleSmall
+                        data={val}
+                        image={newsImagePhoto}
+                        truncatex={truncate}
+                      />
+                    </>
+                  );
+                })}
+            </div>
+          </div>
+        </InfiniteScroll>
       </div>
     </>
   );

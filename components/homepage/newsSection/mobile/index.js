@@ -25,9 +25,6 @@ const News = ({headlineLatestNews, newsLatest, publishedDate}) => {
 
   let publishedDate_1;
   if (newsLatest.length > 0) publishedDate = dayjs(headlineLatestNews.date).fromNow(); // 20 years ago
-  console.log(headlineLatestNews, "news1");
-  console.log(newsLatest, "newsLatest");
-  console.log(publishedDate, "published");
   let ArticleSmall_;
   if(newsLatest.length > 0) {
     ArticleSmall_ = newsLatest.map((val, i) => {

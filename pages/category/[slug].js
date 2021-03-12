@@ -52,7 +52,6 @@ const Web = ({
       setloading(false)
     }, 500);
   }, [category])
-  console.log(category, "before fetch done");
   return (
     <>
       <Head>

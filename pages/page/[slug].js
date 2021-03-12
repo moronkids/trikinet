@@ -7,7 +7,6 @@ const Article = () => {
     detailNews: state.news.detailNews.data,
     latestNews: state.news.newsLatest.data,
   }));
-  console.log(detailNews, "prep");
   return (
     <>
       <Head>

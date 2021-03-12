@@ -27,7 +27,6 @@ const Article = () => {
   // dayjs.extend(relativeTime);
   let publishedDate;
   if (detailNews.length !== 0) publishedDate = dayjs(detailNews.date).fromNow(); // 20 years ago
-  console.log(detailNews.length,detailNews.date, "beroo")
   return (
     <div className="container article">
       <div className="col-lg-9 col-12">
