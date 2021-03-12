@@ -4,6 +4,7 @@ import {
   GET_DETAIL_NEWS,
   GET_CATEGORY_NEWS,
 } from "redux/actions/index";
+import { RESET_CATEGORY_NEWS } from "../actions";
 
 // Define your state here
 const initialState = {
@@ -53,10 +54,12 @@ export default (state = initialState, { type, payload }) => {
       };
     }
     case GET_CATEGORY_NEWS: {
+      // state = {};
       if (payload.status === "failed") return { ...state };
       console.log(state, "je");
       if (payload.page !== 1) {
         console.log(state, "if");
+        // state.category[payload.category].data = payload.data
         state.category[payload.category].data = state.category[payload.category].data.concat(payload.data)
         return {
           ...state
@@ -67,6 +70,12 @@ export default (state = initialState, { type, payload }) => {
         return {
           ...state
         };
+      }
+    }
+    case RESET_CATEGORY_NEWS : {
+      state.category[payload].data = []
+      return {
+        ...state
       }
     }
     default:

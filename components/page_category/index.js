@@ -7,7 +7,7 @@ import { HIT_NEWS_LATEST } from "redux/actions";
 import Truncate from "react-truncate";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { HIT_CATEGORY_NEWS } from "../../redux/actions";
+import { HIT_CATEGORY_NEWS, RESET_CATEGORY_NEWS } from "../../redux/actions";
 import { useRouter } from "next/router";
 import SquareLoader from "components/layouts/contentLoader";
 import LoaderSmallArticle from "components/layouts/contentLoader/loader";
@@ -38,6 +38,7 @@ const Web = ({
   const dispatch = useDispatch();
   const router = useRouter();
   const { slug } = router.query;
+    const [page, setPage] = useState(1);
   const { newsLatest_redux, loading_redux } = useSelector((state) => ({
     // newsLatest_redux:  [] ,
     loading_redux: state.loading.status,
@@ -50,7 +51,9 @@ const Web = ({
   let reStructure2 = [];
   console.log(newsLatest_redux, newsLatest_redux, "cek data state");
   useEffect(() => {
+    // dispatch({type: RESET_CATEGORY_NEWS, payload : slug})
     reStructure2 = []
+    setPage(1);
     const section = document.querySelector("#category");
     setTimeout(() => {
       section.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -69,8 +72,8 @@ const Web = ({
   let stopLoading = false;
   const [hasMore, sethasMore] = useState(true);
 
-  const [page, setPage] = useState(1)
-  const [items, setItems] = useState(Array.from({ length: 18 }));
+
+  const [items, setItems] = useState(Array.from({ length: 12 }));
 
   const chunk = function (array, size) {
     if (!array.length) {
@@ -85,11 +88,11 @@ const Web = ({
     // a fake async api call like which sends
     // 20 more records in .5 secs
     setItems(items.concat(Array.from({ length: 18 })));
-    setTimeout(() => {
+    // setTimeout(() => {
       setPage(page+1)
-      dispatch({ type: HIT_CATEGORY_NEWS, payload: [slug, page+1, 18] });
+      dispatch({ type: HIT_CATEGORY_NEWS, payload: [slug, page, 18] });
       // console.log("latest redux", newsLatest_redux);
-    }, 1000);
+    // }, 2000);
   };
   if (newsLatest_redux !== undefined) {
     reStructure2 = chunk(
@@ -214,12 +217,20 @@ const Web = ({
           dataLength={items.length}
           next={fetchMoreData}
           hasMore={hasMore}
-          loader={<h4>Loading...</h4>}
-          endMessage={
-            <p style={{ textAlign: "center" }}>
-              <b>Yay! You have seen it all</b>
-            </p>
+          // pullDownToRefreshThreshold={400px}
+          loader={
+            <div className="row col-12 news m-0 ">
+              <div className="col-sm-4 col-12"><LoaderSmallArticle/></div>
+              <div className="col-sm-4 col-12"><LoaderSmallArticle/></div>
+              <div className="col-sm-4 col-12"><LoaderSmallArticle/></div>
+
+            </div>
           }
+          // endMessage={
+          //   <p style={{ textAlign: "center" }}>
+          //     <b>Yay! You have seen it all</b>
+          //   </p>
+          // }
         >
           <div className="row col-12 news m-0">
             <div className="col-sm-4 col-12">

@@ -10,7 +10,8 @@ import {
   HIT_CATEGORY_NEWS,
   GET_CATEGORY_NEWS,
   DO_LOADING,
-  HIT_LOADING
+  HIT_LOADING,
+  RESET_CATEGORY_NEWS
 
 } from "redux/actions/index";
 // Import all actions
@@ -36,9 +37,12 @@ function* getDetailNews({ payload }) {
 function* getLoading({ payload }) {
   yield put({ type: DO_LOADING, payload: payload });
 }
+function* resetCategoryNews({payload}) {
+  yield put({ type: DO_CATEGORY_NEWS, payload: payload });
+}
 function* getInternetNews({ payload }) {
+  yield put({type: DO_LOADING, payload : true})
   try {
-    yield put({type: DO_LOADING, payload : true})
     const internetNews_ = yield call(sortByCategory, payload);
     yield put({ type: GET_CATEGORY_NEWS, payload: internetNews_ });
     yield put({type: DO_LOADING, payload : false})
@@ -54,5 +58,6 @@ export default function* protra() {
 yield takeEvery(HIT_NEWS_LATEST, getNewsLatest)
 yield takeEvery(HIT_DETAIL_NEWS, getDetailNews)
 yield takeEvery(HIT_CATEGORY_NEWS, getInternetNews)
+yield takeLatest(RESET_CATEGORY_NEWS, resetCategoryNews)
 yield takeEvery(HIT_LOADING, getLoading)
 }
