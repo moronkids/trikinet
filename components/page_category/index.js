@@ -38,7 +38,7 @@ const Web = ({
   const router = useRouter();
   const { slug } = router.query;
   const { newsLatest_redux, loading_redux } = useSelector((state) => ({
-    newsLatest_redux: state.news.category[slug].data ?state.news.category[slug].data : [] ,
+    newsLatest_redux: state.news.category[slug].data !== undefined ?state.news.category[slug].data : [] ,
     loading_redux: state.loading.status,
   }));
   let reStructure2 = [];
