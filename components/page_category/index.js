@@ -38,13 +38,12 @@ const Web = ({
   const router = useRouter();
   const { slug } = router.query;
   const { newsLatest_redux, loading_redux } = useSelector((state) => ({
-    newsLatest_redux: state.news.category[slug].data,
+    newsLatest_redux: state.news.category[slug].data ?state.news.category[slug].data : [] ,
     loading_redux: state.loading.status,
   }));
   let reStructure2 = [];
   console.log(newsLatest_redux, "cek data state");
   useEffect(() => {
-    // dispatch({ type: HIT_CATEGORY_NEWS, payload: [slug, null, null] });
     reStructure2 = []
     const section = document.querySelector("#category");
     setTimeout(() => {
@@ -60,13 +59,13 @@ const Web = ({
   let ArticleSmall_2;
   let ArticleSmall_3;
   let truncate = 3;
+  let publishedDate_1;
   let stopLoading = false;
   const [hasMore, sethasMore] = useState(true);
 
   const [page, setPage] = useState(1)
-  // const [reStructure2, setReStructure2] = useState([]);
   const [items, setItems] = useState(Array.from({ length: 18 }));
-  let data_chunk;
+
   const chunk = function (array, size) {
     if (!array.length) {
       return [];
@@ -85,22 +84,14 @@ const Web = ({
       dispatch({ type: HIT_CATEGORY_NEWS, payload: [slug, page+1, 18] });
       console.log("latest redux", newsLatest_redux);
     }, 1000);
-
-    // await setreStructure2(chunk(newsLatest_redux, newsLatest_redux.length / 3));
-    // await setReStructure2(data_chunk);
   };
   if (newsLatest_redux.length > 0) {
-    console.log("jingan", chunk(newsLatest_redux, newsLatest_redux.length / 3));
     reStructure2 = chunk(newsLatest_redux, newsLatest_redux.length / 3);
   }
-  console.log(reStructure2, "data render");
-  // console.log(data_chunk, "cekbro");
 
   const calculateNews = async () => {
     const newsLatest_ = [...newsLatest];
     newsLatest_.splice(0, 2);
-    let publishedDate_1;
-    let publishedDate_2;
     if (newsLatest_.length > 0)
       publishedDate_1 = dayjs(headlineLatestNews_1.date).fromNow();
     const chunk = function (array, size) {
@@ -223,11 +214,6 @@ const Web = ({
         >
           <div className="row col-12 news m-0">
             <div className="col-sm-4 col-12">
-              {console.log(
-                newsLatest_redux.length,
-                reStructure2,
-                "latest  redux"
-              )}
               {reStructure2.length > 0 &&
                 reStructure2[0].map((val, i) => {
                   return (
@@ -242,11 +228,6 @@ const Web = ({
                 })}
             </div>
             <div className="col-sm-4 col-12">
-              {console.log(
-                newsLatest_redux.length,
-                reStructure2,
-                "latest  redux"
-              )}
               {reStructure2.length > 0 &&
                 reStructure2[1].map((val, i) => {
                   return (
@@ -261,11 +242,6 @@ const Web = ({
                 })}
             </div>
             <div className="col-sm-4 col-12">
-              {console.log(
-                newsLatest_redux.length,
-                reStructure2,
-                "latest  redux"
-              )}
               {reStructure2.length > 0 &&
                 reStructure2[2].map((val, i) => {
                   return (
