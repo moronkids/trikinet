@@ -17,6 +17,7 @@ const initialState = {
     status: false,
   },
   category: {
+    page_load : true,
     internet: {
       data: [],
       status: false,
@@ -55,28 +56,30 @@ export default (state = initialState, { type, payload }) => {
     }
     case GET_CATEGORY_NEWS: {
       // state = {};
-      if (payload.status === "failed") return { ...state };
+      if (payload.status === "failed") return { ...state, ...state.category.page_load = false };
       console.log(state, "je");
       if (payload.page !== 1) {
         console.log(state, "if");
         // state.category[payload.category].data = payload.data
         state.category[payload.category].data = state.category[payload.category].data.concat(payload.data)
         return {
-          ...state
+          ...state,
         };
       } else {
         console.log(state, "else");
         state.category[payload.category].data = payload.data
         return {
-          ...state
+          ...state,
+
         };
       }
     }
     case RESET_CATEGORY_NEWS : {
       state.category[payload].data = []
       return {
-        ...state
-      }
+        ...state,
+        ...state.category.page_load = true,
+      };
     }
     default:
       return state;
