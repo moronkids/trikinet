@@ -8,9 +8,9 @@ const headers = () => {
     const { slug } = router.query;
   const dispatch = useDispatch();
   const reset = (e,slug) => {
-    alert("heh")
+    // alert("heh")
     e.preventDefault();
-    dispatch({ type: RESET_CATEGORY_NEWS, payload: slug });
+    // dispatch({ type: RESET_CATEGORY_NEWS, payload: slug });
   };
   return (
     <div

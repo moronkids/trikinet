@@ -33,26 +33,26 @@ const Web = ({
   headlineLatestNews_2,
   newsLatest,
   loading,
-  category
+  category,
 }) => {
   const dispatch = useDispatch();
   const router = useRouter();
   const { slug } = router.query;
-    const [page, setPage] = useState(1);
+  const [page, setPage] = useState(1);
   const { newsLatest_redux, loading_redux } = useSelector((state) => ({
     // newsLatest_redux:  [] ,
     loading_redux: state.loading.status,
     newsLatest_redux:
       state.news.category[category] === undefined ||
-      state.news.category[category] === 'undefined'
+      state.news.category[category] === "undefined"
         ? []
         : state.news.category[category].data,
   }));
   let reStructure2 = [];
   console.log(newsLatest_redux, newsLatest_redux, "cek data state");
-  useEffect(() => {
-    // dispatch({type: RESET_CATEGORY_NEWS, payload : slug})
-    reStructure2 = []
+  useEffect( async () => {
+    await dispatch({type: RESET_CATEGORY_NEWS, payload : slug})
+    reStructure2 = [];
     setPage(1);
     const section = document.querySelector("#category");
     setTimeout(() => {
@@ -72,7 +72,6 @@ const Web = ({
   let stopLoading = false;
   const [hasMore, sethasMore] = useState(true);
 
-
   const [items, setItems] = useState(Array.from({ length: 12 }));
 
   const chunk = function (array, size) {
@@ -89,16 +88,13 @@ const Web = ({
     // 20 more records in .5 secs
     setItems(items.concat(Array.from({ length: 18 })));
     // setTimeout(() => {
-      setPage(page+1)
-      dispatch({ type: HIT_CATEGORY_NEWS, payload: [slug, page, 18] });
-      // console.log("latest redux", newsLatest_redux);
+    setPage(page + 1);
+    if(!loading_redux) await dispatch({ type: HIT_CATEGORY_NEWS, payload: [slug, page, 18] });
+    // console.log("latest redux", newsLatest_redux);
     // }, 2000);
   };
   if (newsLatest_redux !== undefined) {
-    reStructure2 = chunk(
-      newsLatest_redux,
-      newsLatest_redux.length / 3
-    );
+    reStructure2 = chunk(newsLatest_redux, newsLatest_redux.length / 3);
   }
 
   const calculateNews = async () => {
@@ -216,65 +212,36 @@ const Web = ({
         <InfiniteScroll
           dataLength={items.length}
           next={fetchMoreData}
-          hasMore={hasMore}
+          hasMore={!loading_redux ? true : false}
           // pullDownToRefreshThreshold={400px}
           loader={
             <div className="row col-12 news m-0 ">
-              <div className="col-sm-4 col-12"><LoaderSmallArticle/></div>
-              <div className="col-sm-4 col-12"><LoaderSmallArticle/></div>
-              <div className="col-sm-4 col-12"><LoaderSmallArticle/></div>
-
+              <div className="col-sm-4 col-12">
+                <LoaderSmallArticle />
+              </div>
+              <div className="col-sm-4 col-12">
+                <LoaderSmallArticle />
+              </div>
+              <div className="col-sm-4 col-12">
+                <LoaderSmallArticle />
+              </div>
             </div>
           }
-          // endMessage={
-          //   <p style={{ textAlign: "center" }}>
-          //     <b>Yay! You have seen it all</b>
-          //   </p>
-          // }
         >
           <div className="row col-12 news m-0">
-            <div className="col-sm-4 col-12">
-              {reStructure2.length > 0 &&
+              {reStructure2[0] &&
                 reStructure2[0].map((val, i) => {
                   return (
-                    <>
+                    <div className="col-sm-4 col-12">
                       <ArticleSmall
                         data={val}
                         image={newsImagePhoto}
                         truncatex={truncate}
                       />
-                    </>
+                    </div>
                   );
                 })}
-            </div>
-            <div className="col-sm-4 col-12">
-              {reStructure2.length > 0 &&
-                reStructure2[1].map((val, i) => {
-                  return (
-                    <>
-                      <ArticleSmall
-                        data={val}
-                        image={newsImagePhoto}
-                        truncatex={truncate}
-                      />
-                    </>
-                  );
-                })}
-            </div>
-            <div className="col-sm-4 col-12">
-              {reStructure2.length > 0 &&
-                reStructure2[2].map((val, i) => {
-                  return (
-                    <>
-                      <ArticleSmall
-                        data={val}
-                        image={newsImagePhoto}
-                        truncatex={truncate}
-                      />
-                    </>
-                  );
-                })}
-            </div>
+
           </div>
         </InfiniteScroll>
       </div>

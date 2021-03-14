@@ -29,7 +29,10 @@ const Article = ({data, articleBig, boxTitle}) => {
               </div>
               <img
                 class=""
-                src={data && data.yoast_meta[6].content}
+                src={
+                  data &&
+                  data._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url
+                }
                 alt=""
                 style={{
                   backgroundImage:

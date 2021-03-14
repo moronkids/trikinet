@@ -11,8 +11,8 @@ import {
   GET_CATEGORY_NEWS,
   DO_LOADING,
   HIT_LOADING,
-  RESET_CATEGORY_NEWS
-
+  RESET_CATEGORY_NEWS,
+DO_CATEGORY_NEWS
 } from "redux/actions/index";
 // Import all actions
 
@@ -41,8 +41,8 @@ function* resetCategoryNews({payload}) {
   yield put({ type: DO_CATEGORY_NEWS, payload: payload });
 }
 function* getInternetNews({ payload }) {
-  yield put({type: DO_LOADING, payload : true})
   try {
+    yield put({type: DO_LOADING, payload : true})
     const internetNews_ = yield call(sortByCategory, payload);
     yield put({ type: GET_CATEGORY_NEWS, payload: internetNews_ });
     yield put({type: DO_LOADING, payload : false})

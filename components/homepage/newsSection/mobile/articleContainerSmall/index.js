@@ -11,7 +11,11 @@ const Article = ({ data, image, truncatex }) => {
             <div className="newsPhoto">
               <img
                 class=""
-                src={data && data.yoast_meta[6].content}
+                src={
+                  data &&
+                  data._embedded["wp:featuredmedia"][0].media_details.sizes
+                    .thumbnail.source_url
+                }
                 alt=""
                 style={{
                   width: `${image && image.width}`,
