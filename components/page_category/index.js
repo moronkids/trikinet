@@ -240,8 +240,8 @@ const Web = ({
           }
         >
           <div className="row col-12 news m-0">
-            {reStructure2[0] &&
-              reStructure2[0].map((val, i) => {
+            {newsLatest_redux &&
+              newsLatest_redux.map((val, i) => {
                 return (
                   <div className="col-sm-4 col-12">
                     <ArticleSmall
