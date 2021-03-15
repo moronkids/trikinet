@@ -3,6 +3,7 @@ import {
   GET_NEWS_LATEST,
   GET_DETAIL_NEWS,
   GET_CATEGORY_NEWS,
+  GET_SEARCH_NEWS,
 } from "redux/actions/index";
 import { RESET_CATEGORY_NEWS } from "../actions";
 
@@ -35,6 +36,7 @@ const initialState = {
       status: false,
     },
   },
+  search : {}
 };
 // This export default will control your state for your application
 export default (state = initialState, { type, payload }) => {
@@ -54,6 +56,7 @@ export default (state = initialState, { type, payload }) => {
         ...payload,
       };
     }
+
     case GET_CATEGORY_NEWS: {
       // state = {};
       if (payload.status === "failed") return { ...state, ...state.category.page_load = false };
@@ -68,6 +71,26 @@ export default (state = initialState, { type, payload }) => {
       } else {
         console.log(state, "else");
         state.category[payload.category].data = payload.data
+        return {
+          ...state,
+
+        };
+      }
+    }
+    case GET_SEARCH_NEWS: {
+      // state = {};
+      if (payload.status === "failed") return { ...state, ...state.category.page_load = false };
+      console.log(state, "je");
+      if (payload.page !== 1) {
+        console.log(state, "if");
+        // state.category[payload.category].data = payload.data
+        state.search.data = state.search.data.concat(payload.data)
+        return {
+          ...state,
+        };
+      } else {
+        console.log(state, "else");
+        state.search.data = payload.data
         return {
           ...state,
 

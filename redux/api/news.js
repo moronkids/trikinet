@@ -109,3 +109,33 @@ export const sortByCategory = async (data) => {
     };
   }
 };
+
+export const searchNews = async (data) => {
+  console.log(data);
+  const query = data[0];
+  const page = data[1] !== null ? data[1] : 1;
+  const limit = data[2] !== null ? data[2] : 18;
+  try {
+    const todos = await axios
+      .get(`/news/search?q=${query}&page=${page}&limit=${limit}`)
+      .catch(function (error) {
+        if (error.response.status !== 200) {
+          console.log(error, "response failed");
+          return {
+            status: "failed",
+          };
+        }
+      });
+    // console.log(todos, "response success category");
+    return {
+      data: todos.data.data,
+      status: todos.status,
+      page: page,
+      query: query,
+    };
+  } catch (error) {
+    return {
+      status: "failed",
+    };
+  }
+};
