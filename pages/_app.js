@@ -8,16 +8,19 @@ import Body from "components/layouts/body";
 //redux
 import { Provider, useDispatch } from "react-redux";
 import { store } from "redux/index";
-import { Hooks } from "providers/hooks";
+import { AppWrapper } from "providers/hooks";
 import Head from "next/head";
+import Sidebar from "components/mobile/layouts/sidebar";
 import Router from "next/router";
+// import NProgress from "nprogress";
+// import Router from "next/router";
 
 function MyApp({ Component, pageProps, deviceType }) {
-  console.log(deviceType, "cek")
+
   return (
     <>
       <Provider store={store}>
-        <Hooks>
+        <AppWrapper>
           <Head>
             {" "}
             <link rel="manifest" href="/manifest.json" />
@@ -35,6 +38,7 @@ function MyApp({ Component, pageProps, deviceType }) {
           <>
             <HeadersMobile />
           </>
+
           <Body>
             <Component
               device={deviceType}
@@ -43,24 +47,24 @@ function MyApp({ Component, pageProps, deviceType }) {
             />
           </Body>
           <Footers />
-        </Hooks>
+        </AppWrapper>
       </Provider>
     </>
   );
 }
 
-export async function getInitialProps({ctx}) {
-  const UA = ctx.req.headers["user-agent"];
-  const isMobile = Boolean(
-    UA.match(
-      /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
-    )
-  );
-  return {
-    props: {
-      deviceType: isMobile ? "mobile" : "desktop",
-    },
-  };
-}
+// export async function getInitialProps({ctx}) {
+//   const UA = ctx.req.headers["user-agent"];
+//   const isMobile = Boolean(
+//     UA.match(
+//       /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
+//     )
+//   );
+//   return {
+//     props: {
+//       deviceType: isMobile ? "mobile" : "desktop",
+//     },
+//   };
+// }
 
 export default MyApp;

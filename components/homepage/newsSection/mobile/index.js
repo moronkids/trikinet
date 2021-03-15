@@ -45,7 +45,7 @@ const News = ({headlineLatestNews, newsLatest, publishedDate}) => {
       <div className="d-block d-sm-none container news pt-4 px-4">
         <Ads type="rectangle" class="reactangle w-100" />
         {ArticleBig_}
-        <Ads type="rectangle" class="reactangle w-100 mb-2" />
+        <Ads type="rectangle" class="reactangle w-100 mb-2" id="category"/>
         {ArticleSmall_}
       </div>
     </>

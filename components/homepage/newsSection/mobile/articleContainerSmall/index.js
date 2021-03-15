@@ -3,6 +3,9 @@ import Link from "next/link";
 
 const Article = ({ data, image, truncatex }) => {
   // alert(truncatex)
+  let thumbnailImg =
+    data._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail ||
+    data._embedded["wp:featuredmedia"][0].media_details.sizes.full;
   return (
     <>
       <Link href={`/page/${data && data.slug}`}>
@@ -13,9 +16,7 @@ const Article = ({ data, image, truncatex }) => {
                 class="h-100"
                 alt=""
                 style={{
-                  backgroundImage:
-                    data &&
-                    `linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.4)),url(${data._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url})`,
+                  backgroundImage: `linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.4)),url(${thumbnailImg.source_url})`,
                   objectFit: "contain",
                   backgroundPosition: "center",
                 }}

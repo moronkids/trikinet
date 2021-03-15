@@ -3,6 +3,7 @@ import Link from "next/link";
 import { HIT_CATEGORY_NEWS, RESET_CATEGORY_NEWS } from "redux/actions";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
+import Sidebar from "components/mobile/layouts/sidebar";
 const headers = () => {
     const router = useRouter();
     const { slug } = router.query;
@@ -14,7 +15,7 @@ const headers = () => {
   };
   return (
     <div
-      className="headers d-none d-sm-block"
+      className="headers d-none d-sm-block sticky-top"
       style={{ padding: "0px", margin: "0px", background: "#FFFFFF" }}
     >
       <nav className="navbar navbar-expand-lg navbar-light container">
@@ -79,6 +80,7 @@ const headers = () => {
           </ul>
         </div>
       </nav>
+      <Sidebar />
     </div>
   );
 };

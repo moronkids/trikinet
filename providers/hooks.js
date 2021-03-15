@@ -1,25 +1,25 @@
-import React, { useContext, createContext } from "react";
+import React, { useContext, createContext, useState } from "react";
 
 //Context
-export const Hooksx = createContext();
+export const AppContext = createContext();
 
 //Provider
-export const Hooks = ({ children, isMobileView }) => {
-  const [device, setDevice] = React.useState(isMobileView);
-
+export const AppWrapper = ({ children }) => {
+  const [device, setDevice] = useState(null);
+  const [toggle, setToggle] = useState(null);
   //ComponentDidMouunt
   React.useEffect(() => {}, []);
 
   //
-  const values = { device, setDevice };
+  const values = { device, setDevice, toggle, setToggle };
 
   // Interface donde será expuesto como proveedor y envolverá la App.
-  return <Hooksx.Provider value={values}>{children}</Hooksx.Provider>;
+  return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
 };
 
 //
-export function useAppContext({isMobileView}) {
-  const context = useContext(Hooksx);
+export function useAppContext() {
+  const context = useContext(AppContext);
 
   if (!context) {
     console.error("Error deploying App Context!!!");
