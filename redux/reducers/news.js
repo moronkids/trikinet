@@ -18,7 +18,7 @@ const initialState = {
     status: false,
   },
   category: {
-    page_load : true,
+    page_load: true,
     internet: {
       data: [],
       status: false,
@@ -36,7 +36,7 @@ const initialState = {
       status: false,
     },
   },
-  search : {}
+  search: {},
 };
 // This export default will control your state for your application
 export default (state = initialState, { type, payload }) => {
@@ -59,52 +59,64 @@ export default (state = initialState, { type, payload }) => {
 
     case GET_CATEGORY_NEWS: {
       // state = {};
-      if (payload.status === "failed") return { ...state, ...state.category.page_load = false };
+      if (payload.status === "failed")
+        return { ...state, ...(state.category.page_load = false) };
       console.log(state, "je");
       if (payload.page !== 1) {
         console.log(state, "if");
         // state.category[payload.category].data = payload.data
-        state.category[payload.category].data = state.category[payload.category].data.concat(payload.data)
+        state.category[payload.category].data = state.category[
+          payload.category
+        ].data.concat(payload.data);
         return {
           ...state,
         };
       } else {
         console.log(state, "else");
-        state.category[payload.category].data = payload.data
+        state.category[payload.category].data = payload.data;
         return {
           ...state,
-
         };
       }
     }
     case GET_SEARCH_NEWS: {
       // state = {};
-      console.log(payload.data.length,"cekiceki")
-      if (payload.status === "failed") return { ...state, };
-      if (payload.data.length < 1) return { ...state, ...state.category.page_load = false, ...state.search.data = [] };
+      console.log(payload.data.length, "cekiceki");
+      if (payload.status === "failed")
+        return {
+          ...state,
+          ...(state.category.page_load = false),
+          ...(state.search.data = []),
+        };
+      if (payload.data.length < 1)
+        return {
+          ...state,
+          ...(state.category.page_load = false),
+          ...(state.search.data = []),
+        };
       console.log(state, "je");
       if (payload.page !== 1) {
         console.log(state, "if");
         // state.category[payload.category].data = payload.data
-        state.search.data = state.search.data.concat(payload.data)
+        state.search.data = state.search.data.concat(payload.data);
         return {
           ...state,
-          ...state.category.page_load = true,
+          ...(state.category.page_load = true),
         };
       } else {
         console.log(state, "else");
-        state.search.data = payload.data
+        state.search.data = payload.data;
         return {
           ...state,
           ...(state.category.page_load = true),
         };
       }
     }
-    case RESET_CATEGORY_NEWS : {
-      state.category[payload].data = []
+    case RESET_CATEGORY_NEWS: {
+      state.category[payload].data = [];
       return {
         ...state,
-        ...state.category.page_load = true,
+        ...(state.category.page_load = true),
       };
     }
     default:

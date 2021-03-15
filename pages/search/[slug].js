@@ -41,7 +41,7 @@ const Search = () => {
       <div className="container mt-5" id="search">
         <div className="row mx-0 px-0 result">Result of : {slug}</div>
         <div className="row col-12 news m-0 p-0">
-          {loading === false && search_data.length < 1 ? (
+          {loading === false && items.length < 1 ? (
             <>
               <p className="text-center mx-auto notfound">
                 Sorry keyword "{slug}" is not found...
@@ -74,7 +74,7 @@ const Search = () => {
               </h3>
             }
             loader={
-              <div className="row col-12 news ">
+              <div className="row col-12 news m-0 ">
                 <div className="col-sm-4 col-12">
                   <LoaderSmallArticle />
                 </div>
@@ -92,7 +92,7 @@ const Search = () => {
                 search_data.map((val, i) => {
                   return (
                     <>
-                      <div className="col-sm-4 col-12">
+                      <div className="col-sm-4 col-12 m-0 p-0">
                         <ArticleSmall
                           data={val}
                           image={newsImagePhoto}
