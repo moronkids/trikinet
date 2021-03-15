@@ -37,8 +37,10 @@ function* getDetailNews({ payload }) {
   yield put({ type: GET_DETAIL_NEWS, payload: detailNews_ });
 }
 function* getSearchNews({ payload }) {
-  const searchNews_ = yield call(searchNews, payload);
-  yield put({ type: GET_SEARCH_NEWS, payload: searchNews_ });
+   yield put({ type: DO_LOADING, payload: true });
+   const searchNews_ = yield call(searchNews, payload);
+   yield put({ type: GET_SEARCH_NEWS, payload: searchNews_ });
+   yield put({ type: DO_LOADING, payload: false });
 }
 
 function* getLoading({ payload }) {

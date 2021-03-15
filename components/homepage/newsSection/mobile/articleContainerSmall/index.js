@@ -1,11 +1,14 @@
 import Truncate from "react-truncate";
 import Link from "next/link";
+import { useEffect } from "react";
 
 const Article = ({ data, image, truncatex }) => {
   // alert(truncatex)
-  let thumbnailImg =
-    data._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail ||
-    data._embedded["wp:featuredmedia"][0].media_details.sizes.full;
+  console.log(data, "data masuk");
+  let thumbnailImg = data._embedded["wp:featuredmedia"][0].media_details
+    ? data._embedded["wp:featuredmedia"][0].media_details.sizes &&  data._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url
+    : null;
+
   return (
     <>
       <Link href={`/page/${data && data.slug}`}>
@@ -16,7 +19,7 @@ const Article = ({ data, image, truncatex }) => {
                 class="h-100"
                 alt=""
                 style={{
-                  backgroundImage: `linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.4)),url(${thumbnailImg.source_url})`,
+                  backgroundImage: `linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.4)),url(${thumbnailImg})`,
                   objectFit: "contain",
                   backgroundPosition: "center",
                 }}
