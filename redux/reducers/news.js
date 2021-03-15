@@ -79,7 +79,9 @@ export default (state = initialState, { type, payload }) => {
     }
     case GET_SEARCH_NEWS: {
       // state = {};
-      if (payload.status === "failed") return { ...state, ...state.category.page_load = false };
+      console.log(payload.data.length,"cekiceki")
+      if (payload.status === "failed") return { ...state, };
+      if (payload.data.length < 1) return { ...state, ...state.category.page_load = false, ...state.search.data = [] };
       console.log(state, "je");
       if (payload.page !== 1) {
         console.log(state, "if");
@@ -87,13 +89,14 @@ export default (state = initialState, { type, payload }) => {
         state.search.data = state.search.data.concat(payload.data)
         return {
           ...state,
+          ...state.category.page_load = true,
         };
       } else {
         console.log(state, "else");
         state.search.data = payload.data
         return {
           ...state,
-
+          ...(state.category.page_load = true),
         };
       }
     }

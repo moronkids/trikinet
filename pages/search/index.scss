@@ -1,0 +1,15 @@
+#search {
+  & .result {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 20px;
+    color: #000;
+    padding-bottom: 50px;
+  }
+  & .notfound {
+    @extend .result;
+    font-size: 30px;
+  }
+}
