@@ -14,13 +14,13 @@ const headers = () => {
   };
   return (
     <div
-      className="headers sticky-top"
+      className="headers d-none d-sm-block"
       style={{ padding: "0px", margin: "0px", background: "#FFFFFF" }}
     >
       <nav className="navbar navbar-expand-lg navbar-light container">
         <Link href="/">
           <a className="navbar-brand" href="#">
-            <Logo className="logoNavbar" />
+            <img src="/assets/logo-trickynet.svg" className="logoNavbar" />
           </a>
         </Link>
         <button

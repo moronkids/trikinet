@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
-// import ArticleBig from "components/homepage/newsSection/mobile/articleContainerBig";
-
-// import ArticleSmall from "components/homepage/newsSection/mobile/articleContainerSmall";
 import { HIT_NEWS_LATEST } from "redux/actions";
 import Truncate from "react-truncate";
 import { useDispatch, useSelector } from "react-redux";
@@ -219,7 +216,6 @@ const Web = ({
           dataLength={items.length}
           next={fetchMoreData}
           hasMore={page_load}
-          // pullDownToRefreshThreshold={150}
           pullDownToRefreshContent={
             <h3 style={{ textAlign: "center" }}>
               &#8595; Pull down to refresh
@@ -254,19 +250,6 @@ const Web = ({
               })}
           </div>
         </InfiniteScroll>
-        {/* {loading_redux && (
-          <div className="row col-12 news m-0 ">
-            <div className="col-sm-4 col-12">
-              <LoaderSmallArticle />
-            </div>
-            <div className="col-sm-4 col-12">
-              <LoaderSmallArticle />
-            </div>
-            <div className="col-sm-4 col-12">
-              <LoaderSmallArticle />
-            </div>
-          </div>
-        )} */}
       </div>
     </>
   );

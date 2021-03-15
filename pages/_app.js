@@ -12,9 +12,8 @@ import { Hooks } from "providers/hooks";
 import Head from "next/head";
 import Router from "next/router";
 
-
 function MyApp({ Component, pageProps, deviceType }) {
-
+  console.log(deviceType, "cek")
   return (
     <>
       <Provider store={store}>
@@ -29,39 +28,29 @@ function MyApp({ Component, pageProps, deviceType }) {
               padding: 0px;
             }
           `}</style>
-          {deviceType ? (
-            <>
-              <HeadersMobile />
-              <Body>
-                <Component
-                  device={deviceType}
-                  {...pageProps}
-                  // loading={loading}
-                />
-              </Body>
-              <Footers />
-            </>
-          ) : (
-            <>
-              <HeadersWeb />
-              <Body>
-                <Component
-                  device={deviceType}
-                  {...pageProps}
-                  // loading={loading}
-                />
-              </Body>
-              <Footers />
-            </>
-          )}
+          {/* <HeadersMobile /> */}
+          <>
+            <HeadersWeb />
+          </>
+          <>
+            <HeadersMobile />
+          </>
+          <Body>
+            <Component
+              device={deviceType}
+              {...pageProps}
+              // loading={loading}
+            />
+          </Body>
+          <Footers />
         </Hooks>
       </Provider>
     </>
   );
 }
 
-export async function getServerSideProps(context) {
-  const UA = context.req.headers["user-agent"];
+export async function getInitialProps({ctx}) {
+  const UA = ctx.req.headers["user-agent"];
   const isMobile = Boolean(
     UA.match(
       /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i

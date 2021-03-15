@@ -2,7 +2,7 @@ import React from 'react';
 import Box from "components/layouts/searchContainers/searchbox"
 const SearchContainer = () => {
     return (
-      <>
+      <div className="d-sm-block d-none">
         <div className="searchBox">
           <div className="h-100">
             <div className="line1 row justify-content-center align-self-center col-sm-10 col-md-8 mx-auto">
@@ -14,7 +14,7 @@ const SearchContainer = () => {
             </div>
           </div>
         </div>
-      </>
+      </div>
     );
 };
 

@@ -3,15 +3,15 @@ import Hamburger from "../../../../public/assets/hamburgerIcon.svg";
 import Minify from "../../../../public/assets/minify.svg";
 const Headers = () => {
   return (
-    <>
-      <nav class="sticky-top navbar navbar-light bg-light">
+    <div className="d-block d-sm-none sticky-top">
+      <nav className="sticky-top navbar navbar-light bg-light">
         <Hamburger />
-        <a class="navbar-brand mx-auto" href="#">
-          <Logo className="logoNavbar" />
+        <a className="navbar-brand mx-auto" href="#">
+          <img src="/assets/logo-trickynet.svg" className="logoNavbar" />
         </a>
         <Minify />
       </nav>
-    </>
+    </div>
   );
 };
 

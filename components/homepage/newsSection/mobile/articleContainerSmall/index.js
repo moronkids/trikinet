@@ -10,17 +10,14 @@ const Article = ({ data, image, truncatex }) => {
           <div className="articleSmall d-flex mb-3">
             <div className="newsPhoto">
               <img
-                class=""
-                src={
-                  data &&
-                  data._embedded["wp:featuredmedia"][0].media_details.sizes
-                    .thumbnail.source_url
-                }
+                class="h-100"
                 alt=""
                 style={{
-                  width: `${image && image.width}`,
                   backgroundImage:
-                    "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4))",
+                    data &&
+                    `linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.4)),url(${data._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url})`,
+                  objectFit: "contain",
+                  backgroundPosition: "center",
                 }}
               />
             </div>

@@ -16,12 +16,16 @@ const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
           <>
             <div className="row headline h-100">
               <div className="col-md-6 col-12 w-100 imgHeadline">
-                <img
+                <div
                   // src="../assets/section1_1.svg"
-                  src={headlineLatestNews.yoast_meta[6].content}
+                  // src={headlineLatestNews.yoast_meta[6].content}
                   alt=""
-                  className=""
-                  width="100%"
+                  className="h-100 w-100"
+                  style={{
+                    backgroundImage: `linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.4)),url(${headlineLatestNews.yoast_meta[6].content})`,
+                    objectFit : 'fit',
+                    backgroundPosition: 'center'
+                  }}
                 />
               </div>
               <div className="col-md-6 col-12 h-100 w-100">

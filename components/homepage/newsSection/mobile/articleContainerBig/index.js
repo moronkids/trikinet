@@ -27,16 +27,20 @@ const Article = ({data, articleBig, boxTitle}) => {
                   </Truncate>
                 </div>
               </div>
-              <img
-                class=""
-                src={
-                  data &&
-                  data._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url
-                }
+              <div
+                class="w-100 h-100"
+                // src={
+                //   data &&
+                //   data._embedded["wp:featuredmedia"][0].media_details.sizes.full
+                //     .source_url
+                // }
                 alt=""
                 style={{
                   backgroundImage:
-                    "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4))",
+                    data &&
+                    `linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.4)),url(${data._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url})`,
+                  objectFit: "fit",
+                  backgroundPosition: "center",
                 }}
               />
             </div>
