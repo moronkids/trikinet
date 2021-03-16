@@ -2,7 +2,7 @@ import React, { useContext, useRef } from "react";
 import Link from "next/link";
 import { AppContext } from "providers/hooks";
 const index = ({ refbro }) => {
-  const { toggle, setToggle } = useContext(AppContext);
+  const { toggle, setToggle, searchBar } = useContext(AppContext);
 
   return (
     <div>
@@ -42,7 +42,7 @@ const index = ({ refbro }) => {
           <div
             className="backdrop"
             style={{
-              transform: toggle === false ? "translate(-1000px)" : "none",
+              transform: toggle === false  ? "translate(-1000px)" : "none",
               // transition:
               // toggle === false ? "all 3s ease-out;" : "all 3s ease-out;",
             }}

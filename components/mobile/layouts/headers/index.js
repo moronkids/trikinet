@@ -45,8 +45,8 @@ const Headers = () => {
           </a>
           <Minify onClick={(e) => setSearchBar(!searchBar)} />
         </nav>
-        <Sidebar refbro={dropdown} toggle={toggle} />
         <Searchbar refbros={search} toggle={searchBar} />
+        <Sidebar refbro={dropdown} toggle={toggle} />
       </div>
     </>
   );
