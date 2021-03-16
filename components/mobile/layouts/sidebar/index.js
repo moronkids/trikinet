@@ -9,8 +9,8 @@ const index = ({refbro}) => {
       <div className="sidenav d-block d-sm-none">
         <div id="menuToggle" className="d-block d-sm-none">
           <ul
-            ref={refbro}
             id="menu"
+            ref={refbro}
             style={{
               transform: toggle === false ? "translate(-300px)" : "none",
               // transition:
@@ -43,7 +43,7 @@ const index = ({refbro}) => {
             ref={refbro}
             className="backdrop"
             style={{
-              transform: toggle === false ? "translate(-500px)" : "none",
+              transform: toggle === false ? "translate(-1000px)" : "none",
               // transition:
               // toggle === false ? "all 3s ease-out;" : "all 3s ease-out;",
             }}

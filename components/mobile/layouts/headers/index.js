@@ -24,8 +24,14 @@ const Headers = () => {
   }, [toggle]);
   return (
     <>
-      <div className="sticky-top d-block d-sm-none">
-        <nav className="sticky-top navbar navbar-light bg-light">
+      {/* <div
+        className="sticky-top d-block d-sm-none"
+        style={{ width: "100vw !important" }}
+      > */}
+        <nav
+          className="sticky-top navbar navbar-light bg-light"
+          style={{ width: "100vw !important" }}
+        >
           <Hamburger onClick={(e) => setToggle(!toggle)} />
           <a className="navbar-brand mx-auto" href="#">
             <img src="/assets/logo-trickynet.svg" className="logoNavbar" />
@@ -33,8 +39,7 @@ const Headers = () => {
           <Minify />
         </nav>
         <Sidebar refbro={dropdown} toggle={toggle} />
-
-      </div>
+      {/* </div> */}
     </>
   );
 };
