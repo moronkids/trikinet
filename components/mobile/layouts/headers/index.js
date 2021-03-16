@@ -4,10 +4,12 @@ import Hamburger from "../../../../public/assets/hamburgerIcon.svg";
 import Minify from "../../../../public/assets/minify.svg";
 import { assertNullLiteralTypeAnnotation, directive } from "@babel/types";
 import Sidebar from "components/mobile/layouts/sidebar";
-import { useAppContext } from "providers/hooks";
+import { AppContext } from "providers/hooks";
 import Router from "next/router";
 const Headers = () => {
-  const [toggle, setToggle] = useState(false)
+  // const [toggle, setToggle] = useState(false);
+  const { toggle, setToggle } = useContext(AppContext);
+  // alert(device)
   return (
     <>
       <div className="sticky-top d-block d-sm-none">
@@ -18,8 +20,8 @@ const Headers = () => {
           </a>
           <Minify />
         </nav>
+        <Sidebar toggle={toggle} />
       </div>
-      <Sidebar toggle={toggle} />
     </>
   );
 };

@@ -1,10 +1,11 @@
+import { withRouter } from "next/router";
 import React, { useContext, createContext, useState } from "react";
 
 //Context
-export const AppContext = createContext();
+export const AppContext = createContext({requests: []});
 
 //Provider
-export const AppWrapper = ({ children }) => {
+export const AppWrapper = withRouter(({ children }) => {
   const [device, setDevice] = useState(null);
   const [toggle, setToggle] = useState(null);
   //ComponentDidMouunt
@@ -15,7 +16,7 @@ export const AppWrapper = ({ children }) => {
 
   // Interface donde será expuesto como proveedor y envolverá la App.
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
-};
+});
 
 //
 export function useAppContext() {

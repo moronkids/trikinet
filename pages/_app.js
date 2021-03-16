@@ -1,5 +1,5 @@
 import React, { createContext, useState } from "react";
-import App from "next/app";
+import App, {Container} from "next/app";
 import "../styles/scss/styles.scss";
 import HeadersWeb from "components/layouts/headers/headers";
 import HeadersMobile from "components/mobile/layouts/headers";
@@ -19,36 +19,38 @@ function MyApp({ Component, pageProps, deviceType }) {
 
   return (
     <>
-      <Provider store={store}>
-        <AppWrapper>
-          <Head>
-            {" "}
-            <link rel="manifest" href="/manifest.json" />
-          </Head>
-          <style jsx global>{`
-            body {
-              margin: 0px;
-              padding: 0px;
-            }
-          `}</style>
-          {/* <HeadersMobile /> */}
-          <>
-            <HeadersWeb />
-          </>
-          <>
-            <HeadersMobile />
-          </>
+      <Container>
+        <Provider store={store}>
+          <AppWrapper>
+            <Head>
+              {" "}
+              <link rel="manifest" href="/manifest.json" />
+            </Head>
+            <style jsx global>{`
+              body {
+                margin: 0px;
+                padding: 0px;
+              }
+            `}</style>
+            {/* <HeadersMobile /> */}
+            <>
+              <HeadersWeb />
+            </>
+            <>
+              <HeadersMobile />
+            </>
 
-          <Body>
-            <Component
-              device={deviceType}
-              {...pageProps}
-              // loading={loading}
-            />
-          </Body>
-          <Footers />
-        </AppWrapper>
-      </Provider>
+            <Body>
+              <Component
+                device={deviceType}
+                {...pageProps}
+                // loading={loading}
+              />
+            </Body>
+            <Footers />
+          </AppWrapper>
+        </Provider>
+      </Container>
     </>
   );
 }

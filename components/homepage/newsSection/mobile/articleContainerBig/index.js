@@ -10,14 +10,14 @@ const Article = ({data, articleBig, boxTitle}) => {
               style={{ height: articleBig && articleBig.height }}
             >
               <div
-                className="boxTitle position-absolute"
+                className="d-flex boxTitle position-absolute"
                 style={{
                   height: boxTitle && boxTitle.height,
                   width: boxTitle && boxTitle.width,
                 }}
               >
                 <div
-                  className="textTitle"
+                  className="textTitle flex-wrap"
                   style={{ margin: "20px 20px 18px 20px" }}
                 >
                   <div className="banner pb-1">TRIKINET</div>
