@@ -1,6 +1,7 @@
 import React from "react";
 import { useRef, useContext, useEffect } from "react";
 import { AppContext } from "providers/hooks";
+import SearchContainer from "components/layouts/searchContainers/searchbox";
 const Search = ({ refbros }) => {
   const { searchBar, setSearchBar } = useContext(AppContext);
   //     const search = useRef(null);
@@ -30,14 +31,16 @@ const Search = ({ refbros }) => {
           // toggle === false ? "all 3s ease-out;" : "all 3s ease-out;",
         }}
       >
-        <div className="wrapper" ref={refbros} style={{ zIndex: 16 }}></div>
+        <div className="wrapper" ref={refbros} style={{ zIndex: 16 }}>
+          <SearchContainer marginTop={0}/>
+        </div>
       </div>
       <div
         className="backdrop"
         style={{
           transform: searchBar === false ? "translateY(-100vh)" : "none",
           // transition:
-          transition: "0.3s",
+          //   transition: "0.3s",
           // toggle === false ? "all 3s ease-out;" : "all 3s ease-out;",
         }}
       ></div>

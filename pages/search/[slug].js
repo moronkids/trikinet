@@ -41,7 +41,7 @@ const Search = () => {
       <SearchContainers />
       <div className="container mt-5" id="search">
         <div className="row mx-0 px-0 result">Result of : {slug}</div>
-        <div className="row col-12 news m-0 p-0">
+        <div className="row col-12 news m-0 p-0" style={{ width: "100%" }}>
           {console.log(items, "cekoceko")}
           {loading === false && search_data.length < 1 ? (
             <>
@@ -50,23 +50,9 @@ const Search = () => {
               </p>
             </>
           ) : null}
-          {/* {loading === true && (
-            <>
-              <div className="row col-12 news m-0 p-0">
-                <div className="col-sm-6 col-md-4 col-12 m-0 p-0">
-                  <SmallLoader />
-                </div>
-                <div className="col-sm-6 col-md-4 col-12 m-0 p-0">
-                  <SmallLoader />
-                </div>
-                <div className="col-sm-6 col-md-4 col-12 m-0 p-0">
-                  <SmallLoader />
-                </div>
-              </div>
-            </>
-          )} */}
 
           <InfiniteScroll
+            // style={{ width: "100%" }}
             dataLength={items.length}
             next={fetchMoreData}
             hasMore={page_load}
@@ -90,7 +76,7 @@ const Search = () => {
             }
           >
             <div className="col-12 row">
-              {search_data  &&
+              {search_data &&
                 search_data.map((val, i) => {
                   return (
                     <>
