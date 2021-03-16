@@ -90,7 +90,7 @@ const Search = () => {
             }
           >
             <div className="col-12 row">
-              {search_data  && loading === false ?
+              {search_data  &&
                 search_data.map((val, i) => {
                   return (
                     <>
@@ -103,7 +103,7 @@ const Search = () => {
                       </div>
                     </>
                   );
-                }): null}
+                })}
             </div>
           </InfiniteScroll>
         </div>
