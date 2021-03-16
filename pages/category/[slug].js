@@ -8,7 +8,7 @@ import { sortByCategory } from "redux/api/news";
 const Web_ = dynamic(() => import("components/page_category"), {
   loading: () => (
     <>
-      <h1>JINGANn...</h1>
+      <h1></h1>
     </>
   ),
 });

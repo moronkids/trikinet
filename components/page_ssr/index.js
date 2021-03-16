@@ -16,11 +16,6 @@ var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 dayjs().format();
 
-const JINGAN = dynamic(
-  () =>
-    import("components/homepage/newsSection/mobile/articleContainerBig/bro.js"),
-  { loading: () => "tes" }
-);
 const ArticleBig = dynamic(
   () => import("components/homepage/newsSection/mobile/articleContainerBig"),
   {

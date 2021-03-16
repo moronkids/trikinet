@@ -36,7 +36,9 @@ const initialState = {
       status: false,
     },
   },
-  search: {},
+  search: {
+    data : []
+  },
 };
 // This export default will control your state for your application
 export default (state = initialState, { type, payload }) => {
@@ -81,7 +83,7 @@ export default (state = initialState, { type, payload }) => {
     }
     case GET_SEARCH_NEWS: {
       // state = {};
-      console.log(payload.data.length, "cekiceki");
+      // console.log(payload.data.length, "cekiceki");
       if (payload.status === "failed")
         return {
           ...state,
@@ -91,8 +93,8 @@ export default (state = initialState, { type, payload }) => {
       if (payload.data.length < 1)
         return {
           ...state,
-          ...(state.category.page_load = false),
-          ...(state.search.data = []),
+          ...state.category.page_load = false,
+          ...state.search.data = [],
         };
       console.log(state, "je");
       if (payload.page !== 1) {

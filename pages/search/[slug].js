@@ -20,6 +20,7 @@ const Search = () => {
     loading: state.loading.status,
     page_load : state.news.category.page_load
   }));
+  console.log(search_data, "cekoceko");
   const [items, setItems] = useState([])
   const router = useRouter();
   const { slug } = router.query;
@@ -41,7 +42,8 @@ const Search = () => {
       <div className="container mt-5" id="search">
         <div className="row mx-0 px-0 result">Result of : {slug}</div>
         <div className="row col-12 news m-0 p-0">
-          {loading === false && items.length < 1 ? (
+          {console.log(items, "cekoceko")}
+          {loading === false && search_data.length < 1 ? (
             <>
               <p className="text-center mx-auto notfound">
                 Sorry keyword "{slug}" is not found...
@@ -88,7 +90,7 @@ const Search = () => {
             }
           >
             <div className="col-12 row">
-              {search_data &&
+              {search_data  && loading === false ?
                 search_data.map((val, i) => {
                   return (
                     <>
@@ -101,7 +103,7 @@ const Search = () => {
                       </div>
                     </>
                   );
-                })}
+                }): null}
             </div>
           </InfiniteScroll>
         </div>
