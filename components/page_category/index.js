@@ -181,7 +181,7 @@ const Web = ({
     <>
       <div className="" style={{ height: "70px" }} id="category"></div>
       {/* <SquareLoader/> */}
-      <div className="container" id="category" style={{width: "100vw"}}>
+      <div className="container" id="category" style={{ width: "100%" }}>
         <div className="row col-12 news m-0 ">
           <div className="col-12 col-sm-6">
             {loading ? (
