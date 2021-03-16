@@ -17,7 +17,7 @@ dayjs().format();
 const ArticleSmall = dynamic(
   () => import("components/homepage/newsSection/mobile/articleContainerSmall"),
   {
-    loading: () => <SquareLoader />,
+    loading: () => <LoaderSmallArticle />,
   }
 );
 const ArticleBig = dynamic(
@@ -183,9 +183,10 @@ const Web = ({
       {/* <SquareLoader/> */}
       <div className="container" id="category" style={{ width: "100%" }}>
         <div className="row col-12 news m-0 ">
-          <div className="col-12 col-sm-6">
+          <div className="col-12 col-sm-6 m-0 p-0">
             {loading ? (
-              <SquareLoader />
+              // <SquareLoader />
+              <></>
             ) : (
               <ArticleBig
                 data={headlineLatestNews_1}
@@ -194,9 +195,10 @@ const Web = ({
               />
             )}
           </div>
-          <div className="col-12 col-sm-6">
+          <div className="col-12 col-sm-6 m-0 p-0">
             {loading ? (
-              <SquareLoader />
+              // <SquareLoader />
+              <></>
             ) : (
               <ArticleBig
                 data={headlineLatestNews_2}
@@ -206,10 +208,19 @@ const Web = ({
             )}
           </div>
         </div>
-        <div className="row col-12 news m-0 ">
-          <div className="col-sm-4 col-12">{ArticleSmall_1}</div>
-          <div className="col-sm-4 col-12">{ArticleSmall_2}</div>
-          <div className="col-sm-4 col-12">{ArticleSmall_3}</div>
+        <div className="row col-12 news m-0 p-0">
+          {newsLatest &&
+            newsLatest.map((val, i) => {
+              return (
+                <div className="col-sm-4 col-12">
+                  <ArticleSmall
+                    data={val}
+                    image={newsImagePhoto}
+                    truncatex={truncate}
+                  />
+                </div>
+              );
+            })}
         </div>
 
         <InfiniteScroll

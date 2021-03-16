@@ -31,6 +31,9 @@ function MyApp({ Component, pageProps, deviceType }) {
                 margin: 0px;
                 padding: 0px;
               }
+              .infinite-scroll-component__outerdiv {
+                width: 100%;
+              }
             `}</style>
             {/* <HeadersMobile /> */}
             <>
