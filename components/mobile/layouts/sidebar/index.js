@@ -1,17 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import Link from "next/link";
 import { AppContext } from "providers/hooks";
-const index = () => {
+const index = ({refbro}) => {
   const {toggle, setToggle} = useContext(AppContext)
-  console.log(toggle, "cekibro")
+
   return (
     <div>
-      <div className="sidenav d-block d-sm-none">
+      <div className="sidenav d-block d-sm-none" ref={refbro}>
         <div id="menuToggle" className="d-block d-sm-none">
           <ul
             id="menu"
             style={{
-              transform: toggle === false ? "translate(-500px)" : "none",
+              transform: toggle === false ? "translate(-300px)" : "none",
+              // transition:
+                // toggle === false ? "all 3s ease-out;" : "all 3s ease-out;",
             }}
           >
             <Link href="/category/internet">

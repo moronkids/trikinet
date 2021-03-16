@@ -1,4 +1,4 @@
-import react, { useContext, useEffect, useState } from "react";
+import react, { useContext, useEffect, useRef, useState } from "react";
 import Logo from "../../../../public/assets/logo-trickynet.svg";
 import Hamburger from "../../../../public/assets/hamburgerIcon.svg";
 import Minify from "../../../../public/assets/minify.svg";
@@ -9,7 +9,19 @@ import Router from "next/router";
 const Headers = () => {
   // const [toggle, setToggle] = useState(false);
   const { toggle, setToggle } = useContext(AppContext);
-  // alert(device)
+  const dropdown = useRef(null);
+  useEffect(() => {
+    // only add the event listener when the dropdown is opened
+    if (!toggle) return;
+    function handleClick(event) {
+      if (dropdown.current && !dropdown.current.contains(event.target)) {
+        setToggle(false);
+      }
+    }
+    window.addEventListener("click", handleClick);
+    // clean up
+    return () => window.removeEventListener("click", handleClick);
+  }, [toggle]);
   return (
     <>
       <div className="sticky-top d-block d-sm-none">
@@ -20,7 +32,7 @@ const Headers = () => {
           </a>
           <Minify />
         </nav>
-        <Sidebar toggle={toggle} />
+        <Sidebar refbro={dropdown}  toggle={toggle} />
       </div>
     </>
   );
