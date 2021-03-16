@@ -2,12 +2,12 @@ import { withRouter } from "next/router";
 import React, { useContext, createContext, useState } from "react";
 
 //Context
-export const AppContext = createContext({requests: []});
+export const AppContext = createContext(null);
 
 //Provider
-export const AppWrapper = withRouter(({ children }) => {
+export const AppWrapper = ({ children }) => {
   const [device, setDevice] = useState(null);
-  const [toggle, setToggle] = useState(null);
+  const [toggle, setToggle] = useState(false);
   //ComponentDidMouunt
   React.useEffect(() => {}, []);
 
@@ -16,7 +16,7 @@ export const AppWrapper = withRouter(({ children }) => {
 
   // Interface donde será expuesto como proveedor y envolverá la App.
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
-});
+};
 
 //
 export function useAppContext() {
