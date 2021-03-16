@@ -6,14 +6,15 @@ const index = ({refbro}) => {
 
   return (
     <div>
-      <div className="sidenav d-block d-sm-none" ref={refbro}>
+      <div className="sidenav d-block d-sm-none">
         <div id="menuToggle" className="d-block d-sm-none">
           <ul
+            ref={refbro}
             id="menu"
             style={{
               transform: toggle === false ? "translate(-300px)" : "none",
               // transition:
-                // toggle === false ? "all 3s ease-out;" : "all 3s ease-out;",
+              // toggle === false ? "all 3s ease-out;" : "all 3s ease-out;",
             }}
           >
             <Link href="/category/internet">
@@ -38,6 +39,15 @@ const index = ({refbro}) => {
               </li>
             </Link>
           </ul>
+          <div
+            ref={refbro}
+            className="backdrop"
+            style={{
+              transform: toggle === false ? "translate(-500px)" : "none",
+              // transition:
+              // toggle === false ? "all 3s ease-out;" : "all 3s ease-out;",
+            }}
+          ></div>
         </div>
       </div>
     </div>

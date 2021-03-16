@@ -32,7 +32,8 @@ const Headers = () => {
           </a>
           <Minify />
         </nav>
-        <Sidebar refbro={dropdown}  toggle={toggle} />
+        <Sidebar refbro={dropdown} toggle={toggle} />
+
       </div>
     </>
   );
