@@ -1,18 +1,18 @@
 import React, { useContext, useRef } from "react";
 import Link from "next/link";
 import { AppContext } from "providers/hooks";
-const index = ({refbro}) => {
-  const {toggle, setToggle} = useContext(AppContext)
+const index = ({ refbro }) => {
+  const { toggle, setToggle } = useContext(AppContext);
 
   return (
     <div>
       <div className="sidenav d-block d-sm-none">
         <div id="menuToggle" className="d-block d-sm-none">
           <ul
-            id="menu"
             ref={refbro}
+            id="menu"
             style={{
-              transform: toggle === false ? "translate(-300px)" : "none",
+              transform: toggle === false ? "translate(-500px)" : "none",
               // transition:
               // toggle === false ? "all 3s ease-out;" : "all 3s ease-out;",
             }}
@@ -40,7 +40,6 @@ const index = ({refbro}) => {
             </Link>
           </ul>
           <div
-            ref={refbro}
             className="backdrop"
             style={{
               transform: toggle === false ? "translate(-1000px)" : "none",

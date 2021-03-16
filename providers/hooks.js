@@ -8,11 +8,19 @@ export const AppContext = createContext(null);
 export const AppWrapper = ({ children }) => {
   const [device, setDevice] = useState(null);
   const [toggle, setToggle] = useState(false);
+  const [searchBar, setSearchBar] = useState(false);
   //ComponentDidMouunt
   React.useEffect(() => {}, []);
 
   //
-  const values = { device, setDevice, toggle, setToggle };
+  const values = {
+    device,
+    setDevice,
+    toggle,
+    setToggle,
+    searchBar,
+    setSearchBar,
+  };
 
   // Interface donde será expuesto como proveedor y envolverá la App.
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
