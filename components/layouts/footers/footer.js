@@ -7,12 +7,14 @@ const headers = () => {
         <div className="self-container mx-auto">
           <div className="row section1">
             <div className="col-sm-3 col-12 d-none d-lg-block position-absolute">
-              <Logo
+              <img
+                src="/assets/logo-trickynetFooter.svg"
                 className="d-none d-sm-block logoFooter"
               />
             </div>
             <div className="col-12 d-block d-lg-none">
-              <Logo
+              <img
+                src="/assets/logo-trickynetFooter.svg"
                 className="logoFooter d-block d-lg-none mx-auto"
                 // style={{ width: "220px", height: "53px" }}
               />
@@ -36,9 +38,11 @@ const headers = () => {
             <div className="text-align-bottom line1">
               {/* Powered by */}
               {/* <span class="align-middle" style={{top:"-8px", position:"relative"}}>Powered by</span> */}
-              <span class="align-middle" style={{position:"relative"}}>Powered by</span>
+              <span class="align-middle" style={{ position: "relative" }}>
+                Powered by
+              </span>
               <div
-              className="dsLogo"
+                className="dsLogo"
                 style={{
                   position: "relative",
                   width: "172px",
@@ -47,7 +51,7 @@ const headers = () => {
                   marginLeft: "16px",
                 }}
               >
-                <Image
+                <img
                   src="/assets/footer-logo.svg"
                   objectFit="contain"
                   layout="fill"

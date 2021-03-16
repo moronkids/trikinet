@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 
 const Article = ({ data, image, truncatex }) => {
-  // alert(truncatex)
+  console.log(truncatex, "truncatep")
   console.log(data, "data masuk");
   let thumbnailImg = data._embedded["wp:featuredmedia"][0].media_details
     ? data._embedded["wp:featuredmedia"][0].media_details.sizes &&  data._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url
@@ -25,9 +25,9 @@ const Article = ({ data, image, truncatex }) => {
                 }}
               />
             </div>
-            <div className="ml-2 position-relative mt-1 mb-3 w-100">
+            <div className="ml-2 position-relative mt-1 mb-3 w-100 justify-center">
               <Truncate
-                className="w-100"
+                className="w-100 justify-center"
                 lines={truncatex !== 0 ? truncatex : 3}
               >
                 <span>{data && data.title.rendered}</span>

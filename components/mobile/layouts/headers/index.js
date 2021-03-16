@@ -9,19 +9,18 @@ import Router from "next/router";
 const Headers = () => {
   const [toggle, setToggle] = useState(false)
   return (
-    <div className="sticky-top">
-      <div className="d-block d-sm-none">
+    <>
+      <div className="sticky-top d-block d-sm-none">
         <nav className="sticky-top navbar navbar-light bg-light">
-          {/* <Hamburger onClick={e => setToggle(!toggle)} /> */}
-          <Hamburger onClick={(e) => setToggle(!toggle)}/>
+          <Hamburger onClick={(e) => setToggle(!toggle)} />
           <a className="navbar-brand mx-auto" href="#">
             <img src="/assets/logo-trickynet.svg" className="logoNavbar" />
           </a>
           <Minify />
         </nav>
       </div>
-      <Sidebar toggle={toggle}/>
-    </div>
+      <Sidebar toggle={toggle} />
+    </>
   );
 };
 

@@ -32,6 +32,7 @@
         font-size: 14px;
         line-height: 18px;
         /* or 129% */
+        width: inherit;
 
         color: #000000;
       }
@@ -69,5 +70,15 @@
         object-fit: cover;
       }
     }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .news .articleBig .boxTitle .textTitle {
+    font-size: 12px;
+    margin: 15px 15px !important;
+  }
+  .news .articleSmall .ml-2 {
+    font-size: 12px;
   }
 }

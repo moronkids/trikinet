@@ -21,19 +21,13 @@ const Article = ({data, articleBig, boxTitle}) => {
                   style={{ margin: "20px 20px 18px 20px" }}
                 >
                   <div className="banner pb-1">TRIKINET</div>
-                  {/* <br /> */}
-                  <Truncate lines={3}>
+                  <Truncate lines={2}>
                     <div>{data && data.title.rendered}</div>
                   </Truncate>
                 </div>
               </div>
               <div
                 class="w-100 h-100"
-                // src={
-                //   data &&
-                //   data._embedded["wp:featuredmedia"][0].media_details.sizes.full
-                //     .source_url
-                // }
                 alt=""
                 style={{
                   backgroundImage:

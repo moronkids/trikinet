@@ -10,27 +10,13 @@ var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 dayjs().format();
 const News = ({headlineLatestNews, newsLatest, publishedDate}) => {
-  // const dispatch = useDispatch();
-  // const { newsLatest } = useSelector((state) => ({
-  //   newsLatest: state.news.newsLatest.data,
-  // }));
-  // useEffect(() => {
-  //   dispatch({ type: HIT_NEWS_LATEST });
-  // }, []);
-  // console.log(newsLatest, "cekiceki");
-  // const headlineLatestNews = newsLatest[0];
-  // console.log(newsLatest[0], "cekiceki");
-  // console.log(newsLatest, "cekiceki");
-  // newsLatest.shift();
-
-  let publishedDate_1;
   if (newsLatest.length > 0) publishedDate = dayjs(headlineLatestNews.date).fromNow(); // 20 years ago
   let ArticleSmall_;
   if(newsLatest.length > 0) {
     ArticleSmall_ = newsLatest.map((val, i) => {
       return (
         <>
-          <ArticleSmall data={val} />
+          <ArticleSmall truncatex={3} data={val} />
         </>
       );
     });
