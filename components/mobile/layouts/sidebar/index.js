@@ -15,7 +15,7 @@ const index = ({ refbro }) => {
               transform: toggle === false ? "translate(-100px)" : "none",
               width: toggle === false ? "0" : "75%",
               // visibility: "visible",
-              transition : toggle === false ? "all 0.5s ease 0s" : "all 0.5s ease 0s",
+              transition : toggle === false ? "all 0.25s ease 0s" : "all 0.25s ease 0s",
               overflow: "hidden",
               background: "#E95454 none repeat scroll 0% 0%",
               color: "white",
@@ -49,8 +49,8 @@ const index = ({ refbro }) => {
             className={"backdrop"}
             style={{
               transform: toggle === false ? "translateX(-1000px)" : "none",
-              opacity : toggle === true ? "0.8" : "0",
-              transition:toggle === false ? "all 0s ease;" : "all 0s ease;"
+              opacity : toggle === true ? "0.8" : "0.8",
+              transition:toggle === false ? "all 2s ease;" : "all 0s ease;"
             }}
           ></div>
         </div>
