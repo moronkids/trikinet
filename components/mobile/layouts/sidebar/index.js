@@ -13,7 +13,7 @@ const index = ({ refbro }) => {
             id="menu"
             style={{
               transform: toggle === false ? "translate(-500px)" : "none",
-              width: toggle === false ? "0" : "90%",
+              width: toggle === false ? "0" : "75%",
               // visibility: "visible",
               transition : toggle === false ? "all 0.5s ease 0s" : "all 0.5s ease 0s",
               overflow: "hidden",
