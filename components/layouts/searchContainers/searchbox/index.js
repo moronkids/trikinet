@@ -32,7 +32,7 @@ const SearchBox = ({ marginTop }) => {
           placeholder="Search...."
           onChange={(e) => setQuery(e.target.value)}
           style={{ width: "90%" }}
-          onClick={setInputModed(false)}
+          onClick={setInputMode(false)}
           onKeyPress={(e) => {
             e.key === "Enter" && searchArticle(e, query);
             e.key === "Enter" && setInputMode(true);
