@@ -30,8 +30,9 @@ const SearchBox = ({ marginTop }) => {
           style={{ width: "90%" }}
           onKeyPress={(e) => {
             e.key === "Enter" && searchArticle(e, query);
-            e.key === "Enter" && setQuery("");
+            e.key === "Enter" && setQuery(null);
           }}
+          inputMode={query === null && 'none' }
         />
         {/* </form> */}
         <div className="minify justify-content-center align-self-center" />
