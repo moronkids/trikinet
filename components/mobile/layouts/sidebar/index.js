@@ -12,7 +12,7 @@ const index = ({ refbro }) => {
             ref={refbro}
             id="menu"
             style={{
-              transform: toggle === false ? "translate(-500px)" : "none",
+              transform: toggle === false ? "translate(-100px)" : "none",
               width: toggle === false ? "0" : "75%",
               // visibility: "visible",
               transition : toggle === false ? "all 0.5s ease 0s" : "all 0.5s ease 0s",
@@ -46,11 +46,11 @@ const index = ({ refbro }) => {
             </Link>
           </ul>
           <div
-            className="backdrop"
+            className={"backdrop"}
             style={{
-              transform: toggle === false ? "translate(-1000px)" : "none",
-              // transition:
-              // toggle === false ? "all 3s ease-out;" : "all 3s ease-out;",
+              // transform: toggle === false ? "translate(-100px)" : "none",
+              opacity : toggle === true ? "0.8" : "0",
+              transition:toggle === false ? "all 0.5s ease;" : "all 0.5s ease;"
             }}
           ></div>
         </div>
