@@ -21,6 +21,8 @@ export const AppWrapper = ({ children }) => {
     setToggle,
     searchBar,
     setSearchBar,
+    inputmode,
+    setInputMode,
   };
 
   // Interface donde será expuesto como proveedor y envolverá la App.
