@@ -3,21 +3,21 @@ import ContentLoader from "react-content-loader";
 
 const MyLoader = (props) => (
   <ContentLoader
-    speed={1}
+    speed={2}
     // width={400}
-    height={150}
-    // viewBox="0 0 400 150"
-    backgroundColor="#f3f3f3"
+    height={160}
+    // viewBox="0 0 400 160"
+    backgroundColor="#dedede"
     foregroundColor="#ecebeb"
     {...props}
   >
-    <rect x="6" y="0" rx="0" ry="0" width="114" height="113" />
-    <rect x="126" y="7" rx="0" ry="0" width="179" height="15" />
-    <rect x="197" y="39" rx="0" ry="0" width="1" height="2" />
-    <rect x="127" y="28" rx="0" ry="0" width="179" height="15" />
-    <rect x="127" y="51" rx="0" ry="0" width="179" height="15" />
-    <rect x="127" y="72" rx="0" ry="0" width="179" height="15" />
-    <rect x="127" y="93" rx="0" ry="0" width="179" height="15" />
+    <rect x="0" y="0" rx="0" ry="0" width="120" height="120" />
+    <rect x="143" y="0" rx="0" ry="0" width="188" height="16" />
+    <rect x="143" y="20" rx="0" ry="0" width="188" height="16" />
+    <rect x="143" y="40" rx="0" ry="0" width="188" height="16" />
+    <rect x="143" y="60" rx="0" ry="0" width="188" height="16" />
+    <rect x="143" y="80" rx="0" ry="0" width="188" height="16" />
+    <rect x="143" y="100" rx="0" ry="0" width="188" height="16" />
   </ContentLoader>
 );
 

@@ -129,7 +129,7 @@ const Web = ({
       width: "inherit",
     };
 
-    if (!loading_redux) {
+    if (!loading) {
       ArticleSmall_1 = reStructure[0].map((val, i) => {
         return (
           <>
