@@ -37,7 +37,9 @@ const initialState = {
     },
   },
   search: {
-    data : []
+    data: [],
+    current_keyword: null,
+    existing_keyword: null,
   },
 };
 // This export default will control your state for your application
@@ -84,16 +86,32 @@ export default (state = initialState, { type, payload }) => {
     case GET_SEARCH_NEWS: {
       // state = {};
       // console.log(payload.data.length, "cekiceki");
-      if (payload.status === "failed")
-        return {
-          ...state,
-          ...(state.category.page_load = false),
-          ...(state.search.data = []),
-        };
+      if (payload.status === "failed") {
+        if (state.search.existing_keyword === null) {
+          return {
+            ...state,
+            ...(state.category.page_load = false),
+            // ...(state.search.data = []),
+          };
+        } else if (payload.query === state.search.existing_keyword) {
+          return {
+            ...state,
+            ...(state.category.page_load = false),
+            // ...(state.search.data = []),
+          };
+        } else {
+          state.search.existing_keyword = payload.query;
+          return {
+            ...state,
+            ...(state.category.page_load = false),
+            ...(state.search.data = []),
+          };
+        }
+      }
       if (payload.data.length < 1)
         return {
           ...state,
-          ...state.category.page_load = false,
+          ...(state.category.page_load = false),
           ...state.search.data = [],
         };
       console.log(state, "je");

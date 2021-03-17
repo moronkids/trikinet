@@ -71,4 +71,28 @@ body {
 .infinite-scroll-component {
   @extend .infinite-scroll-component__outerdiv;
 }
+.ViewMore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 12px;
+  width: 116px;
+  height: 40px;
+  color: white;
+  background: #ff002e;
+  text-align: center;
+  border-radius: 4px;
+  line-height: 19px;
+  & .disabled {
+    color: rgb(177, 177, 177);
+  }
+}
+.alldata {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+  color: #000;
+}
 /* purgecss end ignore */

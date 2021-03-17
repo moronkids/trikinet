@@ -9,6 +9,8 @@ import { useRouter } from "next/router";
 import SquareLoader from "components/layouts/contentLoader";
 import LoaderSmallArticle from "components/layouts/contentLoader/loader";
 import InfiniteScroll from "react-infinite-scroll-component";
+import ViewMoreButton from "components/viewmore_button";
+// import Spinner from 'public/assets/spinner.svg';
 var dayjs = require("dayjs");
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
@@ -36,6 +38,7 @@ const Web = ({
   const router = useRouter();
   const { slug } = router.query;
   const [page, setPage] = useState(2);
+  const [loadx, setLoadx] = useState(false);
   const { newsLatest_redux, loading_redux, page_load } = useSelector(
     (state) => ({
       // newsLatest_redux:  [] ,
@@ -48,8 +51,9 @@ const Web = ({
           : state.news.category[category].data,
     })
   );
+
   let reStructure2 = [];
-  console.log(newsLatest_redux, newsLatest_redux, "cek data state");
+  // console.log(newsLatest_redux, newsLatest_redux, "cek data state");
   useEffect(async () => {
     await dispatch({ type: RESET_CATEGORY_NEWS, payload: slug });
     reStructure2 = [];
@@ -83,14 +87,17 @@ const Web = ({
 
     return [head, ...chunk(tail, size)];
   };
-  const fetchMoreData = async () => {
+  const fetchMoreData = async (e) => {
+    // alert("sds")
     // a fake async api call like which sends
     // 20 more records in .5 secs
+    e.preventDefault();
     setItems(items.concat(Array.from({ length: 18 })));
-    // setTimeout(() => {
+    // setLoadx(true)
     if (!loading_redux) {
       await dispatch({ type: HIT_CATEGORY_NEWS, payload: [slug, page, 18] });
       setPage(page + 1);
+      setLoadx(false);
     }
     // console.log("latest redux", newsLatest_redux);
     // }, 2000);
@@ -119,7 +126,7 @@ const Web = ({
       width: "inherit",
     };
 
-    if (!loading) {
+    if (!loading_redux) {
       ArticleSmall_1 = reStructure[0].map((val, i) => {
         return (
           <>
@@ -183,7 +190,7 @@ const Web = ({
       {/* <SquareLoader/> */}
       <div className="container" id="category" style={{ width: "100%" }}>
         <div className="row col-12 news m-0 ">
-          <div className="col-12 col-sm-6 m-0 p-0">
+          <div className="col-12 col-sm-6 ">
             {loading ? (
               // <SquareLoader />
               <></>
@@ -195,7 +202,7 @@ const Web = ({
               />
             )}
           </div>
-          <div className="col-12 col-sm-6 m-0 p-0">
+          <div className="col-12 col-sm-6">
             {loading ? (
               // <SquareLoader />
               <></>
@@ -208,9 +215,15 @@ const Web = ({
             )}
           </div>
         </div>
-        <div className="row col-12 news m-0 p-0">
-          {newsLatest &&
-            newsLatest.map((val, i) => {
+        <div className="row col-12 news m-0">
+          <div className="col-sm-4 col-12">{ArticleSmall_1}</div>
+          <div className="col-sm-4 col-12">{ArticleSmall_2}</div>
+          <div className="col-sm-4 col-12">{ArticleSmall_3}</div>
+        </div>
+
+        <div className="row col-12 news m-0">
+          {newsLatest_redux &&
+            newsLatest_redux.map((val, i) => {
               return (
                 <div className="col-sm-4 col-12">
                   <ArticleSmall
@@ -222,18 +235,9 @@ const Web = ({
               );
             })}
         </div>
-
-        <InfiniteScroll
-          dataLength={items.length}
-          next={fetchMoreData}
-          hasMore={page_load}
-          pullDownToRefreshContent={
-            <h3 style={{ textAlign: "center" }}>
-              &#8595; Pull down to refresh
-            </h3>
-          }
-          loader={
-            <div className="row col-12 news m-0 ">
+        <div className="col-12 row m-0">
+          {loading_redux ? (
+            <>
               <div className="col-sm-4 col-12">
                 <LoaderSmallArticle />
               </div>
@@ -243,24 +247,24 @@ const Web = ({
               <div className="col-sm-4 col-12">
                 <LoaderSmallArticle />
               </div>
-            </div>
-          }
+            </>
+          ) : null}
+          {console.log(loading_redux, loadx, "loading")}
+        </div>
+        <div
+          className="text-center w-100 my-5"
+          onClick={(e) => {
+            fetchMoreData(e);
+            setLoadx(true);
+          }}
         >
-          <div className="row col-12 news m-0">
-            {newsLatest_redux &&
-              newsLatest_redux.map((val, i) => {
-                return (
-                  <div className="col-sm-4 col-12">
-                    <ArticleSmall
-                      data={val}
-                      image={newsImagePhoto}
-                      truncatex={truncate}
-                    />
-                  </div>
-                );
-              })}
-          </div>
-        </InfiniteScroll>
+          <ViewMoreButton data={loading_redux} max={page_load} />
+          {!page_load && (
+            <>
+              <h3 className="alldata">All data is loaded</h3>
+            </>
+          )}
+        </div>
       </div>
     </>
   );

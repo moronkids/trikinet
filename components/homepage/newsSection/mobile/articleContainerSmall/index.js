@@ -3,8 +3,6 @@ import Link from "next/link";
 import { useEffect } from "react";
 
 const Article = ({ data, image, truncatex }) => {
-  console.log(truncatex, "truncatep")
-  console.log(data, "data masuk");
   let thumbnailImg = data._embedded["wp:featuredmedia"][0].media_details
     ? data._embedded["wp:featuredmedia"][0].media_details.sizes &&  data._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url
     : null;

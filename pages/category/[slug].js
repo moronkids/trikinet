@@ -125,8 +125,9 @@ export async function getStaticProps({ params }) {
         };
       }
     });
-  console.log(todos, "khusus todos");
-  // return {
+    console.log(todos, "khusus todos");
+    console.log(todos, "khusus todos");
+    // return {
   //   data: todos.data.data,
   //   status: todos.status,
   //   page: page,

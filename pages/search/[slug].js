@@ -7,6 +7,7 @@ import SearchContainers from "components/layouts/searchContainers";
 import InfiniteScroll from "react-infinite-scroll-component";
 import LoaderSmallArticle from "components/layouts/contentLoader/loader";
 import { HIT_SEARCH_NEWS } from "redux/actions";
+import ViewMoreButton from "components/viewmore_button";
 const ArticleSmall = dynamic(
   () => import("components/homepage/newsSection/mobile/articleContainerSmall"),
   {
@@ -15,6 +16,7 @@ const ArticleSmall = dynamic(
 );
 const Search = () => {
     const dispatch = useDispatch();
+      const [loadx, setLoadx] = useState(false);
   const { search_data, loading, page_load } = useSelector((state) => ({
     search_data: state.news.search.data,
     loading: state.loading.status,
@@ -34,12 +36,13 @@ const Search = () => {
     if (!loading) {
       await dispatch({ type: HIT_SEARCH_NEWS, payload: [slug, page, 18] });
       setPage(page + 1);
+      setLoadx(false)
     }
   };
   return (
     <>
       <SearchContainers />
-      <div className="infinite-scroll-component__outerdiv d-none"/>
+      <div className="infinite-scroll-component__outerdiv d-none" />
       <div className="container mt-5" id="search">
         <div className="row mx-0 px-0 result">Result of : {slug}</div>
         <div className="row col-12 news m-0 p-0" style={{ width: "100%" }}>
@@ -51,19 +54,23 @@ const Search = () => {
               </p>
             </>
           ) : null}
-
-          <InfiniteScroll
-            // style={{ width: "100%" }}
-            dataLength={items.length}
-            next={fetchMoreData}
-            hasMore={page_load}
-            pullDownToRefreshContent={
-              <h3 style={{ textAlign: "center" }}>
-                &#8595; Pull down to refresh
-              </h3>
-            }
-            loader={
-              <div className="row col-12 news m-0 ">
+          <div className="row col-12 news m-0">
+            {search_data &&
+              search_data.map((val, i) => {
+                return (
+                  <div className="col-sm-4 col-12">
+                    <ArticleSmall
+                      data={val}
+                      image={newsImagePhoto}
+                      truncatex={truncate}
+                    />
+                  </div>
+                );
+              })}
+          </div>
+          <div className="col-12 row m-0">
+            {loading ? (
+              <>
                 <div className="col-sm-4 col-12">
                   <LoaderSmallArticle />
                 </div>
@@ -73,26 +80,24 @@ const Search = () => {
                 <div className="col-sm-4 col-12">
                   <LoaderSmallArticle />
                 </div>
-              </div>
-            }
+              </>
+            ) : null}
+            {/* {console.log(loading_redux, loadx, "loading")} */}
+          </div>
+          <div
+            className="text-center w-100 my-5"
+            onClick={(e) => {
+              fetchMoreData(e);
+              setLoadx(true);
+            }}
           >
-            <div className="col-12 row">
-              {search_data &&
-                search_data.map((val, i) => {
-                  return (
-                    <>
-                      <div className="col-sm-4 col-12 m-0 p-0">
-                        <ArticleSmall
-                          data={val}
-                          image={newsImagePhoto}
-                          truncatex={truncate}
-                        />
-                      </div>
-                    </>
-                  );
-                })}
-            </div>
-          </InfiniteScroll>
+            <ViewMoreButton data={loading} max={page_load} />
+            {!page_load && (
+              <>
+                <h3 className="alldata">All data is loaded</h3>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </>

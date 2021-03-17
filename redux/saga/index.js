@@ -50,8 +50,8 @@ function* resetCategoryNews({ payload }) {
   yield put({ type: DO_CATEGORY_NEWS, payload: payload });
 }
 function* getInternetNews({ payload }) {
+  yield put({ type: DO_LOADING, payload: true });
   try {
-    yield put({ type: DO_LOADING, payload: true });
     const internetNews_ = yield call(sortByCategory, payload);
     yield put({ type: GET_CATEGORY_NEWS, payload: internetNews_ });
     yield put({ type: DO_LOADING, payload: false });
