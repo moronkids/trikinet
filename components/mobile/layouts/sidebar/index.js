@@ -48,9 +48,9 @@ const index = ({ refbro }) => {
           <div
             className={"backdrop"}
             style={{
-              // transform: toggle === false ? "translate(-100px)" : "none",
+              transform: toggle === false ? "translateX(-1000px)" : "none",
               opacity : toggle === true ? "0.8" : "0",
-              transition:toggle === false ? "all 0.5s ease;" : "all 0.5s ease;"
+              transition:toggle === false ? "all 1s ease;" : "all 1s ease;"
             }}
           ></div>
         </div>
