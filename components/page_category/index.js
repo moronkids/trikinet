@@ -93,7 +93,10 @@ const Web = ({
     // 20 more records in .5 secs
     e.preventDefault();
     setItems(items.concat(Array.from({ length: 18 })));
-    // setLoadx(true)
+    // const section = document.querySelector("#loadmore");
+    // setTimeout(() => {
+    //   section.scrollIntoView({ behavior: "smooth", block: "start" });
+    // }, 500);
     if (!loading_redux) {
       await dispatch({ type: HIT_CATEGORY_NEWS, payload: [slug, page, 18] });
       setPage(page + 1);
@@ -252,6 +255,7 @@ const Web = ({
           {console.log(loading_redux, loadx, "loading")}
         </div>
         <div
+          id="loadmore"
           className="text-center w-100 my-5"
           onClick={(e) => {
             fetchMoreData(e);

@@ -4,9 +4,9 @@ import ContentLoader from "react-content-loader";
 const MyLoader = (props) => (
   <ContentLoader
     speed={1}
-    width={400}
+    // width={400}
     height={150}
-    viewBox="0 0 400 150"
+    // viewBox="0 0 400 150"
     backgroundColor="#f3f3f3"
     foregroundColor="#ecebeb"
     {...props}
