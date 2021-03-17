@@ -9,7 +9,13 @@ import { AppContext } from "providers/hooks";
 import Router from "next/router";
 const Headers = () => {
   // const [toggle, setToggle] = useState(false);
-  const { toggle, setToggle, searchBar, setSearchBar } = useContext(AppContext);
+  const {
+    toggle,
+    setToggle,
+    searchBar,
+    setSearchBar,
+    setInputMode,
+  } = useContext(AppContext);
   const dropdown = useRef(null);
   const search = useRef(null);
   useEffect(() => {
@@ -43,7 +49,7 @@ const Headers = () => {
           <a className="navbar-brand mx-auto" href="#">
             <img src="/assets/logo-trickynet.svg" className="logoNavbar" />
           </a>
-          <Minify onClick={(e) => setSearchBar(!searchBar)} />
+          <Minify onClick={(e) => {setSearchBar(!searchBar); setInputMode(false);}} />
         </nav>
         <Searchbar refbros={search} toggle={searchBar} />
         <Sidebar refbro={dropdown} toggle={toggle} />

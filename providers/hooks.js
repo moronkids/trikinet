@@ -9,6 +9,7 @@ export const AppWrapper = ({ children }) => {
   const [device, setDevice] = useState(null);
   const [toggle, setToggle] = useState(false);
   const [searchBar, setSearchBar] = useState(false);
+    const [inputmode, setInputMode] = useState(false);
   //ComponentDidMouunt
   React.useEffect(() => {}, []);
 

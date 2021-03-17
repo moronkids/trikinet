@@ -7,9 +7,11 @@ import { AppContext } from "providers/hooks";
 const SearchBox = ({ marginTop }) => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const { searchBar, setSearchBar } = useContext(AppContext);
+  const { searchBar, setSearchBar, inputmode, setInputMode } = useContext(
+    AppContext
+  );
   const [query, setQuery] = useState(null);
-  const [inputmode, setInputMode] = useState(false);
+
   const searchArticle = async (e, query) => {
     e.preventDefault();
     setSearchBar(!searchBar);
@@ -32,7 +34,7 @@ const SearchBox = ({ marginTop }) => {
           placeholder="Search...."
           onChange={(e) => setQuery(e.target.value)}
           style={{ width: "90%" }}
-          onClick={setInputMode(false)}
+          // onClick={setInputMode(false)}
           onKeyPress={(e) => {
             e.key === "Enter" && searchArticle(e, query);
             e.key === "Enter" && setInputMode(true);
