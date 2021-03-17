@@ -14,10 +14,11 @@ const index = ({ refbro }) => {
             style={{
               transform: toggle === false ? "translate(-500px)" : "none",
               width: toggle === false ? "0" : "90%",
-              transition: "all 0.35",
-              overflow : "hidden",
+              // visibility: "visible",
+              transition : toggle === false ? "all 0.5s ease 0s" : "all 0.5s ease 0s",
+              overflow: "hidden",
               background: "#E95454 none repeat scroll 0% 0%",
-              color: "white"
+              color: "white",
 
               // toggle === false ? "all 3s ease-out;" : "all 3s ease-out;",
             }}
