@@ -16,11 +16,12 @@ const SearchBox = ({ marginTop }) => {
     e.preventDefault();
     setSearchBar(!searchBar);
     await dispatch({ type: HIT_SEARCH_NEWS, payload: [query, null, null] });
+    setQuery(null)
     router.push(`/search/${query}`);
   };
-  useEffect(() => {
-    setQuery(null)
-  }, [query])
+  // useEffect(() => {
+  //   setQuery(null)
+  // }, [query])
   return (
     <>
       <div
