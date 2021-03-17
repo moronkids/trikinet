@@ -9,8 +9,8 @@ export const AppWrapper = ({ children }) => {
   const [device, setDevice] = useState(null);
   const [toggle, setToggle] = useState(false);
   const [searchBar, setSearchBar] = useState(false);
-    const [inputmode, setInputMode] = useState(false);
-  //ComponentDidMouunt
+  const [inputmode, setInputMode] = useState(false);
+  const [query, setQuery] = useState(null);
   React.useEffect(() => {}, []);
 
   //
@@ -23,6 +23,8 @@ export const AppWrapper = ({ children }) => {
     setSearchBar,
     inputmode,
     setInputMode,
+    query,
+    setQuery,
   };
 
   // Interface donde será expuesto como proveedor y envolverá la App.
@@ -36,7 +38,7 @@ export function useAppContext() {
   if (!context) {
     console.error("Error deploying App Context!!!");
   }
-  return context
+  return context;
 }
 // useAppContext.getInitialProps = async ({ ctx }) => {
 //   let isMobileView = (ctx.req
@@ -49,4 +51,4 @@ export function useAppContext() {
 //   };
 // };
 
-export default useAppContext
+export default useAppContext;

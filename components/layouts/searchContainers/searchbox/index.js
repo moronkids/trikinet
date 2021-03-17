@@ -7,16 +7,21 @@ import { AppContext } from "providers/hooks";
 const SearchBox = ({ marginTop }) => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const { searchBar, setSearchBar, inputmode, setInputMode } = useContext(
-    AppContext
-  );
-  const [query, setQuery] = useState(null);
+  const {
+    searchBar,
+    setSearchBar,
+    inputmode,
+    setInputMode,
+    query,
+    setQuery,
+  } = useContext(AppContext);
+
 
   const searchArticle = async (e, query) => {
     e.preventDefault();
     setSearchBar(!searchBar);
     await dispatch({ type: HIT_SEARCH_NEWS, payload: [query, null, null] });
-    setQuery(null)
+    await setQuery('')
     router.push(`/search/${query}`);
   };
   // useEffect(() => {
@@ -37,8 +42,9 @@ const SearchBox = ({ marginTop }) => {
           style={{ width: "90%" }}
           // onClick={setInputMode(false)}
           onKeyPress={(e) => {
-            e.key === "Enter" && searchArticle(e, query);
+            e.key === "Enter" && searchArticle(e, e.target.value);
             e.key === "Enter" && setInputMode(true);
+            // e.key === "Enter" && setQuery(null);
           }}
           inputMode={inputmode && 'none' }
         />

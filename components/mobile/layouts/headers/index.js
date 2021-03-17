@@ -15,6 +15,7 @@ const Headers = () => {
     searchBar,
     setSearchBar,
     setInputMode,
+    setQuery
   } = useContext(AppContext);
   const dropdown = useRef(null);
   const search = useRef(null);
@@ -49,7 +50,7 @@ const Headers = () => {
           <a className="navbar-brand mx-auto" href="#">
             <img src="/assets/logo-trickynet.svg" className="logoNavbar" />
           </a>
-          <Minify onClick={(e) => {setSearchBar(!searchBar); setInputMode(false);}} />
+          <Minify onClick={(e) => {setSearchBar(!searchBar); setInputMode(false)}} />
         </nav>
         <Searchbar refbros={search} toggle={searchBar} />
         <Sidebar refbro={dropdown} toggle={toggle} />
