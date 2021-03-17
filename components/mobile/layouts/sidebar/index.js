@@ -13,24 +13,29 @@ const index = ({ refbro }) => {
             id="menu"
             style={{
               transform: toggle === false ? "translate(-500px)" : "none",
-              // transition:
+              width: toggle === false ? "0" : "90%",
+              transition: "all 0.35",
+              overflow : "hidden",
+              background: "#E95454 none repeat scroll 0% 0%",
+              color: "white"
+
               // toggle === false ? "all 3s ease-out;" : "all 3s ease-out;",
             }}
           >
             <Link href="/category/internet">
               <li onClick={(e) => setToggle(!toggle)}>
-                <a href="#">Internet</a>
+                <a href="#">INTERNET</a>
               </li>
             </Link>
 
             <Link href="/category/mobile">
               <li onClick={(e) => setToggle(!toggle)}>
-                <a href="#">Mobile</a>
+                <a href="#">MOBILE</a>
               </li>
             </Link>
             <Link href="/category/web">
               <li onClick={(e) => setToggle(!toggle)}>
-                <a href="#">Web</a>
+                <a href="#">WEB</a>
               </li>
             </Link>
             <Link href="/category/pc">
@@ -42,7 +47,7 @@ const index = ({ refbro }) => {
           <div
             className="backdrop"
             style={{
-              transform: toggle === false  ? "translate(-1000px)" : "none",
+              transform: toggle === false ? "translate(-1000px)" : "none",
               // transition:
               // toggle === false ? "all 3s ease-out;" : "all 3s ease-out;",
             }}
