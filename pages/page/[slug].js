@@ -22,7 +22,7 @@ const Article = ({ detailNews, latestNews }) => {
         <title>{detailNews.yoast_title}</title>
       </Head>
       <SearchContainers />
-      <Articlex detailNews_={detailNews} latestNews_={latestNews}/>
+      <Articlex detailNews={detailNews} latestNews={latestNews}/>
     </>
   );
 };
@@ -96,8 +96,8 @@ export async function getServerSideProps({ params }) {
   return {
     props: {
       // data : params
-      detailNews: JSON.stringify(detail.detailNews.data),
-      latestNews: JSON.stringify(latest.newsLatest),
+      detailNews: detail.detailNews.data,
+      latestNews: latest.newsLatest,
     },
   };
   return {

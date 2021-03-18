@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import Ads from "components/ads";
 import ShareButton from "components/share_buttons";
 import NewestArticle from "components/article/newestArticle";
@@ -11,9 +11,7 @@ var dayjs = require("dayjs");
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 dayjs().format();
-const Article = ({ detailNews_, latestNews_ }) => {
-  const [detailNews, setdetailNews] = useState(JSON.parse(detailNews_))
-  const [latestNews, setlatestNews] = useState(JSON.parse(latestNews_))
+const Article = ({ detailNews, latestNews }) => {
   // console.log(data, "anjer");
   // const dispatch = useDispatch();
   // const { detailNews, latestNews } = useSelector((state) => ({
