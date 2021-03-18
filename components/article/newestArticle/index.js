@@ -3,7 +3,7 @@ import Link from 'next/link';
 const NewestArticle = ({data}) => {
   return (
     <>
-      <div className="NewestArticle">
+      <div className="NewestArticle sticky-top">
         <div className="title pb-2">Artikel Terbaru</div>
         {data !== undefined?
           data.data.map((val, i) => {

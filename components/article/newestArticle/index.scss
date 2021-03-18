@@ -27,3 +27,18 @@
     }
   }
 }
+
+@media only screen and (min-width: 501px) {
+  .NewestArticle {
+    padding-top: 80px;
+    overflow: scroll;
+    z-index: 1;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .NewestArticle {
+    // padding-top: 80px;
+    // overflow: scroll;
+    z-index: 1;
+  }
+}
