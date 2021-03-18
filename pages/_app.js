@@ -1,5 +1,5 @@
 import React, { createContext, useState } from "react";
-import App, {Container} from "next/app";
+import App, { Container } from "next/app";
 import "../styles/scss/styles.scss";
 import HeadersWeb from "components/layouts/headers/headers";
 import HeadersMobile from "components/mobile/layouts/headers";
@@ -11,12 +11,25 @@ import { store } from "redux/index";
 import { AppWrapper } from "providers/hooks";
 import Head from "next/head";
 import Sidebar from "components/mobile/layouts/sidebar";
-import Router from "next/router";
 // import NProgress from "nprogress";
-// import Router from "next/router";
-
+import Router from "next/router";
+import Loader from "components/layouts/contentLoader/loader";
+Router.events.on("routeChangeStart", () => {
+  return (
+    <>
+      <Loader />
+    </>
+  );
+});
+Router.events.on("routeChangeComplete", () => {
+  return (
+    <>
+      <Loader />
+    </>
+  );
+});
 function MyApp({ Component, pageProps, deviceType }) {
-
+  // Router.events.on("routeChangeError", () => NProgress.done());
   return (
     <>
       <Container>

@@ -15,15 +15,15 @@ const ArticleSmall = dynamic(
   }
 );
 const Search = () => {
-    const dispatch = useDispatch();
-      const [loadx, setLoadx] = useState(false);
+  const dispatch = useDispatch();
+  const [loadx, setLoadx] = useState(false);
   const { search_data, loading, page_load } = useSelector((state) => ({
     search_data: state.news.search.data,
     loading: state.loading.status,
-    page_load : state.news.category.page_load
+    page_load: state.news.category.page_load,
   }));
   console.log(search_data, "cekoceko");
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
   const router = useRouter();
   const { slug } = router.query;
   let newsImagePhoto = {
@@ -36,7 +36,7 @@ const Search = () => {
     if (!loading) {
       await dispatch({ type: HIT_SEARCH_NEWS, payload: [slug, page, 18] });
       setPage(page + 1);
-      setLoadx(false)
+      setLoadx(false);
     }
   };
   return (
