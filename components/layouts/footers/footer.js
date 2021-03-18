@@ -5,7 +5,7 @@ const headers = () => {
     <>
       <div className="footer">
         <div className="self-container mx-auto">
-          <div className="row section1">
+          <div className="row section1 col-12 m-0 p-0 pb-3">
             <div className="col-sm-3 col-12 d-none d-lg-block position-absolute">
               <img
                 src="/assets/logo-trickynetFooter.svg"

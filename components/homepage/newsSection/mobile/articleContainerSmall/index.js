@@ -17,13 +17,13 @@ const Article = ({ data, image, truncatex }) => {
                 class="h-100"
                 alt=""
                 style={{
-                  backgroundImage: `linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.4)),url(${thumbnailImg})`,
+                  backgroundImage: `linear-gradient(rgb(113 113 113 / 10%), rgb(58 58 58 / 10%)),url(${thumbnailImg})`,
                   objectFit: "contain",
                   backgroundPosition: "center",
                 }}
               />
             </div>
-            <div className="ml-2 position-relative mt-1 mb-3 w-100 justify-center">
+            <div className="titleSmallArticle ml-2 position-relative mt-1 mb-3 w-100 justify-center">
               <Truncate
                 className="w-100 justify-center"
                 lines={truncatex !== 0 ? truncatex : 3}

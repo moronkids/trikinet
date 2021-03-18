@@ -40,7 +40,7 @@ const Search = ({ refbros }) => {
         style={{
           transform: searchBar === false ? "translateY(-100vh)" : "none",
           // transition:
-            transition: searchBar === false ? "all 3s ease-out;" : "all 3s ease-out;",
+            // transition: searchBar === false ? "all 0.3s ease-out;" : "all 0.3s ease-out;",
         }}
       ></div>
     </>
