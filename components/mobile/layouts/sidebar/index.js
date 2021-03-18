@@ -50,7 +50,7 @@ const index = ({ refbro }) => {
             style={{
               transform: toggle === false ? "translateX(-1000px)" : "none",
               opacity : toggle === true ? "0.8" : "0.8",
-              transition:toggle === false ? "all 2s ease;" : "all 0s ease;"
+              transition:toggle === false ? "all 0s ease;" : "all 0s ease;"
             }}
           ></div>
         </div>
