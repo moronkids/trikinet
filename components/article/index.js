@@ -48,18 +48,6 @@ const Article = () => {
             ) : null}
           </div>
           <div className="pt-3">
-            {/* {detailNews.content !== undefined ? (
-              <>
-                <img
-                  src={detailNews.yoast_meta[6].content}
-                  alt=""
-                  className="articleMainImage"
-                />
-              </>
-            ) : (
-              <>null</>
-            )} */}
-
             <div className="articleContent pt-3">
               {detailNews.content !== undefined ? (
                 <>
