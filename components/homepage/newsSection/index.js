@@ -4,6 +4,7 @@ import { useSelector, useDispatch, connect } from "react-redux";
 import { HIT_NEWS_LATEST } from "redux/actions";
 import MobileView from "components/homepage/newsSection/mobile";
 import Truncate from "react-truncate";
+import { MgidWidget } from "react-mgid-widget";
 var dayjs = require("dayjs");
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
@@ -136,15 +137,19 @@ const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
                   <>null</>
                 )}
               </div>
-
               <div
                 className="col-auto d-none d-sm-block float-right mt-3 ml-3"
                 style={{
                   width: "300px",
-                  height: "250px",
-                  backgroundColor: "#C4C4C4;",
+                  height: "100%",
+                  // backgroundColor: "#C4C4C4;",
                 }}
-              />
+              >
+                <MgidWidget
+                  id="M633939ScriptRootC1063616"
+                  src="https://jsc.mgid.com/t/r/trikinet.com.1063616.js"
+                />
+              </div>
             </div>
 
             <div className="seeLatest text-right px-3">
