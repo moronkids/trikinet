@@ -35,37 +35,39 @@ const headers = () => {
             </div>
           </div>
           <div className="section2 text-center">
-            <div className="text-align-bottom line1">
+            <div className="d-flex text-align-bottom line1">
               {/* Powered by */}
               {/* <span class="align-middle" style={{top:"-8px", position:"relative"}}>Powered by</span> */}
-              <span class="align-middle" style={{ position: "relative" }}>
-                Powered by
-              </span>
-              <div
-                className="dsLogo"
-                style={{
-                  position: "relative",
-                  width: "172px",
-                  height: "46px",
-                  display: "inline-block",
-                  marginLeft: "16px",
-                }}
-              >
-                <img
-                  src="/assets/footer-logo.svg"
-                  objectFit="contain"
-                  layout="fill"
-                  // width={50}
-                  // height={50}
-                  quality={50}
-                />
-                {/* <img
+              <div className="d-flex mx-auto">
+                <div class="align-middle my-auto" style={{ position: "relative" }}>
+                  Powered by
+                </div>
+                <div
+                  className="dsLogo"
+                  style={{
+                    position: "relative",
+                    width: "172px",
+                    height: "46px",
+                    display: "inline-block",
+                    marginLeft: "16px",
+                  }}
+                >
+                  <Image
+                    src="/assets/footer-logo.svg"
+                    objectFit="contain"
+                    layout="fill"
+                    // width={50}
+                    // height={50}
+                    quality={50}
+                  />
+                  {/* <img
                   src="/assets/footer-logo.svg"
                   className="dsLogo"
                   style={{objectFit:"contain"}}
                   width="auto"
                   // height="46"
                 /> */}
+                </div>
               </div>
             </div>
             <div className="line2">
