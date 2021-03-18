@@ -96,8 +96,8 @@ export async function getServerSideProps({ params }) {
   return {
     props: {
       // data : params
-      detailNews_: JSON.stringify(detail.detailNews.data),
-      latestNews_: JSON.stringify(latest.newsLatest),
+      detailNews: detail.detailNews.data,
+      latestNews: latest.newsLatest,
     },
   };
   return {
