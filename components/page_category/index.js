@@ -189,10 +189,14 @@ const Web = ({
 
   return (
     <>
-      <div className="" style={{ height: "70px" }} id="category"></div>
+      <div className="" style={{ height: "70px" }} id="categoryx"></div>
       {/* <SquareLoader/> */}
-      <div className="container" id="category" style={{ width: "100%" }}>
-        <div className="row col-12 news m-0 ">
+      <div
+        className="container p-sm-0 p-0"
+        id="category"
+        style={{ width: "100%" }}
+      >
+        <div className="row col-12 news m-0 p-2 p-sm-0">
           <div className="col-12 col-sm-6 ">
             {loading ? (
               // <SquareLoader />
@@ -218,13 +222,13 @@ const Web = ({
             )}
           </div>
         </div>
-        <div className="row col-12 news m-0">
+        <div className="row col-12 news m-0 p-2 p-sm-0">
           <div className="col-sm-4 col-12">{ArticleSmall_1}</div>
           <div className="col-sm-4 col-12">{ArticleSmall_2}</div>
           <div className="col-sm-4 col-12">{ArticleSmall_3}</div>
         </div>
 
-        <div className="row col-12 news m-0">
+        <div className="row col-12 news m-0 p-2 p-sm-0">
           {newsLatest_redux &&
             newsLatest_redux.map((val, i) => {
               return (
@@ -238,7 +242,7 @@ const Web = ({
               );
             })}
         </div>
-        <div className="col-12 row m-0">
+        <div className="col-12 row m-0 p-2 p-sm-0">
           {loading_redux ? (
             <>
               <div className="col-sm-4 col-12">

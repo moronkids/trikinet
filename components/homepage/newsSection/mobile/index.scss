@@ -78,12 +78,19 @@
 }
 
 @media only screen and (max-width: 500px) {
+  #categoryx {
+    height: 5px !important;
+  }
   .news .articleBig .boxTitle .textTitle {
     font-size: 12px;
     margin: 15px 15px !important;
+    width: 100%;
+  }
+  .news .articleBig {
+    height: 200px !important;
   }
   .news .articleBig .boxTitle {
-    height: 110px;
+    height: 60% !important;
   }
   .news .articleSmall .ml-2 {
     font-size: 12px;
