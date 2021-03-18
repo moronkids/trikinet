@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import App, { Container } from "next/app";
 import "../styles/scss/styles.scss";
 import HeadersWeb from "components/layouts/headers/headers";
@@ -11,25 +11,27 @@ import { store } from "redux/index";
 import { AppWrapper } from "providers/hooks";
 import Head from "next/head";
 import Sidebar from "components/mobile/layouts/sidebar";
-// import NProgress from "nprogress";
+import NProgress from "nprogress";
 import Router from "next/router";
-import Loader from "components/layouts/contentLoader/loader";
-Router.events.on("routeChangeStart", () => {
-  return (
-    <>
-      <Loader />
-    </>
-  );
+// import "/styles/nprogress.css";
+
+NProgress.configure({
+  minimum: 0.3,
+  easing: "ease",
+  speed: 800,
+  showSpinner: false,
 });
-Router.events.on("routeChangeComplete", () => {
-  return (
-    <>
-      <Loader />
-    </>
-  );
-});
+
+// Router.events.on("routeChangeStart", () => NProgress.start());
+Router.events.on("routeChangeStart", () => NProgress.start());
+Router.events.on("routeChangeComplete", () => NProgress.done());
+Router.events.on("routeChangeError", () => NProgress.done());
+
 function MyApp({ Component, pageProps, deviceType }) {
-  // Router.events.on("routeChangeError", () => NProgress.done());
+//   useEffect(() => {
+// Router.events.on("routeChangeStart", () => console.log("asu"));
+//   }, [])
+
   return (
     <>
       <Container>
@@ -38,6 +40,12 @@ function MyApp({ Component, pageProps, deviceType }) {
             <Head>
               {" "}
               <link rel="manifest" href="/manifest.json" />
+              <link
+                rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"
+                integrity="sha512-42kB9yDlYiCEfx2xVwq0q7hT4uf26FUgSIZBK8uiaEnTdShXjwr8Ip1V4xGJMg3mHkUt9nNuTDxunHF0/EgxLQ=="
+                crossorigin="anonymous"
+              />
             </Head>
             <style jsx global>{`
               body {

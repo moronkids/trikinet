@@ -6,20 +6,6 @@ import SquareLoader from "components/layouts/contentLoader";
 import Router from "next/router";
 import { sortByCategory } from "redux/api/news";
 import Loader from "components/layouts/contentLoader/loader";
-Router.events.on("routeChangeStart", () => {
-  return (
-    <>
-      <Loader />
-    </>
-  );
-});
-Router.events.on("routeChangeComplete", () => {
-  return (
-    <>
-      <Loader />
-    </>
-  );
-});
 const Web_ = dynamic(() => import("components/page_category"), {
   loading: () => (
     <>
