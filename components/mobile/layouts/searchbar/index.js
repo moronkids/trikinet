@@ -24,7 +24,7 @@ const Search = ({ refbros }) => {
         className="search_mobile"
         style={{
           transform: searchBar === false ? "translateY(-500px)" : "none",
-          transition: "0.3s",
+          transition: searchBar === false ? "all 0.1s ease 0.1s" : "all 0.1s ease 0.1s",
           zIndex: 16,
           position: "absolute",
           // transition:
@@ -32,7 +32,7 @@ const Search = ({ refbros }) => {
         }}
       >
         <div className="wrapper" ref={refbros} style={{ zIndex: 16 }}>
-          <SearchContainer marginTop={0}/>
+          <SearchContainer marginTop={0} />
         </div>
       </div>
       <div
@@ -40,8 +40,7 @@ const Search = ({ refbros }) => {
         style={{
           transform: searchBar === false ? "translateY(-100vh)" : "none",
           // transition:
-          //   transition: "0.3s",
-          // toggle === false ? "all 3s ease-out;" : "all 3s ease-out;",
+            transition: searchBar === false ? "all 3s ease-out;" : "all 3s ease-out;",
         }}
       ></div>
     </>

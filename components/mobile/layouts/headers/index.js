@@ -7,6 +7,7 @@ import Sidebar from "components/mobile/layouts/sidebar";
 import Searchbar from "components/mobile/layouts/searchbar";
 import { AppContext } from "providers/hooks";
 import Router from "next/router";
+import Link from 'next/link';
 const Headers = () => {
   // const [toggle, setToggle] = useState(false);
   const {
@@ -47,10 +48,18 @@ const Headers = () => {
           style={{ width: "100vw !important" }}
         >
           <Hamburger onClick={(e) => setToggle(!toggle)} />
-          <a className="navbar-brand mx-auto" href="#">
-            <img src="/assets/logo-trickynet.svg" className="logoNavbar" />
-          </a>
-          <Minify onClick={(e) => {setSearchBar(!searchBar); setInputMode(false)}} />
+          <Link href="/">
+            <a className="navbar-brand mx-auto" href="#">
+              <img src="/assets/logo-trickynet.svg" className="logoNavbar" />
+            </a>
+          </Link>
+
+          <Minify
+            onClick={(e) => {
+              setSearchBar(!searchBar);
+              setInputMode(false);
+            }}
+          />
         </nav>
         <Searchbar refbros={search} toggle={searchBar} />
         <Sidebar refbro={dropdown} toggle={toggle} />
