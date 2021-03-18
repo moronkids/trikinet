@@ -11,21 +11,22 @@ var dayjs = require("dayjs");
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 dayjs().format();
-const Article = () => {
-  const dispatch = useDispatch();
-  const { detailNews, latestNews } = useSelector((state) => ({
-    detailNews: state.news.detailNews.data,
-    latestNews: state.news.newsLatest,
-  }));
-  const router = useRouter();
-  const { slug } = router.query;
-  useEffect(() => {
-    dispatch({ type: HIT_DETAIL_NEWS, payload: slug });
-    if (latestNews.data.length === 0) {
-      dispatch({ type: HIT_NEWS_LATEST });
-    }
-  }, [slug]);
-  // dayjs.extend(relativeTime);
+const Article = ({ detailNews, latestNews }) => {
+  // console.log(data, "anjer");
+  // const dispatch = useDispatch();
+  // const { detailNews, latestNews } = useSelector((state) => ({
+  //   detailNews: state.news.detailNews.data,
+  //   latestNews: state.news.newsLatest,
+  // }));
+  // const router = useRouter();
+  // const { slug } = router.query;
+  // useEffect(() => {
+  //   dispatch({ type: HIT_DETAIL_NEWS, payload: slug });
+  //   if (latestNews.data.length === 0) {
+  //     dispatch({ type: HIT_NEWS_LATEST });
+  //   }
+  // }, [slug]);
+  // // dayjs.extend(relativeTime);
   let publishedDate;
   if (detailNews.length !== 0) publishedDate = dayjs(detailNews.date).fromNow(); // 20 years ago
   return (
