@@ -6,6 +6,7 @@ import { useSelector, useDispatch, connect } from "react-redux";
 import { HIT_DETAIL_NEWS, HIT_NEWS_LATEST } from "redux/actions";
 import { useRouter } from "next/router";
 import Truncate from "react-truncate";
+import { MgidWidget } from "react-mgid-widget";
 var dayjs = require("dayjs");
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
@@ -30,7 +31,11 @@ const Article = () => {
   return (
     <div className="container article">
       <div className="col-lg-9 col-12">
-        <Ads type="rectangle" class="rectangle mx-auto mt-5" />
+        {/* <Ads type="rectangle" class="rectangle mx-auto mt-5" /> */}
+        {/* <MgidWidget
+          id="M633939ScriptRootC1063616"
+          src="https://jsc.mgid.com/t/r/trikinet.com.1063616.js"
+        /> */}
         <div className="breadcrumbCustom" style={{ marginTop: "43px" }}>
           Trikinet / Web
         </div>
@@ -72,7 +77,11 @@ const Article = () => {
             Oleh {detailNews._embedded && detailNews._embedded.author[0].name}
           </div>
           <div className="postedTime">{publishedDate}</div>
-          <Ads type="square" class="mt-5 mb-5"></Ads>
+          {/* <Ads type="square" class="mt-5 mb-5"></Ads> */}
+          <MgidWidget
+            id="M633939ScriptRootC1063616"
+            src="https://jsc.mgid.com/t/r/trikinet.com.1063616.js"
+          />
           <NewestArticle data={latestNews} />
         </div>
       </div>

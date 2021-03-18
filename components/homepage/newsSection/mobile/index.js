@@ -5,6 +5,7 @@ import { HIT_NEWS_LATEST } from "redux/actions";
 import Truncate from "react-truncate";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import { MgidWidget } from "react-mgid-widget";
 var dayjs = require("dayjs");
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
@@ -29,9 +30,13 @@ const News = ({headlineLatestNews, newsLatest, publishedDate}) => {
   return (
     <>
       <div className="d-block d-sm-none container news pt-4 px-4">
-        <Ads type="rectangle" class="reactangle w-100" />
+        {/* <Ads type="rectangle" class="reactangle w-100" /> */}
+        <MgidWidget
+          id="M633939ScriptRootC1063616"
+          src="https://jsc.mgid.com/t/r/trikinet.com.1063616.js"
+        />
         {ArticleBig_}
-        <Ads type="rectangle" class="reactangle w-100 mb-2" id="category"/>
+        {/* <Ads type="rectangle" class="reactangle w-100 mb-2" id="category" /> */}
         {ArticleSmall_}
       </div>
     </>
