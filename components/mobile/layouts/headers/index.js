@@ -46,7 +46,10 @@ const Headers = () => {
       >
         <nav
           className="sticky-top navbar navbar-light bg-light"
-          style={{ width: "100vw !important" }}
+          style={{
+            width: "100vw !important",
+            boxShadow: "0px 15px 10px -20px #111",
+          }}
         >
           {/* <Hamburger onClick={(e) => setToggle(!toggle)} /> */}
           <Image
