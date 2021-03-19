@@ -29,6 +29,12 @@ const Article = ({ detailNews, latestNews }) => {
   // // dayjs.extend(relativeTime);
   let publishedDate;
   if (detailNews.length !== 0) publishedDate = dayjs(detailNews.date).fromNow(); // 20 years ago
+  let image;
+
+  if (detailNews["_embedded"]["wp:featuredmedia"] !== undefined) {
+    image =
+      detailNews["_embedded"]["wp:featuredmedia"][0]["source_url"];
+  }
   return (
     <div className="container article">
       <div className="col-lg-9 col-12">
@@ -52,6 +58,9 @@ const Article = ({ detailNews, latestNews }) => {
             {detailNews.title !== undefined ? (
               <>{detailNews.yoast_title}</>
             ) : null}
+          </div>
+          <div className="text-center">
+            <img src={image} alt="" />
           </div>
           <div className="pt-3">
             <div className="articleContent pt-3">
@@ -78,7 +87,6 @@ const Article = ({ detailNews, latestNews }) => {
             Oleh {detailNews._embedded && detailNews._embedded.author[0].name}
           </div>
           <div className="postedTime">{publishedDate}</div>
-          {/* <Ads type="square" class="mt-5 mb-5"></Ads> */}
           <MgidWidget
             id="M633939ScriptRootC1063616"
             src="https://jsc.mgid.com/t/r/trikinet.com.1063616.js"
@@ -88,6 +96,6 @@ const Article = ({ detailNews, latestNews }) => {
       </div>
     </div>
   );
-};;;
+};
 
 export default Article;

@@ -13,7 +13,7 @@
       font-family: Montserrat;
       font-style: normal;
       font-weight: 600;
-      font-size: 36px;
+      font-size: 30px;
       line-height: 45px;
       color: #000000;
     }
@@ -98,5 +98,18 @@
   .article img {
     width: 100% !important;
     // height: 0px !important;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .article #leftSide .articleTitle {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 35px;
+    color: #000;
+  }
+  .article #leftSide h2 {
+    font-size: 1.5rem;
   }
 }
