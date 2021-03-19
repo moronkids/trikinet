@@ -1,5 +1,14 @@
 /* purgecss start ignore */
 @import "./newestArticle/index.scss";
+.breadcrumbCustom {
+  color: #e95454;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  /* color: #000; */
+}
 .article {
   & #leftSide {
     & .breadcrumbCustom {
@@ -36,7 +45,12 @@
       font-family: Montserrat;
       font-style: normal;
       font-weight: 500;
-
+      & a,
+      h3,
+      h2,
+      h1 {
+        color: #e95454 !important;
+      }
       & figure {
         width: 100% !important;
         object-fit: contain;

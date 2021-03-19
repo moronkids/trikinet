@@ -7,6 +7,7 @@ import { HIT_DETAIL_NEWS, HIT_NEWS_LATEST } from "redux/actions";
 import { useRouter } from "next/router";
 import Truncate from "react-truncate";
 import { MgidWidget } from "react-mgid-widget";
+import Link from "next/link";
 var dayjs = require("dayjs");
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
@@ -44,7 +45,22 @@ const Article = ({ detailNews, latestNews }) => {
           src="https://jsc.mgid.com/t/r/trikinet.com.1063616.js"
         /> */}
         <div className="breadcrumbCustom" style={{ marginTop: "43px" }}>
-          Trikinet / Web
+          <Link href="/">
+            <a href="" className="mr-2">
+              Trikinet /
+            </a>
+          </Link>
+          <span
+            className="ml-1"
+            dangerouslySetInnerHTML={{
+              __html: detailNews["_embedded"]["wp:term"][0][0]["name"],
+            }}
+          ></span>
+          {/* <Link href=> */}
+          {/* <a href="" className=""> */}
+
+          {/* </a> */}
+          {/* </Link> */}
         </div>
       </div>
       <div className="w-100 d-flex row col-12 m-0 p-0">
@@ -79,10 +95,12 @@ const Article = ({ detailNews, latestNews }) => {
             </div>
           </div>
         </div>
-        <iframe></iframe>
+        {/* <iframe></iframe> */}
         <div id="rightSide" className="col-lg-3 col-12">
           <div className="d-flex articleCategory mt-4">
-            <span className="mx-auto my-auto">Web</span>
+            <span className="mx-auto my-auto">
+              {detailNews["_embedded"]["wp:term"][0][0]["name"]}
+            </span>
           </div>
           <div className="writtenBy pt-4">
             Oleh {detailNews._embedded && detailNews._embedded.author[0].name}
