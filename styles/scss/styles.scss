@@ -95,7 +95,8 @@ body {
   line-height: 20px;
   color: #000;
 }
-.article #leftSide iframe {
+iframe,
+figure {
   width: 100% !important;
 }
 /* purgecss end ignore */

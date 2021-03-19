@@ -33,7 +33,8 @@ if (process.env.MODE === "production") {
         // "wp-block-image",
         // "wp-block-code",
         // "language-",
-        'iframe'
+        'iframe',
+        'figure'
         // "aligncenter",
         // "has-huge-font-size",
         // "has-large-font-size",

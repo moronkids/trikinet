@@ -95,7 +95,8 @@ const Article = ({ detailNews, latestNews }) => {
             </div>
           </div>
         </div>
-        {/* <iframe></iframe> */}
+        {/* <iframe></iframe>
+        <figure></figure> */}
         <div id="rightSide" className="col-lg-3 col-12">
           <div className="d-flex articleCategory mt-4">
             <span className="mx-auto my-auto">
