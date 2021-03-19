@@ -26,6 +26,19 @@ if (process.env.MODE === "production") {
         "./pages/**/*.{js,jsx,ts,tsx}",
         "./components/**/*.{js,jsx,ts,tsx}",
       ],
+      whitelist: [
+        // "body",
+        // "img",
+        // "video",
+        // "wp-block-image",
+        // "wp-block-code",
+        // "language-",
+        'iframe'
+        // "aligncenter",
+        // "has-huge-font-size",
+        // "has-large-font-size",
+        // "has-medium-font-size",
+      ],
       defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
     },
   ]);
