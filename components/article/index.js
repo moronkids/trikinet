@@ -13,7 +13,7 @@ var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 dayjs().format();
 const Article = ({ detailNews, latestNews }) => {
-  // console.log(data, "anjer");
+  //
   // const dispatch = useDispatch();
   // const { detailNews, latestNews } = useSelector((state) => ({
   //   detailNews: state.news.detailNews.data,

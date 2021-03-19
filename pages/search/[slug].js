@@ -22,7 +22,7 @@ const Search = () => {
     loading: state.loading.status,
     page_load: state.news.category.page_load,
   }));
-  console.log(search_data, "cekoceko");
+
   const [items, setItems] = useState([]);
   const router = useRouter();
   const { slug } = router.query;
@@ -46,7 +46,7 @@ const Search = () => {
       <div className="container mt-5" id="search">
         <div className="row mx-0 px-0 result">Result of : {slug}</div>
         <div className="row col-12 news m-0 p-0" style={{ width: "100%" }}>
-          {console.log(items, "cekoceko")}
+
           {loading === false && search_data.length < 1 ? (
             <>
               <p className="text-center mx-auto notfound">
@@ -82,7 +82,7 @@ const Search = () => {
                 </div>
               </>
             ) : null}
-            {/* {console.log(loading_redux, loadx, "loading")} */}
+
           </div>
           <div
             className="text-center w-100 my-5"

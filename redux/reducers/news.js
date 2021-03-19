@@ -44,7 +44,7 @@ const initialState = {
 };
 // This export default will control your state for your application
 export default (state = initialState, { type, payload }) => {
-  console.log(payload, "payload reducers");
+
   switch (type) {
     case GET_NEWS_LATEST: {
       if (payload.status === "failed") return { ...state };
@@ -65,9 +65,9 @@ export default (state = initialState, { type, payload }) => {
       // state = {};
       if (payload.status === "failed")
         return { ...state, ...(state.category.page_load = false) };
-      console.log(state, "je");
+
       if (payload.page !== 1) {
-        console.log(state, "if");
+
         // state.category[payload.category].data = payload.data
         state.category[payload.category].data = state.category[
           payload.category
@@ -76,7 +76,7 @@ export default (state = initialState, { type, payload }) => {
           ...state,
         };
       } else {
-        console.log(state, "else");
+
         state.category[payload.category].data = payload.data;
         return {
           ...state,
@@ -85,7 +85,7 @@ export default (state = initialState, { type, payload }) => {
     }
     case GET_SEARCH_NEWS: {
       // state = {};
-      // console.log(payload.data.length, "cekiceki");
+      //
       if (payload.status === "failed") {
         if (state.search.existing_keyword === null) {
           return {
@@ -114,9 +114,9 @@ export default (state = initialState, { type, payload }) => {
           ...(state.category.page_load = false),
           ...state.search.data = [],
         };
-      console.log(state, "je");
+
       if (payload.page !== 1) {
-        console.log(state, "if");
+
         // state.category[payload.category].data = payload.data
         state.search.data = state.search.data.concat(payload.data);
         return {
@@ -124,7 +124,7 @@ export default (state = initialState, { type, payload }) => {
           ...(state.category.page_load = true),
         };
       } else {
-        console.log(state, "else");
+
         state.search.data = payload.data;
         return {
           ...state,

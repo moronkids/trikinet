@@ -12,10 +12,10 @@ const initialState = {
 };
 // This export default will control your state for your application
 export function FetchLoading(state = initialState, { type, payload }) {
-  console.log(payload, type, "payload reducers");
+
   switch (type) {
     case 'DO_LOADING': {
-      console.log("do load")
+
       state.status = payload;
       return {
         ...state,

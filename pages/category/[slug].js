@@ -26,19 +26,19 @@ const Web = ({
   category,
 }) => {
 
-  //   console.log("buat loading non useEffect");
+  //
   // const dispatch = useDispatch();
   // const { category_stat, loading_redux } = useSelector((state) => ({
   //   category_stat: state.category[category].status,
   //   loading_redux: state.loading.status,
   // }));
   // Router.events.on("routeChangeComplete", () => {
-  //   console.log("tes complete");
+  //
   //   dispatch({ type: DO_LOADING, payload: false });
   // });
   // useEffect(() => {
   //   // alert("cek")
-  //   // console.log("buat loading");
+  //   //
   //   // if(newsLatest.length > 0) {
 
   //   dispatch({ type: DO_LOADING, payload: true });
@@ -118,7 +118,7 @@ export async function getStaticProps({ params }) {
     .get(`news/category/${category}?page=${1}&limit=${20}`)
     .catch(function (error) {
       if (error.response.status !== 200) {
-        console.log(error, "response failed");
+
         return {
           data : {
             statusCode : false,
@@ -127,15 +127,15 @@ export async function getStaticProps({ params }) {
         };
       }
     });
-    console.log(todos, "khusus todos");
-    console.log(todos, "khusus todos");
+
+
     // return {
   //   data: todos.data.data,
   //   status: todos.status,
   //   page: page,
   //   category: category,
   // };
-  // console.log(fetchdata, "INI TODOSƒ");
+  //
   const newsLatest = await todos.data.statusCode ? todos.data.data : [];
   headlineLatestNews_1 = await newsLatest[0];
   headlineLatestNews_2 = await newsLatest[1];

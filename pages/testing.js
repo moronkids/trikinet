@@ -1,6 +1,6 @@
 // posts will be populated at build time by getStaticProps()
 function Blog({ deviceType }) {
-console.log(deviceType,"aj");
+
   return (
     <ul>
       {/* {posts.map((post) => (

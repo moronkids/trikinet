@@ -6,7 +6,7 @@ import defaultAxios from "axios";
 import { useRouter } from "next/router";
 import { useNewsLatestx, detailNews } from "redux/api/news";
 const Article = ({ detailNews, latestNews }) => {
-  // console.log(data, "cuk");
+  //
   // const { detailNews, latestNews } = useSelector((state) => ({
   //   detailNews: state.news.detailNews.data,
   //   latestNews: state.news.newsLatest.data,
@@ -29,7 +29,7 @@ const Article = ({ detailNews, latestNews }) => {
 // Article.getInitialProps = async ({ query }) => {
 //   const { id } = query;
 //   // alert(id)
-//   console.log(id, "taikk");
+//
 //   return { id };
 // };
 // export async function getStaticPaths() {
@@ -63,20 +63,20 @@ const Article = ({ detailNews, latestNews }) => {
 //   });
 //   const todos = await axios.get("news/slug/" + slug).catch(function (error) {
 //     if (error.response.status !== 200) {
-//       console.log(error, "response failed");
+//
 //       return {
 //         status: "failed",
 //       };
 //     }
 //   });
-//   console.log(todos, "response success");
+//
 //   // return {
 //   //   data: todos.data.data,
 //   //   status: todos.status,
 //   //   page: page,
 //   //   category: category,
 //   // };
-//   // console.log(fetchdata, "INI TODOSƒ");
+//   //
 //   // const newsLatest = (await todos.data.statusCode) ? todos.data.data : [];
 //   // headlineLatestNews_1 = await newsLatest[0];
 //   // headlineLatestNews_2 = await newsLatest[1];

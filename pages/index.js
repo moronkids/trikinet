@@ -13,9 +13,9 @@ var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 dayjs().format();
 const Index = (props) => {
-  console.log("buat loading non useEffect")
+
   useEffect(() => {
-    console.log("buat loading")
+
   }, []);
   return (
     <>

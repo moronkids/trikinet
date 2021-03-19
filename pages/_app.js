@@ -29,7 +29,7 @@ Router.events.on("routeChangeError", () => NProgress.done());
 
 function MyApp({ Component, pageProps, deviceType }) {
 //   useEffect(() => {
-// Router.events.on("routeChangeStart", () => console.log("asu"));
+// Router.events.on("routeChangeStart", () =>
 //   }, [])
 
   return (

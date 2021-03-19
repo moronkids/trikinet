@@ -53,7 +53,7 @@ const Web = ({
   );
 
   let reStructure2 = [];
-  // console.log(newsLatest_redux, newsLatest_redux, "cek data state");
+  //
   useEffect(async () => {
     await dispatch({ type: RESET_CATEGORY_NEWS, payload: slug });
     reStructure2 = [];
@@ -102,7 +102,7 @@ const Web = ({
       setPage(page + 1);
       setLoadx(false);
     }
-    // console.log("latest redux", newsLatest_redux);
+    //
     // }, 2000);
   };
   if (newsLatest_redux !== undefined) {
@@ -256,7 +256,7 @@ const Web = ({
               </div>
             </>
           ) : null}
-          {console.log(loading_redux, loadx, "loading")}
+
         </div>
         <div
           id="loadmore"
