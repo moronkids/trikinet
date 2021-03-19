@@ -22,7 +22,7 @@ const Article = ({ detailNews, latestNews }) => {
         <title>{detailNews.yoast_title}</title>
       </Head>
       <SearchContainers />
-      <Articlex detailNews={detailNews} latestNews={latestNews}/>
+      <Articlex detailNews={detailNews} latestNews={latestNews} />
     </>
   );
 };
@@ -90,7 +90,19 @@ const Article = ({ detailNews, latestNews }) => {
 //     },
 //   };
 // }
-export async function getServerSideProps({ params }) {
+export async function getStaticPaths() {
+  const latest = await useNewsLatestx(true);
+  const paths = latest.newsLatest.data.map(item => {
+    return {
+      params : { slug : item.slug}
+    }
+  })
+  return {
+    paths,
+    fallback: true, //or false // See the "fallback" section below
+  };
+}
+export async function getStaticProps({ params }) {
   const detail = await detailNews(params.slug);
   const latest = await useNewsLatestx({});
   return {
