@@ -51,13 +51,11 @@ const Index = (props) => {
 // Index.getInitialProps = async ({ query }) => {
 //   const { id } = query;
 //   // alert(id)
-//   console.log(id, "taikk");
 //   return { id };
 // };
 export async function getStaticProps(context) {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
-  console.log("jancukk")
   const fetch = await useNewsLatestx({});
   const newsLatest = fetch.newsLatest.status ? fetch.newsLatest.data : [];
   const headlineLatestNews = newsLatest[0];

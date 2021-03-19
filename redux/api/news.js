@@ -35,57 +35,55 @@ function FetchLoading(state = initialState, { type, payload }) {
 
 // export default useNewsLatestx;
 
-export const useNewsLatestx = async (unlimit, data = null , limit = null) => {
+export const useNewsLatestx = async (data, props) => {
   // const [state, dispatch] = useReducer(FetchLoading, { status: false }, {});
   // dispatch({ type: "DO_LOADING", payload: true });
-  const page_ = data === null ? 1 : data
-  const limit_ = limit === null ? 16 : limit
- if(unlimit) {
- const todos = await axios
-   .get(`news/latest`)
-   .catch(function (error) {
-     // dispatch({ type: "DO_LOADING", payload: false });
-     if (error.response.status !== 200) {
-       console.log(error, "response failed");
-       return {
-         newsLatest: {
-           status: false,
-         },
-       };
-     }
-   });
- console.log(todos, "response success");
- // dispatch({ type: "DO_LOADING", payload: false });
- return {
-   newsLatest: {
-     data: todos.data.data,
-     status: todos.status,
-   },
- };
- }
- else {
-    const todos = await axios
-      .get(`news/latest?page=${page_}&limit=${limit_}`)
-      .catch(function (error) {
-        // dispatch({ type: "DO_LOADING", payload: false });
-        if (error.response.status !== 200) {
-          console.log(error, "response failed");
-          return {
-            newsLatest: {
-              status: false,
-            },
-          };
-        }
-      });
-    console.log(todos, "response success");
-    // dispatch({ type: "DO_LOADING", payload: false });
-    return {
-      newsLatest: {
-        data: todos.data.data,
-        status: todos.status,
-      },
-    };
- }
+  const todos = await axios
+    .get("news/latest?page=1&limit=16")
+    .catch(function (error) {
+      // dispatch({ type: "DO_LOADING", payload: false });
+      if (error.response.status !== 200) {
+        console.log(error, "response failed");
+        return {
+          newsLatest: {
+            status: false,
+          },
+        };
+      }
+    });
+  console.log(todos, "response success");
+  // dispatch({ type: "DO_LOADING", payload: false });
+  return {
+    newsLatest: {
+      data: todos.data.data,
+      status: todos.status,
+    },
+  };
+};
+export const useNewsLatestz = async (data, props) => {
+  // const [state, dispatch] = useReducer(FetchLoading, { status: false }, {});
+  // dispatch({ type: "DO_LOADING", payload: true });
+  const todos = await axios
+    .get("news/latest")
+    .catch(function (error) {
+      // dispatch({ type: "DO_LOADING", payload: false });
+      if (error.response.status !== 200) {
+        console.log(error, "response failed");
+        return {
+          newsLatest: {
+            status: false,
+          },
+        };
+      }
+    });
+  console.log(todos, "response success");
+  // dispatch({ type: "DO_LOADING", payload: false });
+  return {
+    newsLatest: {
+      data: todos.data.data,
+      status: todos.status,
+    },
+  };
 };
 export const detailNews = async (data) => {
   console.log(data, "bree");
