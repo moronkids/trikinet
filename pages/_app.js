@@ -51,6 +51,7 @@ function MyApp({ Component, pageProps, deviceType }) {
               body {
                 margin: 0px;
                 padding: 0px;
+                background: #f8f8f8 !important;
               }
               .infinite-scroll-component__outerdiv {
                 width: 100%;
