@@ -40,28 +40,28 @@ const headers = () => {
             <li className="nav-item active">
               <Link href="/">
                 <a className="nav-link" href="#">
-                  Home <span className="sr-only">(current)</span>
+                  HOME <span className="sr-only">(current)</span>
                 </a>
               </Link>
             </li>
             <li className="nav-item" onClick={(e) => reset(e, slug)}>
               <Link href="/category/internet">
                 <a className="nav-link" href="#">
-                  Internet
+                  INTERNET
                 </a>
               </Link>
             </li>
             <li className="nav-item" onClick={(e) => reset(e, slug)}>
               <Link href="/category/mobile">
                 <a className="nav-link" href="#">
-                  Mobile
+                  MOBILE
                 </a>
               </Link>
             </li>
             <li className="nav-item" onClick={(e) => reset(e, slug)}>
               <Link href="/category/web">
                 <a className="nav-link" href="#">
-                  Web
+                  WEB
                 </a>
               </Link>
             </li>
@@ -74,7 +74,7 @@ const headers = () => {
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                Lainnya
+                LAINNYA
               </a>
             </li>
           </ul>
