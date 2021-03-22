@@ -69,49 +69,51 @@ const headers = () => {
               onClick={(e) => setToggle(!toggle)}
             ></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarText">
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item active">
-                <Link href="/">
+          <div className="w-100">
+            <div className="collapse navbar-collapse" id="navbarText">
+              <ul className="navbar-nav" style={{marginLeft: "auto !important"}}>
+                <li className="nav-item active">
+                  <Link href="/">
+                    <a className="nav-link" href="#">
+                      HOME <span className="sr-only">(current)</span>
+                    </a>
+                  </Link>
+                </li>
+                <li className="nav-item" onClick={(e) => reset(e, slug)}>
+                  <Link href="/category/internet">
+                    <a className="nav-link" href="#">
+                      INTERNET
+                    </a>
+                  </Link>
+                </li>
+                <li className="nav-item" onClick={(e) => reset(e, slug)}>
+                  <Link href="/category/mobile">
+                    <a className="nav-link" href="#">
+                      MOBILE
+                    </a>
+                  </Link>
+                </li>
+                <li className="nav-item" onClick={(e) => reset(e, slug)}>
+                  <Link href="/category/web">
+                    <a className="nav-link" href="#">
+                      WEB
+                    </a>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link href="/category/pc" onClick={(e) => reset(e, slug)}>
+                    <a className="nav-link" href="#">
+                      PC
+                    </a>
+                  </Link>
+                </li>
+                <li className="nav-item">
                   <a className="nav-link" href="#">
-                    HOME <span className="sr-only">(current)</span>
+                    LAINNYA
                   </a>
-                </Link>
-              </li>
-              <li className="nav-item" onClick={(e) => reset(e, slug)}>
-                <Link href="/category/internet">
-                  <a className="nav-link" href="#">
-                    INTERNET
-                  </a>
-                </Link>
-              </li>
-              <li className="nav-item" onClick={(e) => reset(e, slug)}>
-                <Link href="/category/mobile">
-                  <a className="nav-link" href="#">
-                    MOBILE
-                  </a>
-                </Link>
-              </li>
-              <li className="nav-item" onClick={(e) => reset(e, slug)}>
-                <Link href="/category/web">
-                  <a className="nav-link" href="#">
-                    WEB
-                  </a>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link href="/category/pc" onClick={(e) => reset(e, slug)}>
-                  <a className="nav-link" href="#">
-                    PC
-                  </a>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  LAINNYA
-                </a>
-              </li>
-            </ul>
+                </li>
+              </ul>
+            </div>
           </div>
         </nav>
       </div>
