@@ -6,8 +6,8 @@ const index = ({ refbro }) => {
 
   return (
     <div>
-      <div className="sidenav d-block d-sm-none">
-        <div id="menuToggle" className="d-block d-sm-none">
+      <div className="sidenav d-block d-lg-none">
+        <div id="menuToggle" className="d-block d-lg-none">
           <ul
             ref={refbro}
             id="menu"
