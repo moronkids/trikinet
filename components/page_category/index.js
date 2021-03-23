@@ -55,11 +55,11 @@ const Web = ({
   let reStructure2 = [];
   //
   useEffect(async () => {
-    if(slug!== undefined){
+    if(slug !== undefined){
       await dispatch({ type: RESET_CATEGORY_NEWS, payload: slug });
     }
     else {
-      await dispatch({ type: RESET_CATEGORY_NEWS, payload: 'latest' });
+      await dispatch({ type: RESET_CATEGORY_NEWS, payload: category });
 
     }
     reStructure2 = [];
@@ -97,13 +97,13 @@ const Web = ({
     e.preventDefault();
     setItems(items.concat(Array.from({ length: 18 })));
     if (!loading_redux) {
-      if(slug !== undefined) {
-        await dispatch({ type: HIT_CATEGORY_NEWS, payload: [slug, page, 18] });
+      if(category !== 'latest') {
+        await dispatch({ type: HIT_CATEGORY_NEWS, payload: [category, page, 18] });
         setPage(page + 1);
         setLoadx(false);
       }
       else {
-        await dispatch({ type: HIT_NEWS_LATEST, payload: ['latest', page, 18] });
+        await dispatch({ type: HIT_NEWS_LATEST, payload: [category, page, 18] });
         setPage(page + 1);
         setLoadx(false);
       }

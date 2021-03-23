@@ -4,7 +4,7 @@ import defaultAxios from "axios";
 import SquareLoader from "components/layouts/contentLoader";
 // import Web_ from "components/page_category";
 import Router from "next/router";
-import { sortByCategory } from "redux/api/news";
+import { sortByCategory_ } from "redux/api/news";
 import Loader from "components/layouts/contentLoader/loader";
 const Web_ = dynamic(() => import("components/page_category"), {
   loading: () => (
@@ -25,8 +25,9 @@ const Web = ({
   newsLatest,
   category,
 }) => {
-  const router = useRouter()
-const {slug} = router.query
+  const router = useRouter();
+  const { slug } = router.query;
+  console.log(newsLatest, "ceki")
   //
   // const dispatch = useDispatch();
   // const { category_stat, loading_redux } = useSelector((state) => ({
@@ -78,7 +79,7 @@ const {slug} = router.query
           content="Trikinet adalah sister site yang dikembangkan oleh tim yang ada di DailySocial.id. Trikinet merupakan kepanjangan dari 'trik dan tips internet', blog yang berisi panduan untuk mereka yang ingin mendapatkan trik dan tips seputar internet. Mulai dari web, PC, mobile sampai media sosial."
         />
         <title style={{ textTransform: "capitalize" }}>
-          {slug.charAt(0).toUpperCase() + slug.slice(1)} | Trikinet
+          {category.charAt(0).toUpperCase() + category.slice(1)} | Trikinet
         </title>
         <meta property="og:title" content="My page title" key="title" />
       </Head>
@@ -110,45 +111,11 @@ export async function getStaticPaths() {
   };
 }
 export async function getStaticProps({ params }) {
-  const category = params.slug;
-  // const page = data[1] !== null ? data[1] : 1;
-  // const limit = data[2] !== null ? data[2] : 20;
-
   let headlineLatestNews_1;
   let headlineLatestNews_2;
-  const axios = defaultAxios.create({
-    baseURL: "https://venom.trikinet.com",
-    headers: {
-      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-      "Access-Control-Allow-Origin": "*",
-      // Authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
-    withCredentials: false,
-    crossorigin: true,
-  });
-  const todos = await axios
-    .get(`news/${category}?page=${1}&limit=${20}`)
-    .catch(function (error) {
-      if (error.response.status !== 200) {
-
-        return {
-          data : {
-            statusCode : false,
-            data: []
-          }
-        };
-      }
-    });
-
-
-    // return {
-  //   data: todos.data.data,
-  //   status: todos.status,
-  //   page: page,
-  //   category: category,
-  // };
-  //
-  const newsLatest = await todos.data.statusCode ? todos.data.data : [];
+  const todos = await sortByCategory_('internet')
+  const newsLatest = await todos.data.data;
+  console.log(newsLatest, "jigur")
   headlineLatestNews_1 = await newsLatest[0];
   headlineLatestNews_2 = await newsLatest[1];
 
@@ -157,7 +124,7 @@ export async function getStaticProps({ params }) {
       headlineLatestNews_1,
       headlineLatestNews_2,
       newsLatest,
-      category: params.slug,
+      category: 'internet',
     },
   };
 }

@@ -59,26 +59,27 @@ export const useNewsLatestx = async (data, props) => {
   };
 };
 export const useNewsLatest_ = async (page) => {
-  console.log(page, "bajingan0")
-  const todos = await axios.get(`news/latest?page=${page}&limit=18`).catch(function (error) {
-    // dispatch({ type: "DO_LOADING", payload: false });
-    if (error.response.status !== 200) {
-      return {
-        newsLatest: {
-          status: false,
-        },
-      };
-    }
-  });
+  console.log(page, "bajingan0");
+  const todos = await axios
+    .get(`news/latest?page=${page}&limit=18`)
+    .catch(function (error) {
+      // dispatch({ type: "DO_LOADING", payload: false });
+      if (error.response.status !== 200) {
+        return {
+          newsLatest: {
+            status: false,
+          },
+        };
+      }
+    });
 
   // dispatch({ type: "DO_LOADING", payload: false });
-  console.log(todos.data.data, "bajingan")
+  console.log(todos.data.data, "bajingan");
   return {
-
-      data: todos.data.data,
-      status: todos.status,
-      page: page,
-      category: 'latest',
+    data: todos.data.data,
+    status: todos.status,
+    page: page,
+    category: "latest",
   };
 };
 export const detailNews = async (data) => {
@@ -125,6 +126,25 @@ export const sortByCategory = async (data) => {
       status: "failed",
     };
   }
+};
+export const sortByCategory_ = async (data) => {
+  const category = data;
+
+  const todos = await axios
+    .get(`news/category/${category}?page=${1}&limit=${20}`)
+    .catch(function (error) {
+      if (error.response.status !== 200) {
+        return {
+          status: "failed",
+        };
+      }
+    });
+  //
+  return {
+    data: todos.data,
+    status: todos.status,
+    category: category,
+  };
 };
 
 export const searchNews = async (data) => {

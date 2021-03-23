@@ -79,28 +79,28 @@ const headers = () => {
                   </Link>
                 </li>
                 <li className="nav-item" onClick={(e) => reset(e, slug)}>
-                  <Link href="/category/internet">
+                  <Link href="/internet">
                     <a className="nav-link" href="#">
                       INTERNET
                     </a>
                   </Link>
                 </li>
                 <li className="nav-item" onClick={(e) => reset(e, slug)}>
-                  <Link href="/category/mobile">
+                  <Link href="/mobile">
                     <a className="nav-link" href="#">
                       MOBILE
                     </a>
                   </Link>
                 </li>
                 <li className="nav-item" onClick={(e) => reset(e, slug)}>
-                  <Link href="/category/web">
+                  <Link href="/web">
                     <a className="nav-link" href="#">
                       WEB
                     </a>
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link href="/category/pc" onClick={(e) => reset(e, slug)}>
+                  <Link href="/pc" onClick={(e) => reset(e, slug)}>
                     <a className="nav-link" href="#">
                       PC
                     </a>
