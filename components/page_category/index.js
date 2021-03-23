@@ -55,14 +55,20 @@ const Web = ({
   let reStructure2 = [];
   //
   useEffect(async () => {
-    await dispatch({ type: RESET_CATEGORY_NEWS, payload: slug });
+    if(slug!== undefined){
+      await dispatch({ type: RESET_CATEGORY_NEWS, payload: slug });
+    }
+    else {
+      await dispatch({ type: RESET_CATEGORY_NEWS, payload: 'latest' });
+
+    }
     reStructure2 = [];
     setPage(2);
     const section = document.querySelector("#category");
     setTimeout(() => {
       section.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 500);
-  }, [slug]);
+  }, [slug !== undefined]);
   let newsImagePhoto = {
     width: "inherit",
   };
@@ -88,19 +94,19 @@ const Web = ({
     return [head, ...chunk(tail, size)];
   };
   const fetchMoreData = async (e) => {
-    // alert("sds")
-    // a fake async api call like which sends
-    // 20 more records in .5 secs
     e.preventDefault();
     setItems(items.concat(Array.from({ length: 18 })));
-    // const section = document.querySelector("#loadmore");
-    // setTimeout(() => {
-    //   section.scrollIntoView({ behavior: "smooth", block: "start" });
-    // }, 500);
     if (!loading_redux) {
-      await dispatch({ type: HIT_CATEGORY_NEWS, payload: [slug, page, 18] });
-      setPage(page + 1);
-      setLoadx(false);
+      if(slug !== undefined) {
+        await dispatch({ type: HIT_CATEGORY_NEWS, payload: [slug, page, 18] });
+        setPage(page + 1);
+        setLoadx(false);
+      }
+      else {
+        await dispatch({ type: HIT_NEWS_LATEST, payload: ['latest', page, 18] });
+        setPage(page + 1);
+        setLoadx(false);
+      }
     }
     //
     // }, 2000);

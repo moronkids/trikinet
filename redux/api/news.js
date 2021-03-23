@@ -58,10 +58,9 @@ export const useNewsLatestx = async (data, props) => {
     },
   };
 };
-export const useNewsLatestz = async (data, props) => {
-  // const [state, dispatch] = useReducer(FetchLoading, { status: false }, {});
-  // dispatch({ type: "DO_LOADING", payload: true });
-  const todos = await axios.get("news/latest").catch(function (error) {
+export const useNewsLatest_ = async (page) => {
+  console.log(page, "bajingan0")
+  const todos = await axios.get(`news/latest?page=${page}&limit=18`).catch(function (error) {
     // dispatch({ type: "DO_LOADING", payload: false });
     if (error.response.status !== 200) {
       return {
@@ -73,11 +72,13 @@ export const useNewsLatestz = async (data, props) => {
   });
 
   // dispatch({ type: "DO_LOADING", payload: false });
+  console.log(todos.data.data, "bajingan")
   return {
-    newsLatest: {
+
       data: todos.data.data,
       status: todos.status,
-    },
+      page: page,
+      category: 'latest',
   };
 };
 export const detailNews = async (data) => {
