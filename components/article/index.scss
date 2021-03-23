@@ -10,7 +10,7 @@
   /* color: #000; */
 }
 .article {
-  & img {
+  & .text-center img {
     width: 100% !important;
   }
   & #leftSide {
@@ -117,8 +117,8 @@
     width: 100%;
     height: auto;
   }
-  .article img {
-    width: 100% !important;
+  .article .text-center img {
+    // width: 100% !important;
     // height: 0px !important;
   }
 }

@@ -3,7 +3,7 @@ import Link from "next/link";
 const Article = ({ data, articleBig, boxTitle }) => {
   return (
     <>
-      <Link href={`/page/${data && data.slug}`}>
+      <Link href={`/post/${data && data.slug}`}>
         <a>
           <div
             className="articleBig mx-auto position-relative my-3"

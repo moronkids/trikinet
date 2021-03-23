@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Whatsapp, Facebook, Twitter } from "react-social-sharing";
 const Share = (props) => {
   return (
     <>

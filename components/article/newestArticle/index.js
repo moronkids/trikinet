@@ -10,7 +10,7 @@ const NewestArticle = ({data}) => {
 
            if (i <= 9) {
              return (
-               <Link href={`/page/${val.slug}`}>
+               <Link href={`/post/${val.slug}`}>
                  <a>
                    <div className="d-flex articleContent py-4">
                      <div

@@ -32,7 +32,7 @@ const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
               <div className="col-md-6 col-12 h-100 w-100">
                 <div className="redBorder mt-4" />
                 <div className="category">Web</div>
-                <Link href={"page/" + headlineLatestNews.slug}>
+                <Link href={"post/" + headlineLatestNews.slug}>
                   <a>
                     <div
                       className="title"
@@ -46,7 +46,7 @@ const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
                 <div className="writtenBy">
                   {`Written by ${headlineLatestNews._embedded.author[0].name} - ${publishedDate}`}
                 </div>
-                <Link href={"page/" + headlineLatestNews.slug}>
+                <Link href={"post/" + headlineLatestNews.slug}>
                   <a>
                     <div className="textCrop">
                       <Truncate lines={2}>
@@ -59,7 +59,7 @@ const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
                     </div>
                   </a>
                 </Link>
-                <Link href={"page/" + headlineLatestNews.slug}>
+                <Link href={"post/" + headlineLatestNews.slug}>
                   <a href="" className="">
                     <div className="readMore d-flex ">
                       Read more <span className="ml-2 arrowReadMore"></span>
@@ -86,7 +86,7 @@ const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
                     if (i <= 4) {
                       // data = <div className="list">{val.title.rendered}</div>;
                       data = (
-                        <Link href={`page/${val.slug}`}>
+                        <Link href={`post/${val.slug}`}>
                           <a>
                             <div className="list">{val.title.rendered}</div>
                           </a>
@@ -105,7 +105,7 @@ const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
                     let data;
                     if (i <= 9 && i >= 5) {
                       data = (
-                        <Link href={`page/${val.slug}`}>
+                        <Link href={`post/${val.slug}`}>
                           <a>
                             <div className="list">{val.title.rendered}</div>
                           </a>
@@ -124,7 +124,7 @@ const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
                     let data;
                     if (i <= 14 && i >= 10) {
                       data = (
-                        <Link href={`page/${val.slug}`}>
+                        <Link href={`post/${val.slug}`}>
                           <a>
                             <div className="list">{val.title.rendered}</div>
                           </a>

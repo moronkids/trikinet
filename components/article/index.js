@@ -7,6 +7,7 @@ import { HIT_DETAIL_NEWS, HIT_NEWS_LATEST } from "redux/actions";
 import { useRouter } from "next/router";
 import Truncate from "react-truncate";
 import { MgidWidget } from "react-mgid-widget";
+import { InlineShareButtons } from "sharethis-reactjs";
 import Link from "next/link";
 var dayjs = require("dayjs");
 var relativeTime = require("dayjs/plugin/relativeTime");
@@ -38,7 +39,7 @@ const Article = ({ detailNews, latestNews }) => {
   }
   return (
     <div className="container article">
-      <div className="col-lg-9 col-12">
+      <div className="col-lg-9 col-12 pb-5 mb-5">
         {/* <Ads type="rectangle" class="rectangle mx-auto mt-5" /> */}
         {/* <MgidWidget
           id="M633939ScriptRootC1063616"
@@ -91,7 +92,35 @@ const Article = ({ detailNews, latestNews }) => {
               ) : (
                 <>null</>
               )}
-              <ShareButton class="mx-auto my-3 d-flex col-12 mx-1" />
+              {/* <ShareButton class="mx-auto my-3 d-flex col-12 mx-1" /> */}
+            </div>
+            <div className="pb-5">
+              <InlineShareButtons
+                config={{
+                  alignment: "center", // alignment of buttons (left, center, right)
+                  color: "social", // set the color of buttons (social, white)
+                  enabled: true, // show/hide buttons (true, false)
+                  font_size: 16, // font size for the buttons
+                  labels: "cta", // button labels (cta, counts, null)
+                  language: "en", // which language to use (see LANGUAGES)
+                  networks: [
+                    // which networks to include (see SHARING NETWORKS)
+                    "whatsapp",
+                    "facebook",
+                    "twitter",
+                    "flipboard",
+                  ],
+                  padding: 20, // padding within buttons (INTEGER)
+                  radius: 4, // the corner radius on each button (INTEGER)
+                  //show_total: true,
+                  size: 30, // the size of each button (INTEGER)
+
+                  // OPTIONAL PARAMETERS
+                  url: `https://trikinet.com/post/${detailNews.slug}`,
+                  image: detailNews.image,
+                  title: detailNews.title,
+                }}
+              />
             </div>
           </div>
         </div>
