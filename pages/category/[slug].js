@@ -25,7 +25,8 @@ const Web = ({
   newsLatest,
   category,
 }) => {
-
+  const router = useRouter()
+const {slug} = router.query
   //
   // const dispatch = useDispatch();
   // const { category_stat, loading_redux } = useSelector((state) => ({
@@ -60,14 +61,25 @@ const Web = ({
     <>
       <Head>
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#90cdf4" />
+        <meta
+          property="og:title"
+          content="Blog, Tips, dan Trik Internet | Trikinet.com"
+        />
+        <meta
+          property="og:image"
+          content="https://trikinet.com/assets/img/logo-trickynet.png"
+        />
+        <meta
+          property="og:description"
+          content="Trikinet adalah sister site yang dikembangkan oleh tim yang ada di DailySocial.id. Trikinet merupakan kepanjangan dari 'trik dan tips internet', blog yang berisi panduan untuk mereka yang ingin mendapatkan trik dan tips seputar internet. Mulai dari web, PC, mobile sampai media sosial."
+        />
         <meta
           name="description"
-          content="Mary's simple recipe for maple bacon donuts
-           makes a sticky, sweet treat with just a hint
-           of salt that you'll keep coming back for."
-        ></meta>
-        <title>Home</title>
+          content="Trikinet adalah sister site yang dikembangkan oleh tim yang ada di DailySocial.id. Trikinet merupakan kepanjangan dari 'trik dan tips internet', blog yang berisi panduan untuk mereka yang ingin mendapatkan trik dan tips seputar internet. Mulai dari web, PC, mobile sampai media sosial."
+        />
+        <title style={{ textTransform: "capitalize" }}>
+          {slug.charAt(0).toUpperCase() + slug.slice(1)} | Trikinet
+        </title>
         <meta property="og:title" content="My page title" key="title" />
       </Head>
       <Head>
@@ -79,7 +91,7 @@ const Web = ({
         headlineLatestNews_1={headlineLatestNews_1}
         headlineLatestNews_2={headlineLatestNews_2}
         newsLatest={newsLatest}
-        category= {category}
+        category={category}
       />
     </>
   );
