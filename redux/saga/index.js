@@ -37,6 +37,9 @@ function* getDetailNews({ payload }) {
   yield put({ type: GET_DETAIL_NEWS, payload: detailNews_ });
 }
 function* getSearchNews({ payload }) {
+  if(payload[0] === 'reset') {
+    return yield put({ type: GET_SEARCH_NEWS, payload: 'reset' });
+  }
    yield put({ type: DO_LOADING, payload: true });
    const searchNews_ = yield call(searchNews, payload);
    yield put({ type: GET_SEARCH_NEWS, payload: searchNews_ });

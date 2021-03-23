@@ -6,7 +6,7 @@ import { useSelector, useDispatch, connect } from "react-redux";
 import { HIT_DETAIL_NEWS, HIT_NEWS_LATEST } from "redux/actions";
 import { useRouter } from "next/router";
 import Truncate from "react-truncate";
-import { MgidWidget } from "react-mgid-widget";
+
 import { InlineShareButtons } from "sharethis-reactjs";
 import Link from "next/link";
 var dayjs = require("dayjs");
@@ -39,7 +39,7 @@ const Article = ({ detailNews, latestNews }) => {
   }
   return (
     <div className="container article">
-      <div className="col-lg-9 col-12 pb-5 mb-5">
+      <div className="col-lg-9 col-12">
         {/* <Ads type="rectangle" class="rectangle mx-auto mt-5" /> */}
         {/* <MgidWidget
           id="M633939ScriptRootC1063616"
@@ -126,7 +126,7 @@ const Article = ({ detailNews, latestNews }) => {
         </div>
         {/* <iframe></iframe>
         <figure></figure> */}
-        <div id="rightSide" className="col-lg-3 col-12">
+        <div id="rightSide" className="col-lg-3 col-12 ">
           <div className="d-flex articleCategory mt-4">
             <span className="mx-auto my-auto">
               {detailNews["_embedded"]["wp:term"][0][0]["name"]}
@@ -136,10 +136,7 @@ const Article = ({ detailNews, latestNews }) => {
             Oleh {detailNews._embedded && detailNews._embedded.author[0].name}
           </div>
           <div className="postedTime">{publishedDate}</div>
-          <MgidWidget
-            id="M633939ScriptRootC1063616"
-            src="https://jsc.mgid.com/t/r/trikinet.com.1063616.js"
-          />
+
           <NewestArticle data={latestNews} />
         </div>
       </div>

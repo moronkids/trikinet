@@ -20,7 +20,7 @@ const SearchBox = ({ marginTop }) => {
   const searchArticle = async (e, query) => {
     e.preventDefault();
     setSearchBar(!searchBar);
-    await dispatch({ type: HIT_SEARCH_NEWS, payload: [query, null, null] });
+    // await dispatch({ type: HIT_SEARCH_NEWS, payload: [query, null, null] });
     await setQuery('')
     router.push(`/search/${query}`);
   };

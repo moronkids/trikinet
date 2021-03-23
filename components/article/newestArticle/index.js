@@ -1,36 +1,42 @@
 import React from "react";
 import Link from 'next/link';
+import { MgidWidget } from "react-mgid-widget";
 const NewestArticle = ({data}) => {
   return (
     <>
       <div className="NewestArticle sticky-top">
+        <MgidWidget
+          id="M633939ScriptRootC1063616"
+          src="https://jsc.mgid.com/t/r/trikinet.com.1063616.js"
+        />
         <div className="title pb-2">Artikel Terbaru</div>
-        {data !== undefined?
+        {data !== undefined ? (
           data.data.map((val, i) => {
-
-           if (i <= 9) {
-             return (
-               <Link href={`/post/${val.slug}`}>
-                 <a>
-                   <div className="d-flex articleContent py-4">
-                     <div
-                       className="col-auto articleImage"
-                       style={{
-                         backgroundImage: `url(${val.yoast_meta[6].content})`,
-                         backgroundSize: "cover",
-                         backgroundPosition: "center",
-                       }}
-                     />
-                     <div className="col flex-wrap articleTitle">
-                       {val.title.rendered}
-                     </div>
-                   </div>
-                 </a>
-               </Link>
-             );
-           }
+            if (i <= 9) {
+              return (
+                <Link href={`/post/${val.slug}`}>
+                  <a>
+                    <div className="d-flex articleContent py-4">
+                      <div
+                        className="col-auto articleImage"
+                        style={{
+                          backgroundImage: `url(${val.yoast_meta[6].content})`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                        }}
+                      />
+                      <div className="col flex-wrap articleTitle">
+                        {val.title.rendered}
+                      </div>
+                    </div>
+                  </a>
+                </Link>
+              );
+            }
           })
-         : (<></>)}
+        ) : (
+          <></>
+        )}
       </div>
     </>
   );

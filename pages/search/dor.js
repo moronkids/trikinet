@@ -8,38 +8,38 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import LoaderSmallArticle from "components/layouts/contentLoader/loader";
 import { HIT_SEARCH_NEWS } from "redux/actions";
 import ViewMoreButton from "components/viewmore_button";
-import { searchNews_ } from "redux/api/news";
+import { searchNews } from "redux/api/news";
 const ArticleSmall = dynamic(
   () => import("components/homepage/newsSection/mobile/articleContainerSmall"),
   {
     loading: () => <SmallLoader />,
   }
 );
-const Search = ({search_data_}) => {
-  const dispatch = useDispatch();
-  const [loadx, setLoadx] = useState(false);
-  const { search_data, loading, page_load } = useSelector((state) => ({
-    search_data: state.news.search.data,
-    loading: state.loading.status,
-    page_load: state.news.category.page_load,
-  }));
+const Search = () => {
+  // const dispatch = useDispatch();
+  // const [loadx, setLoadx] = useState(false);
+  // const { search_data, loading, page_load } = useSelector((state) => ({
+  //   search_data: state.news.search.data,
+  //   loading: state.loading.status,
+  //   page_load: state.news.category.page_load,
+  // }));
 
-  const [items, setItems] = useState([]);
-  const router = useRouter();
-  const { slug } = router.query;
-  let newsImagePhoto = {
-    width: "inherit",
-  };
-  let truncate = 3;
-  const [page, setPage] = useState(2);
-  const fetchMoreData = async () => {
-    setItems(items.concat(Array.from({ length: 18 })));
-    if (!loading) {
-      await dispatch({ type: HIT_SEARCH_NEWS, payload: [slug, page, 18] });
-      setPage(page + 1);
-      setLoadx(false);
-    }
-  };
+  // const [items, setItems] = useState([]);
+  // const router = useRouter();
+  // const { slug } = router.query;
+  // let newsImagePhoto = {
+  //   width: "inherit",
+  // };
+  // let truncate = 3;
+  // const [page, setPage] = useState(2);
+  // const fetchMoreData = async () => {
+  //   setItems(items.concat(Array.from({ length: 18 })));
+  //   if (!loading) {
+  //     await dispatch({ type: HIT_SEARCH_NEWS, payload: [slug, page, 18] });
+  //     setPage(page + 1);
+  //     setLoadx(false);
+  //   }
+  // };
   return (
     <>
       <SearchContainers />
@@ -47,27 +47,14 @@ const Search = ({search_data_}) => {
       <div className="container mt-5" id="search">
         <div className="row mx-0 px-0 result">Result of : {slug}</div>
         <div className="row col-12 news m-0 p-0" style={{ width: "100%" }}>
-          {search_data_.length < 1 ? (
+
+          {loading === false && search_data.length < 1 ? (
             <>
               <p className="text-center mx-auto notfound">
                 Sorry keyword "{slug}" is not found...
               </p>
             </>
           ) : null}
-          <div className="row col-12 news m-0">
-            {search_data_ &&
-              search_data_.map((val, i) => {
-                return (
-                  <div className="col-sm-4 col-12">
-                    <ArticleSmall
-                      data={val}
-                      image={newsImagePhoto}
-                      truncatex={truncate}
-                    />
-                  </div>
-                );
-              })}
-          </div>
           <div className="row col-12 news m-0">
             {search_data &&
               search_data.map((val, i) => {
@@ -96,6 +83,7 @@ const Search = ({search_data_}) => {
                 </div>
               </>
             ) : null}
+
           </div>
           <div
             className="text-center w-100 my-5"
@@ -117,12 +105,11 @@ const Search = ({search_data_}) => {
   );
 };
 export async function getServerSideProps({ params }) {
-  const searchResult = await searchNews_(params.slug);
-  console.log(searchResult, "cuk")
+  const searchResult = await searchNews([params.slug]);
   // const latest = await useNewsLatestx({});
   return {
     props: {
-      search_data_: searchResult.data,
+      searchResult: searchResult.data,
     },
   };
 }

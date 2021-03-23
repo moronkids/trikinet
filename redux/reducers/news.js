@@ -114,7 +114,12 @@ export default (state = initialState, { type, payload }) => {
           ...(state.category.page_load = false),
           ...state.search.data = [],
         };
-
+      if(payload === 'reset') {
+        return {
+          ...state,
+          ...(state.search.data = []),
+        };
+      }
       if (payload.page !== 1) {
 
         // state.category[payload.category].data = payload.data

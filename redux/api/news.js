@@ -13,7 +13,6 @@ const axios = defaultAxios.create({
   crossorigin: true,
 });
 function FetchLoading(state = initialState, { type, payload }) {
-
   switch (type) {
     case DO_LOADING: {
       state.status = payload;
@@ -43,7 +42,6 @@ export const useNewsLatestx = async (data, props) => {
     .catch(function (error) {
       // dispatch({ type: "DO_LOADING", payload: false });
       if (error.response.status !== 200) {
-
         return {
           newsLatest: {
             status: false,
@@ -63,19 +61,16 @@ export const useNewsLatestx = async (data, props) => {
 export const useNewsLatestz = async (data, props) => {
   // const [state, dispatch] = useReducer(FetchLoading, { status: false }, {});
   // dispatch({ type: "DO_LOADING", payload: true });
-  const todos = await axios
-    .get("news/latest")
-    .catch(function (error) {
-      // dispatch({ type: "DO_LOADING", payload: false });
-      if (error.response.status !== 200) {
-
-        return {
-          newsLatest: {
-            status: false,
-          },
-        };
-      }
-    });
+  const todos = await axios.get("news/latest").catch(function (error) {
+    // dispatch({ type: "DO_LOADING", payload: false });
+    if (error.response.status !== 200) {
+      return {
+        newsLatest: {
+          status: false,
+        },
+      };
+    }
+  });
 
   // dispatch({ type: "DO_LOADING", payload: false });
   return {
@@ -86,11 +81,9 @@ export const useNewsLatestz = async (data, props) => {
   };
 };
 export const detailNews = async (data) => {
-
   const slug = data;
   const todos = await axios.get("news/slug/" + data).catch(function (error) {
     if (error.response.status !== 200) {
-
       return {
         status: "failed",
       };
@@ -106,7 +99,6 @@ export const detailNews = async (data) => {
 };
 
 export const sortByCategory = async (data) => {
-
   const category = data[0];
   const page = data[1] !== null ? data[1] : 1;
   const limit = data[2] !== null ? data[2] : 20;
@@ -115,7 +107,6 @@ export const sortByCategory = async (data) => {
       .get(`news/category/${category}?page=${page}&limit=${limit}`)
       .catch(function (error) {
         if (error.response.status !== 200) {
-
           return {
             status: "failed",
           };
@@ -136,7 +127,6 @@ export const sortByCategory = async (data) => {
 };
 
 export const searchNews = async (data) => {
-
   const query = data[0];
   const page = data[1] !== null ? data[1] : 1;
   const limit = data[2] !== null ? data[2] : 18;
@@ -145,7 +135,6 @@ export const searchNews = async (data) => {
       .get(`/news/search?q=${query}&page=${page}&limit=${limit}`)
       .catch(function (error) {
         if (error.response.status !== 200) {
-
           return {
             status: "failed",
           };
@@ -163,4 +152,36 @@ export const searchNews = async (data) => {
       status: "failed",
     };
   }
+};
+export const searchNews_ = async (data) => {
+  // console.log(data)
+  const query = data;
+  // const page = data[1] !== null ? data[1] : 1;
+  // const limit = data[2] !== null ? data[2] : 18;
+  // try {
+  const todos = await axios
+    .get(`/news/search?q=${query}&page=${1}&limit=${18}`)
+    .catch(function (error) {
+      if (error.response.status !== 200) {
+        return {
+          data: ["asux"],
+          status: "failed",
+        };
+      }
+    });
+  //
+  console.log(todos);
+  return {
+    data: todos.data.data,
+    status: todos.status,
+    // page: page,
+    query: query,
+  };
+  // } catch (error) {
+  //   console.log(error)
+  //   return {
+  //     data : ["asu"],
+  //     status: "failed",
+  //   };
+  // }
 };
