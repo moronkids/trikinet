@@ -97,19 +97,19 @@ const Web = ({
     </>
   );
 };
-export async function getStaticPaths() {
-  // const router = useRouter();
-  // const { slug } = router.query;
-  return {
-    paths: [
-      { params: { slug: "internet" } }, // See the "paths" section below
-      { params: { slug: "mobile" } }, // See the "paths" section below
-      { params: { slug: "web" } }, // See the "paths" section below
-      { params: { slug: "pc" } }, // See the "paths" section below
-    ],
-    fallback: true, //or false // See the "fallback" section below
-  };
-}
+// export async function getStaticPaths() {
+//   // const router = useRouter();
+//   // const { slug } = router.query;
+//   return {
+//     paths: [
+//       { params: { slug: "internet" } }, // See the "paths" section below
+//       { params: { slug: "mobile" } }, // See the "paths" section below
+//       { params: { slug: "web" } }, // See the "paths" section below
+//       { params: { slug: "pc" } }, // See the "paths" section below
+//     ],
+//     fallback: true, //or false // See the "fallback" section below
+//   };
+// }
 export async function getStaticProps({ params }) {
   let headlineLatestNews_1;
   let headlineLatestNews_2;
