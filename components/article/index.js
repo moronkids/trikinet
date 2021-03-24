@@ -110,12 +110,12 @@ const Article = ({ detailNews, latestNews }) => {
               />
             </div>
           </div>
-          {/* <div className="pb-5 col-12 d-none d-md-block">
+          <div className="pb-5 col-12 d-none d-md-block">
             <MgidWidget
               id="M633939ScriptRootC1046582"
               src="https://jsc.mgid.com/t/r/trikinet.com.1046582.js"
             />
-          </div> */}
+          </div>
         </div>
         {/* <iframe></iframe>
         <figure></figure> */}
@@ -128,12 +128,12 @@ const Article = ({ detailNews, latestNews }) => {
           <div className="writtenBy pt-4">
             Oleh {detailNews._embedded && detailNews._embedded.author[0].name}
           </div>
-          {/* <div className="col-12">
+          <div className="col-12">
             <MgidWidget
               id="M633939ScriptRootC1066913"
               src="https://jsc.mgid.com/t/r/trikinet.com.1066913.js"
             />
-          </div> */}
+          </div>
           <div className="postedTime">{publishedDate}</div>
 
           <NewestArticle data={latestNews} />
