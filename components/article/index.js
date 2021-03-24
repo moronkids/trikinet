@@ -14,24 +14,20 @@ var dayjs = require("dayjs");
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 dayjs().format();
-
+const DynamicComponentWithCustomLoading = dynamic(() => import("../ads/mgid"), {
+  loading: () => <p>REMOKKK</p>,
+});
 const Article = ({ detailNews, latestNews }) => {
   let publishedDate;
   if (detailNews.length !== 0) publishedDate = dayjs(detailNews.date).fromNow(); // 20 years ago
   let image;
 
   if (detailNews["_embedded"]["wp:featuredmedia"] !== undefined) {
-    image =
-      detailNews["_embedded"]["wp:featuredmedia"][0]["source_url"];
+    image = detailNews["_embedded"]["wp:featuredmedia"][0]["source_url"];
   }
   return (
     <div className="container article">
       <div className="col-lg-9 col-12">
-        {/* <Ads type="rectangle" class="rectangle mx-auto mt-5" /> */}
-        {/* <MgidWidget
-          id="M633939ScriptRootC1063616"
-          src="https://jsc.mgid.com/t/r/trikinet.com.1063616.js"
-        /> */}
         <div className="breadcrumbCustom" style={{ marginTop: "43px" }}>
           <Link href="/">
             <a href="" className="mr-2">
@@ -128,14 +124,14 @@ const Article = ({ detailNews, latestNews }) => {
           <div className="writtenBy pt-4">
             Oleh {detailNews._embedded && detailNews._embedded.author[0].name}
           </div>
-          <div className="col-12">
+          <div className="postedTime">{publishedDate}</div>
+          {/* <div className="col-12" style={{ width: "calc(100vw - 6rem)" }}>
             <MgidWidget
               id="M633939ScriptRootC1066913"
               src="https://jsc.mgid.com/t/r/trikinet.com.1066913.js"
             />
-          </div>
-          <div className="postedTime">{publishedDate}</div>
-
+          </div> */}
+          <DynamicComponentWithCustomLoading />
           <NewestArticle data={latestNews} />
         </div>
       </div>
