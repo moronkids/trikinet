@@ -123,6 +123,12 @@ const Article = ({ detailNews, latestNews }) => {
               />
             </div>
           </div>
+          <div className="pb-5">
+            <MgidWidget
+              id="M633939ScriptRootC1046582"
+              src="https://jsc.mgid.com/t/r/trikinet.com.1046582.js"
+            />
+          </div>
         </div>
         {/* <iframe></iframe>
         <figure></figure> */}
