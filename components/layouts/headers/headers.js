@@ -9,10 +9,11 @@ import { useContext, useEffect, useRef } from "react";
 const headers = () => {
   const router = useRouter();
   const { slug } = router.query;
+  const pathname = router.pathname;
+  console.log(pathname, "routing")
   const dispatch = useDispatch();
   const reset = (e, slug) => {
     e.preventDefault();
-    // dispatch({ type: RESET_CATEGORY_NEWS, payload: slug });
   };
   const {
     toggle,
@@ -70,38 +71,63 @@ const headers = () => {
           </button>
           <div className="w-100">
             <div className="collapse navbar-collapse" id="navbarText">
-              <ul className="navbar-nav" style={{marginLeft: "auto !important"}}>
-                <li className="nav-item active">
+              <ul
+                className="navbar-nav"
+                style={{ marginLeft: "auto !important" }}
+              >
+                <li className={`nav-item ${pathname === "/" && "active"}`}>
                   <Link href="/">
-                    <a className="nav-link" href="#">
+                    <a
+                      className={`nav-link ${pathname === "/" && "active"}`}
+                      href="#"
+                    >
                       HOME <span className="sr-only">(current)</span>
                     </a>
                   </Link>
                 </li>
-                <li className="nav-item" onClick={(e) => reset(e, slug)}>
+                <li
+                  className={`nav-item ${pathname === "/internet" && "active"}`}
+                  onClick={(e) => reset(e, slug)}
+                >
                   <Link href="/internet">
-                    <a className="nav-link" href="#">
+                    <a
+                      className={`nav-link ${
+                        pathname === "/internet" && "active"
+                      }`}
+                      href="#"
+                    >
                       INTERNET
                     </a>
                   </Link>
                 </li>
                 <li className="nav-item" onClick={(e) => reset(e, slug)}>
                   <Link href="/mobile">
-                    <a className="nav-link" href="#">
+                    <a
+                      className={`nav-link ${
+                        pathname === "/mobile" && "active"
+                      }`}
+                      href="#"
+                    >
                       MOBILE
                     </a>
                   </Link>
                 </li>
                 <li className="nav-item" onClick={(e) => reset(e, slug)}>
                   <Link href="/web">
-                    <a className="nav-link" href="#">
+                    <a
+                      className={`nav-link ${pathname === "/web" && "active"}`}
+                      href="#"
+                    >
                       WEB
                     </a>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link href="/pc" onClick={(e) => reset(e, slug)}>
-                    <a className="nav-link" href="#">
+                    <a
+                      className={`nav-link ${pathname === "/pc" && "active"}`}
+                      href="#"
+                    >
                       PC
                     </a>
                   </Link>

@@ -23,15 +23,19 @@
     line-height: 18px;
     color: #707070 !important;
   }
-  & .navbar-light .navbar-nav .active > .nav-link {
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 18px;
-    color: #707070 !important;
-    text-transform: uppercase;
+  & .navbar-light .navbar-nav .active > .nav-link,
+  .navbar-light .navbar-nav .nav-link.active {
+    color: #ff002e !important;
   }
+  // & .navbar-light .navbar-nav .active > .nav-link {
+  //   font-family: Montserrat;
+  //   font-style: normal;
+  //   font-weight: 600;
+  //   font-size: 14px;
+  //   line-height: 18px;
+  //   color: #707070 !important;
+  //   text-transform: uppercase;
+  // }
 }
 
 @media only screen and (max-width: 500px) {
