@@ -153,7 +153,7 @@ const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
             </div>
 
             <div className="seeLatest text-right px-3">
-              <Link href="/article">
+              <Link href="/latest">
                 <a>
                   {" "}
                   SEE ALL LATEST <span className="arrow ml-3" />
