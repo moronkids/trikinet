@@ -65,7 +65,7 @@ export async function getStaticPaths() {
     paths: [
       { params: { slug: "latest" } }, // See the "paths" section below
     ],
-    fallback: false, //or false // See the "fallback" section below
+    fallback: true, //or false // See the "fallback" section below
   };
 }
 export async function getStaticProps(context) {

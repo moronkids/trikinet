@@ -110,7 +110,7 @@ export async function getServerSideProps({ params }) {
       newsLatest,
       category: "latest",
     },
-    revalidate: 1, // In seconds
+
   };
 }
 export default Web;
