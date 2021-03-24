@@ -5,10 +5,7 @@ const NewestArticle = ({data}) => {
   return (
     <>
       <div className="NewestArticle sticky-top">
-        <MgidWidget
-          id="M633939ScriptRootC1046582"
-          src="https://jsc.mgid.com/t/r/trikinet.com.1046582.js"
-        />
+
         <div className="title pb-2">Artikel Terbaru</div>
         {data !== undefined ? (
           data.data.map((val, i) => {

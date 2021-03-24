@@ -1,5 +1,6 @@
 import Truncate from "react-truncate";
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect } from "react";
 
 const Article = ({ data, image, truncatex }) => {
@@ -12,18 +13,22 @@ const Article = ({ data, image, truncatex }) => {
       <Link href={`/post/${data && data.slug}`}>
         <a>
           <div className="articleSmall d-flex mb-3">
-            <div className="newsPhoto">
-              <img
-                class="h-100"
+            {/* <div className="newsPhoto"> */}
+              <Image
+                // class="h-100"
                 alt=""
-                style={{
-                  backgroundImage: `linear-gradient(rgb(113 113 113 / 10%), rgb(58 58 58 / 10%)),url(${thumbnailImg})`,
-                  objectFit: "contain",
-                  backgroundPosition: "center",
-                }}
+                src={thumbnailImg}
+                // layout="fill"
+                width ={120}
+                height ={120}
+                // style={{
+                //   // backgroundImage: `linear-gradient(rgb(113 113 113 / 10%), rgb(58 58 58 / 10%)),url(${thumbnailImg})`,
+                //   objectFit: "contain",
+                //   backgroundPosition: "center",
+                // }}
               />
-            </div>
-            <div className="titleSmallArticle ml-2 position-relative mt-1 mb-3 w-100 justify-center">
+            {/* </div> */}
+            <div className="titleSmallArticle ml-2 position-relative mt-0 mb-3 w-100 justify-center">
               <Truncate
                 className="w-100 justify-center"
                 lines={truncatex !== 0 ? truncatex : 3}

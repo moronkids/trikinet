@@ -10,8 +10,15 @@
 //         use: ["style-loader", "css-loader", "postcss-loader"],
 //       },
 //     ],
+//     images: {
+//       domains: ["spiderman.trikinet.com"],
+//     },
 //   },
 // });
 
-
+module.exports = {
+  images: {
+    domains: ["spiderman.trikinet.com"],
+  },
+};
 
