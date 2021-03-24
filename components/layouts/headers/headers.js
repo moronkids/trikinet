@@ -5,12 +5,13 @@ import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import Sidebar from "components/mobile/layouts/sidebar";
 import { AppContext } from "providers/hooks";
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 const headers = () => {
   const router = useRouter();
   const { slug } = router.query;
   const pathname = router.pathname;
   console.log(pathname, "routing")
+  const [dropdown_, setdropdown_] = useState(false);
   const dispatch = useDispatch();
   const reset = (e, slug) => {
     e.preventDefault();
@@ -27,11 +28,15 @@ const headers = () => {
   const search = useRef(null);
   useEffect(() => {
     // only add the event listener when the dropdown is opened
-    if (!toggle) return;
+    console.log("dis");
+    if (!dropdown_) return;
     // if (!toggle) {
     function handleClick(event) {
+      console.log("dis1");
       if (dropdown.current && !dropdown.current.contains(event.target)) {
+        console.log("dis2");
         setToggle(false);
+        setdropdown_(false)
       }
       if (search.current && !search.current.contains(event.target)) {
         setSearchBar(false);
@@ -41,7 +46,7 @@ const headers = () => {
     window.addEventListener("click", handleClick);
     // clean up
     return () => window.removeEventListener("click", handleClick);
-  }, [toggle, searchBar]);
+  }, [toggle, searchBar, dropdown_]);
   return (
     <div className="sticky-top">
       <div
@@ -132,10 +137,40 @@ const headers = () => {
                     </a>
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
+                <li
+                  class="nav-item dropdown"
+                  onClick={(e) => setdropdown_(!dropdown_)}
+                >
+                  <a
+                    class="nav-link dropdown-toggle"
+                    // href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
                     LAINNYA
                   </a>
+                  <div
+                    class={`dropdown-menu ${dropdown_ ? "show" : ""}`}
+                    aria-labelledby="navbarDropdown"
+                    refbro={dropdown}
+                  >
+                    <a class="dropdown-item" href="#">
+                      ABOUT
+                    </a>
+                    <a class="dropdown-item" href="#">
+                      CONTACT US
+                    </a>
+                    <a class="dropdown-item" href="#">
+                      CYBER MEDIA GUIDE
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+                      PRIVACY POLICY
+                    </a>
+                  </div>
                 </li>
               </ul>
             </div>
