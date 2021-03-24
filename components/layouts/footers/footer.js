@@ -1,5 +1,6 @@
 import Logo from "../../../public/assets/logo-trickynetFooter.svg";
 import Image from "next/image";
+import Link from "next/link";
 const headers = () => {
   return (
     <>
@@ -12,26 +13,40 @@ const headers = () => {
                 className="d-none d-sm-block logoFooter"
               />
             </div>
-            <div className="col-12 d-block d-lg-none">
+            <div className="col-12 d-block d-lg-none pb-5">
               <img
                 src="/assets/logo-trickynetFooter.svg"
                 className="logoFooter d-block d-lg-none mx-auto"
                 // style={{ width: "220px", height: "53px" }}
               />
             </div>
-            <div className="d-flex flex-wrap col-lg-6 col-md-7  mx-auto">
-              <span className="menu mx-auto mt-lg-0 mt-4">INTERNET</span>
-              <span className="menu mx-auto mt-lg-0 mt-4">MOBILE</span>
-              <span className="menu mx-auto mt-lg-0 mt-4">PC</span>
-              <span className="menu mx-auto mt-lg-0 mt-4">WEB</span>
-              <span className="menu mx-auto mt-lg-0 mt-4">ABOUT</span>
+            <div className="col-lg-6 col-md-7  mx-auto text-center">
+              <Link href="/internet">
+                <a className="menu mx-auto mt-lg-0 mt-4">INTERNET</a>
+              </Link>
+              <Link href="/mobile">
+                <a className="menu mx-auto mt-lg-0 mt-4">MOBILE</a>
+              </Link>
+              <Link href="/pc">
+                <a className="menu mx-auto mt-lg-0 mt-4">PC</a>
+              </Link>
+              <Link href="/web">
+                <a className="menu mx-auto mt-lg-0 mt-4">WEB</a>
+              </Link>
+              <Link href="/about">
+                <a className="menu mx-auto mt-lg-0 mt-4">ABOUT</a>
+              </Link>
             </div>
-            <div className="d-flex flex-wrap col-lg-7 col-md-8  mx-auto">
-              <span className="menu mx-auto mt-sm-0 mt-4">CONTACT US</span>
-              <span className="menu mx-auto mt-sm-0 mt-4">PRIVACY POLICY</span>
-              <span className="menu mx-auto mt-sm-0 mt-4">
-                CYBER MEDIA GUIDE
-              </span>
+            <div className="col-lg-7 col-md-8  mx-auto pt-4 text-center">
+              <Link href="/contact">
+                <a className="menu mx-auto mt-sm-0 mt-4">CONTACT US</a>
+              </Link>
+              <Link href="/privacy-policy">
+                <a className="menu mx-auto mt-sm-0 mt-4">PRIVACY POLICY</a>
+              </Link>
+              <Link href="/cyber-guide-media">
+                <a className="menu mx-auto mt-sm-0 mt-4">CYBER GUIDE MEDIA</a>
+              </Link>
             </div>
           </div>
           <div className="section2 text-center">
@@ -39,7 +54,10 @@ const headers = () => {
               {/* Powered by */}
               {/* <span class="align-middle" style={{top:"-8px", position:"relative"}}>Powered by</span> */}
               <div className="d-flex mx-auto">
-                <div class="align-middle my-auto" style={{ position: "relative" }}>
+                <div
+                  class="align-middle my-auto"
+                  style={{ position: "relative" }}
+                >
                   Powered by
                 </div>
                 <div

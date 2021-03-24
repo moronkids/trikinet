@@ -1,12 +1,12 @@
 .headers {
   height: 60px;
   width: auto;
-  font-family: Helvetica;
+  font-family: Montserrat;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 600;
   font-size: 16px;
   line-height: 18px;
-  color: #333333;
+  color: #707070 !important;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 
   & .logoNavbar {
@@ -15,22 +15,38 @@
     margin-right: 189px;
   }
   & .nav-link {
-    margin-right: 2rem;
-    font-family: Helvetica;
+    margin-left: 2rem;
+    font-family: Montserrat;
     font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
+    font-weight: 600;
+    font-size: 14px;
     line-height: 18px;
-    color: #333333 !important;
+    color: #707070 !important;
   }
-  & .navbar-light .navbar-nav .active > .nav-link {
-    font-family: Helvetica;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 18px;
-    color: #de4628 !important;
+  & .navbar-light .navbar-nav .active > .nav-link,
+  .navbar-light .navbar-nav .nav-link.active {
+    color: #ff002e !important;
   }
+  & .dropdown-menu {
+    a:focus {
+      background: #ff002e !important;
+      color: white !important;
+    }
+  }
+  & .dropdown-item {
+    @extend .nav-link;
+    margin-left: 0;
+  }
+
+  // & .navbar-light .navbar-nav .active > .nav-link {
+  //   font-family: Montserrat;
+  //   font-style: normal;
+  //   font-weight: 600;
+  //   font-size: 14px;
+  //   line-height: 18px;
+  //   color: #707070 !important;
+  //   text-transform: uppercase;
+  // }
 }
 
 @media only screen and (max-width: 500px) {

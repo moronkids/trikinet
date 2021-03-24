@@ -10,6 +10,7 @@ export const AppWrapper = ({ children }) => {
   const [toggle, setToggle] = useState(false);
   const [searchBar, setSearchBar] = useState(false);
   const [inputmode, setInputMode] = useState(false);
+  const [activePages, setActivePages] = useState(null)
   const [query, setQuery] = useState(null);
   React.useEffect(() => {}, []);
 

@@ -40,6 +40,7 @@ function MyApp({ Component, pageProps, deviceType }) {
             <Head>
               {" "}
               <link rel="manifest" href="/manifest.json" />
+              <link rel="shortcut icon" href="/assets/favicon.png" />
               <link
                 rel="stylesheet"
                 href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"
@@ -51,6 +52,7 @@ function MyApp({ Component, pageProps, deviceType }) {
               body {
                 margin: 0px;
                 padding: 0px;
+                background: #f8f8f8 !important;
               }
               .infinite-scroll-component__outerdiv {
                 width: 100%;

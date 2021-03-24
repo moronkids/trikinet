@@ -23,6 +23,10 @@ const initialState = {
       data: [],
       status: false,
     },
+    latest: {
+      data: [],
+      status: false,
+    },
     mobile: {
       data: [],
       status: false,
@@ -63,6 +67,7 @@ export default (state = initialState, { type, payload }) => {
 
     case GET_CATEGORY_NEWS: {
       // state = {};
+
       if (payload.status === "failed")
         return { ...state, ...(state.category.page_load = false) };
 
@@ -114,7 +119,12 @@ export default (state = initialState, { type, payload }) => {
           ...(state.category.page_load = false),
           ...state.search.data = [],
         };
-
+      if(payload === 'reset') {
+        return {
+          ...state,
+          ...(state.search.data = []),
+        };
+      }
       if (payload.page !== 1) {
 
         // state.category[payload.category].data = payload.data

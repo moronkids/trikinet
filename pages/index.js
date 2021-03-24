@@ -22,15 +22,23 @@ const Index = (props) => {
       <>
         <Head>
           <link rel="manifest" href="/manifest.json" />
-          <meta name="theme-color" content="#90cdf4" />
+          <title>Blog, Tips, dan Trik Internet | Trikinet.com</title>
+          <meta
+            property="og:title"
+            content="Blog, Tips, dan Trik Internet | Trikinet.com"
+          />
+          <meta
+            property="og:image"
+            content="https://trikinet.com/assets/img/logo-trickynet.png"
+          />
+          <meta
+            property="og:description"
+            content="Trikinet adalah sister site yang dikembangkan oleh tim yang ada di DailySocial.id. Trikinet merupakan kepanjangan dari 'trik dan tips internet', blog yang berisi panduan untuk mereka yang ingin mendapatkan trik dan tips seputar internet. Mulai dari web, PC, mobile sampai media sosial."
+          />
           <meta
             name="description"
-            content="Mary's simple recipe for maple bacon donuts
-           makes a sticky, sweet treat with just a hint
-           of salt that you'll keep coming back for."
-          ></meta>
-          <title>Home</title>
-          <meta property="og:title" content="My page title" key="title" />
+            content="Trikinet adalah sister site yang dikembangkan oleh tim yang ada di DailySocial.id. Trikinet merupakan kepanjangan dari 'trik dan tips internet', blog yang berisi panduan untuk mereka yang ingin mendapatkan trik dan tips seputar internet. Mulai dari web, PC, mobile sampai media sosial."
+          />
         </Head>
         <Head>
           <meta property="og:title" content="My new title" key="title" />
@@ -42,7 +50,6 @@ const Index = (props) => {
             newsLatest={props.newsLatest}
             publishedDate={props.publishedDate}
           />
-
         </>
       </>
     </>
@@ -53,6 +60,14 @@ const Index = (props) => {
 //   // alert(id)
 //   return { id };
 // };
+// export async function getStaticPaths() {
+//   return {
+//     paths: [
+//       { params: { slug: "latest" } }, // See the "paths" section below
+//     ],
+//     fallback: true, //or false // See the "fallback" section below
+//   };
+// }
 export async function getStaticProps(context) {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
@@ -68,6 +83,7 @@ export async function getStaticProps(context) {
       headlineLatestNews: headlineLatestNews,
       publishedDate: publishedDate,
     },
+    revalidate: 1, // In seconds/
   };
 }
 

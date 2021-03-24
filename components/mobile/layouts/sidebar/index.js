@@ -6,8 +6,8 @@ const index = ({ refbro }) => {
 
   return (
     <div>
-      <div className="sidenav d-block d-sm-none">
-        <div id="menuToggle" className="d-block d-sm-none">
+      <div className="sidenav d-block d-lg-none">
+        <div id="menuToggle" className="d-block d-lg-none">
           <ul
             ref={refbro}
             id="menu"
@@ -23,23 +23,23 @@ const index = ({ refbro }) => {
               // toggle === false ? "all 3s ease-out;" : "all 3s ease-out;",
             }}
           >
-            <Link href="/category/internet">
+            <Link href="/internet">
               <li onClick={(e) => setToggle(!toggle)}>
                 <a href="#">INTERNET</a>
               </li>
             </Link>
 
-            <Link href="/category/mobile">
+            <Link href="/mobile">
               <li onClick={(e) => setToggle(!toggle)}>
                 <a href="#">MOBILE</a>
               </li>
             </Link>
-            <Link href="/category/web">
+            <Link href="/web">
               <li onClick={(e) => setToggle(!toggle)}>
                 <a href="#">WEB</a>
               </li>
             </Link>
-            <Link href="/category/pc">
+            <Link href="/pc">
               <li onClick={(e) => setToggle(!toggle)}>
                 <a href="#">PC</a>
               </li>

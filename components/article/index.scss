@@ -10,7 +10,7 @@
   /* color: #000; */
 }
 .article {
-  & img {
+  & .text-center img {
     width: 100% !important;
   }
   & #leftSide {
@@ -48,6 +48,8 @@
       font-family: Montserrat;
       font-style: normal;
       font-weight: 500;
+      color: #464646;
+      line-height: 1.7;
       & a,
       h3,
       h2,
@@ -115,8 +117,8 @@
     width: 100%;
     height: auto;
   }
-  .article img {
-    width: 100% !important;
+  .article .text-center img {
+    // width: 100% !important;
     // height: 0px !important;
   }
 }
