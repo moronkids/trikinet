@@ -2,6 +2,7 @@ import Truncate from "react-truncate";
 import Link from "next/link";
 const Article = ({ data, articleBig, boxTitle , category}) => {
   const author = data['_embedded'].author[0].name;
+  const cat = category && category.toUpperCase()
   console.log(data, "cek")
   return (
     <>
@@ -22,7 +23,7 @@ const Article = ({ data, articleBig, boxTitle , category}) => {
                 className="textTitle flex-wrap"
                 style={{ margin: "20px 20px 18px 20px" }}
               >
-                <div className="banner pb-1">{category.toUpperCase()}</div>
+                <div className="banner pb-1">{cat}</div>
                 <Truncate lines={2}>
                   <div>{data && data.title.rendered}</div>
                 </Truncate>
