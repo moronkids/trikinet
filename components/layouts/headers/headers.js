@@ -157,19 +157,27 @@ const headers = () => {
                     aria-labelledby="navbarDropdown"
                     refbro={dropdown}
                   >
-                    <a class="dropdown-item" href="#">
-                      ABOUT
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      CONTACT US
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      CYBER MEDIA GUIDE
-                    </a>
+                    <Link href="/about">
+                      <a class="dropdown-item" href="#">
+                        ABOUT
+                      </a>
+                    </Link>
+                    <Link href="/contact">
+                      <a class="dropdown-item" href="#">
+                        CONTACT US
+                      </a>
+                    </Link>
+                    <Link href="/cyber-media-guide">
+                      <a class="dropdown-item" href="#">
+                        CYBER MEDIA GUIDE
+                      </a>
+                    </Link>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                      PRIVACY POLICY
-                    </a>
+                    <Link href="/privacy-policy">
+                      <a class="dropdown-item" href="#">
+                        PRIVACY POLICY
+                      </a>
+                    </Link>
                   </div>
                 </li>
               </ul>

@@ -27,14 +27,17 @@
   .navbar-light .navbar-nav .nav-link.active {
     color: #ff002e !important;
   }
+  & .dropdown-menu {
+    a:focus {
+      background: #ff002e !important;
+      color: white !important;
+    }
+  }
   & .dropdown-item {
     @extend .nav-link;
     margin-left: 0;
   }
-  a:focus {
-    background: #ff002e !important;
-    color: white !important;
-  }
+
   // & .navbar-light .navbar-nav .active > .nav-link {
   //   font-family: Montserrat;
   //   font-style: normal;

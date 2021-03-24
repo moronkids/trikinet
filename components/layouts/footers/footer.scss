@@ -20,7 +20,7 @@
         margin-right: 48px;
         margin-bottom: 40px;
         text-align: center;
-
+        padding: 0 20px;
         color: #2e2e2e !important;
         text-transform: uppercase;
         font-size: 14px;
@@ -78,7 +78,7 @@
 
   @media only screen and (max-width: 1400px) {
     & .self-container {
-      width: 74%;
+      width: 90%;
       padding-top: 40px;
       & .section1 {
         margin-bottom: 30px;
