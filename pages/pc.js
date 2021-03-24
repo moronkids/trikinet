@@ -27,7 +27,6 @@ const Web = ({
 }) => {
   const router = useRouter();
   const { slug } = router.query;
-  console.log(newsLatest, "ceki");
   //
   // const dispatch = useDispatch();
   // const { category_stat, loading_redux } = useSelector((state) => ({
@@ -115,7 +114,6 @@ export async function getStaticProps({ params }) {
   let headlineLatestNews_2;
   const todos = await sortByCategory_("pc");
   const newsLatest = await todos.data.data;
-  console.log(newsLatest, "jigur");
   headlineLatestNews_1 = await newsLatest[0];
   headlineLatestNews_2 = await newsLatest[1];
 

@@ -10,7 +10,7 @@ const headers = () => {
   const router = useRouter();
   const { slug } = router.query;
   const pathname = router.pathname;
-  console.log(pathname, "routing")
+
   const [dropdown_, setdropdown_] = useState(false);
   const dispatch = useDispatch();
   const reset = (e, slug) => {
@@ -28,13 +28,13 @@ const headers = () => {
   const search = useRef(null);
   useEffect(() => {
     // only add the event listener when the dropdown is opened
-    console.log("dis");
+
     if (!dropdown_) return;
     // if (!toggle) {
     function handleClick(event) {
-      console.log("dis1");
+
       if (dropdown.current && !dropdown.current.contains(event.target)) {
-        console.log("dis2");
+
         setToggle(false);
         setdropdown_(false)
       }

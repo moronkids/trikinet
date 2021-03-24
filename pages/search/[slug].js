@@ -118,7 +118,6 @@ const Search = ({search_data_}) => {
 };
 export async function getServerSideProps({ params }) {
   const searchResult = await searchNews_(params.slug);
-  console.log(searchResult, "cuk")
   // const latest = await useNewsLatestx({});
   return {
     props: {

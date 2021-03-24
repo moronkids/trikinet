@@ -31,10 +31,8 @@ import {
 
 function* getNewsLatest({ payload }) {
   yield put({ type: DO_LOADING, payload: true });
-  console.log(payload, "sdsd");
   if (payload[0] === "latest") {
     const newsLatest_ = yield call(useNewsLatest_, payload[1]);
-    console.log(newsLatest_, "sdsd");
     yield put({ type: GET_CATEGORY_NEWS, payload: newsLatest_ });
      yield put({ type: DO_LOADING, payload: false });
   } else {

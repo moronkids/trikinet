@@ -67,7 +67,7 @@ export default (state = initialState, { type, payload }) => {
 
     case GET_CATEGORY_NEWS: {
       // state = {};
-      console.log(payload, "datas")
+
       if (payload.status === "failed")
         return { ...state, ...(state.category.page_load = false) };
 
