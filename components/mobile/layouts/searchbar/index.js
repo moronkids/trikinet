@@ -38,7 +38,7 @@ const Search = ({ refbros }) => {
       <div
         className="backdrop"
         style={{
-          transform: searchBar === false ? "translateY(-100vh)" : "none",
+          transform: searchBar === false ? "translateY(-1000vh)" : "none",
           // transition:
             // transition: searchBar === false ? "all 0.3s ease-out;" : "all 0.3s ease-out;",
         }}

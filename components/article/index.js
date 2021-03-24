@@ -9,26 +9,13 @@ import Truncate from "react-truncate";
 import { MgidWidget } from "react-mgid-widget";
 import { InlineShareButtons } from "sharethis-reactjs";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 var dayjs = require("dayjs");
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 dayjs().format();
+
 const Article = ({ detailNews, latestNews }) => {
-  //
-  // const dispatch = useDispatch();
-  // const { detailNews, latestNews } = useSelector((state) => ({
-  //   detailNews: state.news.detailNews.data,
-  //   latestNews: state.news.newsLatest,
-  // }));
-  // const router = useRouter();
-  // const { slug } = router.query;
-  // useEffect(() => {
-  //   dispatch({ type: HIT_DETAIL_NEWS, payload: slug });
-  //   if (latestNews.data.length === 0) {
-  //     dispatch({ type: HIT_NEWS_LATEST });
-  //   }
-  // }, [slug]);
-  // // dayjs.extend(relativeTime);
   let publishedDate;
   if (detailNews.length !== 0) publishedDate = dayjs(detailNews.date).fromNow(); // 20 years ago
   let image;
@@ -123,7 +110,7 @@ const Article = ({ detailNews, latestNews }) => {
               />
             </div>
           </div>
-          <div className="pb-5">
+          <div className="pb-5 col-12 d-none d-md-block">
             <MgidWidget
               id="M633939ScriptRootC1046582"
               src="https://jsc.mgid.com/t/r/trikinet.com.1046582.js"
@@ -141,10 +128,12 @@ const Article = ({ detailNews, latestNews }) => {
           <div className="writtenBy pt-4">
             Oleh {detailNews._embedded && detailNews._embedded.author[0].name}
           </div>
-          <MgidWidget
-            id="M633939ScriptRootC1066913"
-            src="https://jsc.mgid.com/t/r/trikinet.com.1066913.js"
-          />
+          <div className="col-12">
+            <MgidWidget
+              id="M633939ScriptRootC1066913"
+              src="https://jsc.mgid.com/t/r/trikinet.com.1066913.js"
+            />
+          </div>
           <div className="postedTime">{publishedDate}</div>
 
           <NewestArticle data={latestNews} />

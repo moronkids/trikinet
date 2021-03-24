@@ -26,29 +26,24 @@ const Article = ({ data, image, truncatex }) => {
                 width={120}
                 height={120}
                 quality={50}
-                style={{
-                  backgroundImage: `linear-gradient(rgb(113 113 113 / 10%), rgb(58 58 58 / 10%)),url(${thumbnailImg})`,
-                  objectFit: "contain",
-                  backgroundPosition: "center",
-                  width: "120px",
-                  height: "120px",
-                }}
               />
             </span>
-            <div className="titleSmallArticle ml-2 mt-0 mb-3 justify-center position-relative">
+            <div className="titleSmallArticle ml-2 mt-0 mb-3 justify-center position-relative" style={{width : "calc(100% - 120px)"}}>
               <Truncate
-                className=" justify-center d-none d-lg-block"
+                className=" justify-center  d-none d-sm-block"
                 lines={truncatex !== 0 ? truncatex : 3}
-                style={{ maxWidth: "250px" }}
+                // style={{ maxWidth: "250px" }}
               >
                 <span className="justify-center d-none d-lg-block">
                   {data && data.title.rendered}
                 </span>
               </Truncate>
-              <span className="d-lg-none d-block" style={{ maxWidth: "100%" }}>
+              {/* {data.title.rendered} */}
+
+              <span className="justify-center titleSmallArticle d-block d-lg-none">
                 {data && data.title.rendered}
               </span>
-              {/* {data.title.rendered} */}
+
               <span className="writtenBy position-absolute">{`by ${
                 data && data._embedded.author[0].name
               }`}</span>
