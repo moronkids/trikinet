@@ -212,6 +212,7 @@ const Web = ({
                 data={headlineLatestNews_1}
                 articleBig={articleBig}
                 boxTitle={boxTitle}
+                category={category}
               />
             )}
           </div>
@@ -224,6 +225,7 @@ const Web = ({
                 data={headlineLatestNews_2}
                 articleBig={articleBig}
                 boxTitle={boxTitle}
+                category={category}
               />
             )}
           </div>

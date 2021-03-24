@@ -1,6 +1,8 @@
 import Truncate from "react-truncate";
 import Link from "next/link";
-const Article = ({ data, articleBig, boxTitle }) => {
+const Article = ({ data, articleBig, boxTitle , category}) => {
+  const author = data['_embedded'].author[0].name;
+  console.log(data, "cek")
   return (
     <>
       <Link href={`/post/${data && data.slug}`}>
@@ -20,11 +22,13 @@ const Article = ({ data, articleBig, boxTitle }) => {
                 className="textTitle flex-wrap"
                 style={{ margin: "20px 20px 18px 20px" }}
               >
-                <div className="banner pb-1">TRIKINET</div>
+                <div className="banner pb-1">{category.toUpperCase()}</div>
                 <Truncate lines={2}>
                   <div>{data && data.title.rendered}</div>
                 </Truncate>
-                <div className="writtenBy mt-2">By Bambang Winarso</div>
+                <div className="writtenBy mt-2">
+                  {`By ${data && data._embedded.author[0].name}`}
+                </div>
               </div>
             </div>
             <div
