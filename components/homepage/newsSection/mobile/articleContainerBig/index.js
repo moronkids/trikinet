@@ -1,5 +1,6 @@
 import Truncate from "react-truncate";
 import Link from "next/link";
+import Image from "next/image";
 const Article = ({ data, articleBig, boxTitle , category}) => {
   const author = data['_embedded'].author[0].name;
   const cat = category && category.toUpperCase()
@@ -17,6 +18,7 @@ const Article = ({ data, articleBig, boxTitle , category}) => {
               style={{
                 height: boxTitle && boxTitle.height,
                 width: boxTitle && boxTitle.width,
+                zIndex: "100",
               }}
             >
               <div
@@ -32,7 +34,7 @@ const Article = ({ data, articleBig, boxTitle , category}) => {
                 </div>
               </div>
             </div>
-            <div
+            {/* <div
               class="w-100 h-100"
               alt=""
               style={{
@@ -42,7 +44,21 @@ const Article = ({ data, articleBig, boxTitle , category}) => {
                 objectFit: "fit",
                 backgroundPosition: "center",
               }}
-            />
+            /> */}
+            <div className="">
+              <Image
+                alt=""
+                src={
+                  data._embedded["wp:featuredmedia"][0].media_details.sizes.full
+                    .source_url
+                }
+                layout="fill"
+                className="position-relative"
+                // width={120}
+                // height={120}
+                quality={50}
+              />
+            </div>
           </div>
         </a>
       </Link>
