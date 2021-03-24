@@ -83,7 +83,7 @@ export async function getStaticProps(context) {
       headlineLatestNews: headlineLatestNews,
       publishedDate: publishedDate,
     },
-    revalidate: 1, // In seconds
+    revalidate: 1, // In seconds/
   };
 }
 
