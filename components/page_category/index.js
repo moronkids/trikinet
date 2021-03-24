@@ -203,7 +203,7 @@ const Web = ({
         style={{ width: "100%" }}
       >
         <div className="row col-12 news m-0 p-2 p-sm-0">
-          <div className="col-12 col-sm-6 ">
+          <div className="col-12 col-sm-12 col-md-6 ">
             {loading ? (
               // <SquareLoader />
               <></>
@@ -216,7 +216,7 @@ const Web = ({
               />
             )}
           </div>
-          <div className="col-12 col-sm-6">
+          <div className="col-12 col-sm-12 col-md-6">
             {loading ? (
               // <SquareLoader />
               <></>
@@ -231,9 +231,9 @@ const Web = ({
           </div>
         </div>
         <div className="row col-12 news m-0 p-2 p-sm-0">
-          <div className="col-sm-4 col-12">{ArticleSmall_1}</div>
-          <div className="col-sm-4 col-12">{ArticleSmall_2}</div>
-          <div className="col-sm-4 col-12">{ArticleSmall_3}</div>
+          <div className="col-sm-12 col-md-4 col-12">{ArticleSmall_1}</div>
+          <div className="col-sm-12 col-md-4 col-12">{ArticleSmall_2}</div>
+          <div className="col-sm-12 col-md-4 col-12">{ArticleSmall_3}</div>
         </div>
 
         <div className="row col-12 news m-0 p-2 p-sm-0">

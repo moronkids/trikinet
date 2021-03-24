@@ -6,7 +6,7 @@ import { useSelector, useDispatch, connect } from "react-redux";
 import { HIT_DETAIL_NEWS, HIT_NEWS_LATEST } from "redux/actions";
 import { useRouter } from "next/router";
 import Truncate from "react-truncate";
-
+import { MgidWidget } from "react-mgid-widget";
 import { InlineShareButtons } from "sharethis-reactjs";
 import Link from "next/link";
 var dayjs = require("dayjs");
@@ -135,6 +135,10 @@ const Article = ({ detailNews, latestNews }) => {
           <div className="writtenBy pt-4">
             Oleh {detailNews._embedded && detailNews._embedded.author[0].name}
           </div>
+          <MgidWidget
+            id="M633939ScriptRootC1066913"
+            src="https://jsc.mgid.com/t/r/trikinet.com.1066913.js"
+          />
           <div className="postedTime">{publishedDate}</div>
 
           <NewestArticle data={latestNews} />

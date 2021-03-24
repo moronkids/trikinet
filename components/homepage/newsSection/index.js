@@ -79,7 +79,7 @@ const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
           </div>
           <div className="row col-12 col-lg-9 px-0 mx-0">
             <div className="col-12 d-flex mx-0 px-0">
-              <div className="col-sm-4 col-md-4 col-lg-4 col-12 newsBox">
+              <div className="col-sm-12 col-md-4 col-lg-4 col-12 newsBox">
                 {newsLatest !== undefined ? (
                   newsLatest.map((val, i) => {
                     let data;
@@ -99,7 +99,7 @@ const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
                   <>null</>
                 )}
               </div>
-              <div className="col-sm-4 col-md-4 col-lg-4 col-12 newsBox">
+              <div className="col-sm-12 col-md-4 col-lg-4 col-12 newsBox">
                 {newsLatest !== undefined ? (
                   newsLatest.map((val, i) => {
                     let data;
@@ -118,7 +118,7 @@ const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
                   <>null</>
                 )}
               </div>
-              <div className="col-sm-4 col-md-4 col-lg-4 col-12 newsBox">
+              <div className="col-sm-12 col-md-4 col-lg-4 col-12 newsBox">
                 {newsLatest !== undefined ? (
                   newsLatest.map((val, i) => {
                     let data;
@@ -138,7 +138,7 @@ const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
                 )}
               </div>
               <div
-                className="col-auto d-none d-sm-block float-right mt-3 ml-3"
+                className="col-auto float-right mt-3 ml-3"
                 style={{
                   width: "300px",
                   height: "100%",
@@ -161,7 +161,13 @@ const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
               </Link>
             </div>
             {/* <div className=""> */}
-            <div className="adsBottom text-left mx-3 mx-sm-0" />
+            <div className="col-12 d-block pb-5">
+              <MgidWidget
+                id="M633939ScriptRootC1064704"
+                src="https://jsc.mgid.com/t/r/trikinet.com.1064704.js"
+              />
+            </div>
+            {/* <div className="adsBottom text-left mx-3 mx-sm-0" /> */}
             {/* </div> */}
           </div>
         </div>

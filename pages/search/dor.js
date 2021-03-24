@@ -59,7 +59,7 @@ const Search = () => {
             {search_data &&
               search_data.map((val, i) => {
                 return (
-                  <div className="col-sm-4 col-12">
+                  <div className="col-sm-12 col-md-4 col-12">
                     <ArticleSmall
                       data={val}
                       image={newsImagePhoto}
@@ -72,13 +72,13 @@ const Search = () => {
           <div className="col-12 row m-0">
             {loading ? (
               <>
-                <div className="col-sm-4 col-12">
+                <div className="col-sm-12 col-md-4 col-12">
                   <LoaderSmallArticle />
                 </div>
-                <div className="col-sm-4 col-12">
+                <div className="col-sm-12 col-md-4 col-12">
                   <LoaderSmallArticle />
                 </div>
-                <div className="col-sm-4 col-12">
+                <div className="col-sm-12 col-md-4 col-12">
                   <LoaderSmallArticle />
                 </div>
               </>

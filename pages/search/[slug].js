@@ -58,7 +58,7 @@ const Search = ({search_data_}) => {
             {search_data_ &&
               search_data_.map((val, i) => {
                 return (
-                  <div className="col-sm-4 col-12">
+                  <div className="col-md-12 col-lg-4">
                     <ArticleSmall
                       data={val}
                       image={newsImagePhoto}
@@ -72,7 +72,7 @@ const Search = ({search_data_}) => {
             {search_data &&
               search_data.map((val, i) => {
                 return (
-                  <div className="col-sm-4 col-12">
+                  <div className="col-md-12 col-lg-4">
                     <ArticleSmall
                       data={val}
                       image={newsImagePhoto}
@@ -85,13 +85,13 @@ const Search = ({search_data_}) => {
           <div className="col-12 row m-0">
             {loading ? (
               <>
-                <div className="col-sm-4 col-12">
+                <div className="col-md-12 col-lg-4">
                   <LoaderSmallArticle />
                 </div>
-                <div className="col-sm-4 col-12">
+                <div className="col-md-12 col-lg-4">
                   <LoaderSmallArticle />
                 </div>
-                <div className="col-sm-4 col-12">
+                <div className="col-md-12 col-lg-4">
                   <LoaderSmallArticle />
                 </div>
               </>
