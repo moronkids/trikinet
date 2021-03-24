@@ -59,7 +59,7 @@ export const useNewsLatestx = async (data, props) => {
   };
 };
 export const useNewsLatest_ = async (page) => {
-  console.log(page, "bajingan0");
+
   const todos = await axios
     .get(`news/latest?page=${page}&limit=18`)
     .catch(function (error) {
@@ -74,7 +74,7 @@ export const useNewsLatest_ = async (page) => {
     });
 
   // dispatch({ type: "DO_LOADING", payload: false });
-  console.log(todos.data.data, "bajingan");
+
   return {
     data: todos.data.data,
     status: todos.status,
