@@ -17,7 +17,7 @@ const News = ({headlineLatestNews, newsLatest, publishedDate}) => {
     ArticleSmall_ = newsLatest.map((val, i) => {
       return (
         <>
-          <ArticleSmall truncatex={3} data={val} />
+          <ArticleSmall truncatex={2} data={val} />
         </>
       );
     });
