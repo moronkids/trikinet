@@ -124,8 +124,9 @@ export async function getStaticProps({ params }) {
       headlineLatestNews_1,
       headlineLatestNews_2,
       newsLatest,
-      category: 'internet',
+      category: "internet",
     },
+    revalidate: 1, // In seconds
   };
 }
 export default Web;

@@ -126,6 +126,7 @@ export async function getStaticProps({ params }) {
       newsLatest,
       category: "web",
     },
+    revalidate: 1, // In seconds
   };
 }
 export default Web;

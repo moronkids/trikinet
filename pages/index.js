@@ -60,6 +60,14 @@ const Index = (props) => {
 //   // alert(id)
 //   return { id };
 // };
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { slug: "latest" } }, // See the "paths" section below
+    ],
+    fallback: false, //or false // See the "fallback" section below
+  };
+}
 export async function getStaticProps(context) {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
@@ -75,6 +83,7 @@ export async function getStaticProps(context) {
       headlineLatestNews: headlineLatestNews,
       publishedDate: publishedDate,
     },
+    revalidate: 1, // In seconds
   };
 }
 

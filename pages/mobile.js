@@ -126,6 +126,7 @@ export async function getStaticProps({ params }) {
       newsLatest,
       category: "mobile",
     },
+    revalidate: 1, // In seconds
   };
 }
 export default Web;

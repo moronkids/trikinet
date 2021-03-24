@@ -108,8 +108,9 @@ export async function getServerSideProps({ params }) {
       headlineLatestNews_1,
       headlineLatestNews_2,
       newsLatest,
-      category: 'latest',
+      category: "latest",
     },
+    revalidate: 1, // In seconds
   };
 }
 export default Web;
