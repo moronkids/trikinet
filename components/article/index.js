@@ -10,6 +10,7 @@ import { MgidWidget } from "react-mgid-widget";
 import { InlineShareButtons } from "sharethis-reactjs";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import generalJS from 'components/lib/postedtime';
 var dayjs = require("dayjs");
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
@@ -130,7 +131,7 @@ const Article = ({ detailNews, latestNews }) => {
           <div className="writtenBy pt-4">
             Oleh {detailNews._embedded && detailNews._embedded.author[0].name}
           </div>
-          <div className="postedTime">{publishedDate}</div>
+          <div className="postedTime">{generalJS.formatDate(publishedDate)}</div>
           {/* <div className="col-12" style={{ width: "calc(100vw - 6rem)" }}>
             <MgidWidget
               id="M633939ScriptRootC1066913"
