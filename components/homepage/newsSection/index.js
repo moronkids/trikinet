@@ -12,8 +12,8 @@ dayjs().format();
 const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
   return (
     <>
-      {/* <div className="d-none d-sm-block container h-100 newsSection"> */}
-      <div className="container h-100 newsSection">
+      <div className="d-none d-sm-block container h-100 newsSection">
+        {/* <div className="container h-100 newsSection"> */}
         {headlineLatestNews !== undefined ? (
           <>
             <div className="row headline h-100">
@@ -162,23 +162,24 @@ const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
               </Link>
             </div>
             {/* <div className=""> */}
-            <div className="col-12 d-block pb-5">
-              <MgidWidget
-                id="M633939ScriptRootC1064704"
-                src="https://jsc.mgid.com/t/r/trikinet.com.1064704.js"
-              />
-            </div>
+
             {/* <div className="adsBottom text-left mx-3 mx-sm-0" /> */}
             {/* </div> */}
           </div>
         </div>
       </div>
-      {/* <MobileView
+      <MobileView
         headlineLatestNews={headlineLatestNews}
         publishedDate={publishedDate}
         // headlineLatestNews_2={headlineLatestNews_2}
         newsLatest={newsLatest}
-      /> */}
+      />
+      <div className="container d-block pb-5 col-12 col-sm-5 px-4">
+        <MgidWidget
+          id="M633939ScriptRootC1064704"
+          src="https://jsc.mgid.com/t/r/trikinet.com.1064704.js"
+        />
+      </div>
     </>
   );
 };

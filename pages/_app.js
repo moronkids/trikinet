@@ -77,6 +77,10 @@ function MyApp({ Component, pageProps, deviceType }) {
           </AppWrapper>
         </Provider>
       </Container>
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=UA-137491055-1"
+      ></script>
     </>
   );
 }
