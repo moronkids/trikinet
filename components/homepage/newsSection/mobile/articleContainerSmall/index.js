@@ -2,7 +2,9 @@ import Truncate from "react-truncate";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect } from "react";
-
+const myLoader = ({ src, width, quality }) => {
+  return `https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/images/loader-large.gif`;
+};
 const Article = ({ data, image, truncatex }) => {
   let thumbnailImg = data._embedded["wp:featuredmedia"][0].media_details
     ? data._embedded["wp:featuredmedia"][0].media_details.sizes &&
@@ -19,16 +21,20 @@ const Article = ({ data, image, truncatex }) => {
               {/* <img width={120} height={120} className="position-relative"/> */}
               <Image
                 // class="h-100"
+
                 alt=""
                 src={thumbnailImg}
                 // layout="fill"
                 className="w-auto position-absolute"
                 width={120}
                 height={120}
-                quality={50}
+                quality={40}
               />
             </span>
-            <div className="titleSmallArticle ml-2 mt-0 mb-3 justify-center position-relative" style={{width : "calc(100% - 120px)"}}>
+            <div
+              className="titleSmallArticle ml-2 mt-0 mb-3 justify-center position-relative"
+              style={{ width: "calc(100% - 120px)" }}
+            >
               <Truncate
                 className=" justify-center  d-none d-sm-block"
                 lines={truncatex !== 0 ? truncatex : 3}

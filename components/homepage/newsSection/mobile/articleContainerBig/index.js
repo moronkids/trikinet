@@ -56,7 +56,7 @@ const Article = ({ data, articleBig, boxTitle , category}) => {
                 className="position-relative"
                 // width={120}
                 // height={120}
-                quality={50}
+                quality={40}
               />
             </div>
           </div>
