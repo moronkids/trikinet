@@ -44,12 +44,33 @@ const index = ({ refbro }) => {
                 <a href="#">PC</a>
               </li>
             </Link>
+            <Link href="/about">
+              <li onClick={(e) => setToggle(!toggle)}>
+                <a href="#">ABOUT</a>
+              </li>
+            </Link>
+
+            <Link href="/contact">
+              <li onClick={(e) => setToggle(!toggle)}>
+                <a href="#">CONTACT US</a>
+              </li>
+            </Link>
+            <Link href="/cyber-media-guide">
+              <li onClick={(e) => setToggle(!toggle)}>
+                <a href="#">CYBER MEDIA GUIDE</a>
+              </li>
+            </Link>
+            <Link href="/privacy-policy">
+              <li onClick={(e) => setToggle(!toggle)}>
+                <a href="#">PRIVACY POLICY</a>
+              </li>
+            </Link>
           </ul>
           <div
             className={"backdrop"}
             style={{
               transform: toggle === false ? "translateX(-1000px)" : "none",
-              opacity : toggle === true ? "0.8" : "0.8",
+              opacity : toggle === true ? "0.5" : "0.5",
               transition:toggle === false ? "all 0s ease;" : "all 0s ease;"
             }}
           ></div>

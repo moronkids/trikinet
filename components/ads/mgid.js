@@ -3,7 +3,7 @@ import { MgidWidget } from "react-mgid-widget";
 
 const Mgid = () => {
   return (
-    <div>
+    <div className="pb-5 mb-5">
       <MgidWidget
         id="M633939ScriptRootC1066913"
         src="https://jsc.mgid.com/t/r/trikinet.com.1066913.js"
