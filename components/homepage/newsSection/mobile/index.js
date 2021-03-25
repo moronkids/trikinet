@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { MgidWidget } from "react-mgid-widget";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 var dayjs = require("dayjs");
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
@@ -39,6 +40,14 @@ const News = ({headlineLatestNews, newsLatest, publishedDate}) => {
         {ArticleBig_}
         {/* <Ads type="rectangle" class="reactangle w-100 mb-2" id="category" /> */}
         {ArticleSmall_}
+        <div className="seeLatest text-right px-3">
+          <Link href="/latest">
+            <a>
+              {" "}
+              SEE ALL LATEST <span className="arrow ml-3" />
+            </a>
+          </Link>
+        </div>
         <div className="col-12 d-block pb-5">
           <MgidWidget
             id="M633939ScriptRootC1046582"

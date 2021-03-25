@@ -109,4 +109,22 @@ figure {
 .article {
   width: 100vw;
 }
+.seeLatest {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: right;
+  color: #000000;
+  width: 100%;
+  padding-bottom: 2rem;
+
+  & .arrow {
+    background-image: url("../../public/assets/arrowGrey.svg");
+    width: 20px;
+    height: 16px;
+    display: inline-block;
+  }
+}
 /* purgecss end ignore */
