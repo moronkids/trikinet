@@ -23,7 +23,7 @@ const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
                   alt=""
                   className="h-100 w-100"
                   style={{
-                    backgroundImage: `linear-gradient(rgb(113 113 113 / 10%), rgb(58 58 58 / 10%)),url(${headlineLatestNews.yoast_meta[6].content})`,
+                    backgroundImage: `linear-gradient(rgb(113 113 113 / 10%), rgb(58 58 58 / 10%)),url(${headlineLatestNews._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url})`,
                     objectFit: "fit",
                     backgroundPosition: "center",
                   }}

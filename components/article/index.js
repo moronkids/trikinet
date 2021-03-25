@@ -106,7 +106,7 @@ const Article = ({ detailNews, latestNews }) => {
               />
             </div>
           </div>
-          <div className="pb-5 col-12 d-none d-md-block">
+          <div className="pb-5 col-12">
             <MgidWidget
               id="M633939ScriptRootC1046582"
               src="https://jsc.mgid.com/t/r/trikinet.com.1046582.js"
