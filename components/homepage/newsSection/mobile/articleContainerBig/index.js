@@ -53,6 +53,7 @@ const Article = ({ data, articleBig, boxTitle , category}) => {
                     .source_url
                 }
                 layout="fill"
+                priority={true}
                 className="position-relative"
                 // width={120}
                 // height={120}

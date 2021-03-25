@@ -24,7 +24,7 @@ const Article = ({ data, image, truncatex }) => {
 
                 alt=""
                 src={thumbnailImg}
-                // layout="fill"
+                priority={true}
                 className="w-auto position-absolute"
                 width={120}
                 height={120}
