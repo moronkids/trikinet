@@ -36,7 +36,10 @@ const News = ({headlineLatestNews, newsLatest, publishedDate}) => {
     <>
       <div className="d-block d-sm-none container news pt-4 px-4">
         {/* <Ads type="rectangle" class="reactangle w-100" /> */}
-        <DynamicComponentWithCustomLoading />
+        <MgidWidget
+          id="M633939ScriptRootC1066913"
+          src="https://jsc.mgid.com/t/r/trikinet.com.1066913.js"
+        />
         {ArticleBig_}
         {/* <Ads type="rectangle" class="reactangle w-100 mb-2" id="category" /> */}
         {ArticleSmall_}
