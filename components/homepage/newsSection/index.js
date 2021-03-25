@@ -12,7 +12,8 @@ dayjs().format();
 const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
   return (
     <>
-      <div className="d-none d-sm-block container h-100 newsSection">
+      {/* <div className="d-none d-sm-block container h-100 newsSection"> */}
+      <div className="container h-100 newsSection">
         {headlineLatestNews !== undefined ? (
           <>
             <div className="row headline h-100">
@@ -172,12 +173,12 @@ const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
           </div>
         </div>
       </div>
-      <MobileView
+      {/* <MobileView
         headlineLatestNews={headlineLatestNews}
         publishedDate={publishedDate}
         // headlineLatestNews_2={headlineLatestNews_2}
         newsLatest={newsLatest}
-      />
+      /> */}
     </>
   );
 };

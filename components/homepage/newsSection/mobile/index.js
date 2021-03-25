@@ -36,10 +36,10 @@ const News = ({headlineLatestNews, newsLatest, publishedDate}) => {
     <>
       <div className="d-block d-sm-none container news pt-4 px-4">
         {/* <Ads type="rectangle" class="reactangle w-100" /> */}
-        <MgidWidget
+        {/* <MgidWidget
           id="M633939ScriptRootC1066913"
           src="https://jsc.mgid.com/t/r/trikinet.com.1066913.js"
-        />
+        /> */}
         {ArticleBig_}
         {/* <Ads type="rectangle" class="reactangle w-100 mb-2" id="category" /> */}
         {ArticleSmall_}
@@ -52,10 +52,10 @@ const News = ({headlineLatestNews, newsLatest, publishedDate}) => {
           </Link>
         </div>
         <div className="col-12 d-block pb-5">
-          <MgidWidget
+          {/* <MgidWidget
             id="M633939ScriptRootC1046582"
             src="https://jsc.mgid.com/t/r/trikinet.com.1046582.js"
-          />
+          /> */}
         </div>
       </div>
     </>
