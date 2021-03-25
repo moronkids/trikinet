@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import Ads from "components/ads";
 import ShareButton from "components/share_buttons";
 import NewestArticle from "components/article/newestArticle";
@@ -25,6 +25,12 @@ const Article = ({ detailNews, latestNews }) => {
   if (detailNews["_embedded"]["wp:featuredmedia"] !== undefined) {
     image = detailNews["_embedded"]["wp:featuredmedia"][0]["source_url"];
   }
+  const [ads, setads] = useState(true);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setads(true);
+  //   }, 5000);
+  // }, [])
   return (
     <div className="container article">
       <div className="col-lg-9 col-12">
@@ -106,7 +112,7 @@ const Article = ({ detailNews, latestNews }) => {
               />
             </div>
           </div>
-          <div className="pb-5 col-12">
+          <div>
             <MgidWidget
               id="M633939ScriptRootC1046582"
               src="https://jsc.mgid.com/t/r/trikinet.com.1046582.js"
@@ -131,7 +137,7 @@ const Article = ({ detailNews, latestNews }) => {
               src="https://jsc.mgid.com/t/r/trikinet.com.1066913.js"
             />
           </div> */}
-          <DynamicComponentWithCustomLoading />
+        <DynamicComponentWithCustomLoading />
           <NewestArticle data={latestNews} />
         </div>
       </div>
