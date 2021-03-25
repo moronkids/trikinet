@@ -142,7 +142,7 @@ const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
                 className="col-auto float-right mt-3 ml-3"
                 style={{
                   width: "300px",
-                  height: "100%",
+                  // height: "100%",
                   // backgroundColor: "#C4C4C4;",
                 }}
               >
