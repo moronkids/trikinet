@@ -19,7 +19,7 @@
 module.exports = {
   images: {
     domains: ["spiderman.trikinet.com"],
-    loader: 'vercel'
+    loader: "imgix",
   },
 };
 
