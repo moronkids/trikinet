@@ -4,6 +4,7 @@
   min-height: 900px;
   & .headline {
     & .imgHeadline {
+      height: 325px !important;
       // style={{ minHeight: "324px" }}
       // min-height: 324px;
     }
@@ -64,7 +65,7 @@
       font-size: 16px;
       line-height: 22px;
       /* identical to box height, or 137% */
-      padding-top: 50px;
+      padding-top: 30px;
       color: #ff002e;
       // width: 10px;
       height: 10px;
@@ -227,7 +228,7 @@
     & .headline {
       & .imgHeadline {
         // min-height: 250px;
-        height: 100%;
+        height: 325px !important;
       }
     }
 

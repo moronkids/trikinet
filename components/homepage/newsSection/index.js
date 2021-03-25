@@ -163,7 +163,7 @@ const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
             </div>
             {/* <div className=""> */}
 
-            {/* <div className="adsBottom text-left mx-3 mx-sm-0" /> */}
+            {/* <div className="adsBottomz text-left mx-3 mx-sm-0" /> */}
             {/* </div> */}
           </div>
         </div>
