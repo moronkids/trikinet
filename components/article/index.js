@@ -19,8 +19,8 @@ const DynamicComponentWithCustomLoading = dynamic(() => import("../ads/mgid"), {
   loading: () => <p>REMOKKK</p>,
 });
 const Article = ({ detailNews, latestNews }) => {
-  let publishedDate;
-  if (detailNews.length !== 0) publishedDate = dayjs(detailNews.date).fromNow(); // 20 years ago
+  // let publishedDate;
+  // if (detailNews.length !== 0) publishedDate = dayjs(detailNews.date).fromNow(); // 20 years ago
   let image;
 
   if (detailNews["_embedded"]["wp:featuredmedia"] !== undefined) {
@@ -131,7 +131,7 @@ const Article = ({ detailNews, latestNews }) => {
           <div className="writtenBy pt-4">
             Oleh {detailNews._embedded && detailNews._embedded.author[0].name}
           </div>
-          <div className="postedTime">{generalJS.formatDate(publishedDate)}</div>
+          <div className="postedTime">{generalJS.formatDate(detailNews.date)}</div>
           {/* <div className="col-12" style={{ width: "calc(100vw - 6rem)" }}>
             <MgidWidget
               id="M633939ScriptRootC1066913"

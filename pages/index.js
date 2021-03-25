@@ -8,6 +8,7 @@ import { HIT_NEWS_LATEST } from "redux/actions";
 import defaultAxios from "axios";
 import { useNewsLatestx } from "redux/api/news";
 import Head from "next/head";
+import generalJS from "components/lib/postedtime"
 var dayjs = require("dayjs");
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
@@ -75,8 +76,8 @@ export async function getStaticProps(context) {
   const newsLatest = fetch.newsLatest.status ? fetch.newsLatest.data : [];
   const headlineLatestNews = newsLatest[0];
   newsLatest.shift();
-  let publishedDate;
-  if (newsLatest.length > 0) publishedDate = dayjs(headlineLatestNews.date).fromNow(); // 20 years ago
+  let publishedDate = headlineLatestNews.date
+  // if (newsLatest.length > 0) publishedDate = dayjs(headlineLatestNews.date).fromNow(); // 20 years ago
   return {
     props: {
       newsLatest: newsLatest,

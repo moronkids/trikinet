@@ -5,6 +5,7 @@ import { HIT_NEWS_LATEST } from "redux/actions";
 import MobileView from "components/homepage/newsSection/mobile";
 import Truncate from "react-truncate";
 import { MgidWidget } from "react-mgid-widget";
+import generalJS from "components/lib/postedtime";
 var dayjs = require("dayjs");
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
@@ -45,7 +46,9 @@ const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
                 </Link>
 
                 <div className="writtenBy">
-                  {`Written by ${headlineLatestNews._embedded.author[0].name} - ${publishedDate}`}
+                  {`Written by ${
+                    headlineLatestNews._embedded.author[0].name
+                  } - ${generalJS.formatDate(publishedDate)}`}
                 </div>
                 <Link href={"post/" + headlineLatestNews.slug}>
                   <a>
