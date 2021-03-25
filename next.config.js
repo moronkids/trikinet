@@ -18,8 +18,7 @@
 
 module.exports = {
   images: {
-    domains: ["spiderman.trikinet.com"],
-    loader: "imgix",
+    domains: ["spiderman.trikinet.com"]
   },
 };
 
