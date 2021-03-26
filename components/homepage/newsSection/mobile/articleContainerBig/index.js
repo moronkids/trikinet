@@ -34,17 +34,6 @@ const Article = ({ data, articleBig, boxTitle , category}) => {
                 </div>
               </div>
             </div>
-            {/* <div
-              class="w-100 h-100"
-              alt=""
-              style={{
-                backgroundImage:
-                  data &&
-                  `linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.4)),url(${data._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url})`,
-                objectFit: "fit",
-                backgroundPosition: "center",
-              }}
-            /> */}
             <div className="">
               <Image
                 alt=""

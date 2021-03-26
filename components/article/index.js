@@ -19,19 +19,10 @@ const DynamicComponentWithCustomLoading = dynamic(() => import("../ads/mgid"), {
   loading: () => <p>REMOKKK</p>,
 });
 const Article = ({ detailNews, latestNews }) => {
-  // let publishedDate;
-  // if (detailNews.length !== 0) publishedDate = dayjs(detailNews.date).fromNow(); // 20 years ago
   let image;
-
   if (detailNews["_embedded"]["wp:featuredmedia"] !== undefined) {
     image = detailNews["_embedded"]["wp:featuredmedia"][0]["source_url"];
   }
-  const [ads, setads] = useState(true);
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setads(true);
-  //   }, 5000);
-  // }, [])
   return (
     <div className="container article">
       <div className="col-lg-9 col-12">
@@ -47,11 +38,6 @@ const Article = ({ detailNews, latestNews }) => {
               __html: detailNews["_embedded"]["wp:term"][0][0]["name"],
             }}
           ></span>
-          {/* <Link href=> */}
-          {/* <a href="" className=""> */}
-
-          {/* </a> */}
-          {/* </Link> */}
         </div>
       </div>
       <div className="w-100 d-flex row col-12 m-0 p-0">
@@ -82,7 +68,6 @@ const Article = ({ detailNews, latestNews }) => {
               ) : (
                 <>null</>
               )}
-              {/* <ShareButton class="mx-auto my-3 d-flex col-12 mx-1" /> */}
             </div>
             <div className="pb-5">
               <InlineShareButtons
@@ -120,8 +105,6 @@ const Article = ({ detailNews, latestNews }) => {
             />
           </div>
         </div>
-        {/* <iframe></iframe>
-        <figure></figure> */}
         <div id="rightSide" className="col-lg-3 col-12 ">
           <div className="d-flex articleCategory mt-4">
             <span className="mx-auto my-auto">
@@ -134,12 +117,6 @@ const Article = ({ detailNews, latestNews }) => {
           <div className="postedTime">
             {generalJS.formatDate(detailNews.date)}
           </div>
-          {/* <div className="col-12" style={{ width: "calc(100vw - 6rem)" }}>
-            <MgidWidget
-              id="M633939ScriptRootC1066913"
-              src="https://jsc.mgid.com/t/r/trikinet.com.1066913.js"
-            />
-          </div> */}
           <div className="sticky-top" style={{paddingTop:"70px", zIndex: "20"}}>
             <DynamicComponentWithCustomLoading />
             <NewestArticle data={latestNews} />

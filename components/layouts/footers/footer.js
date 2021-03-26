@@ -17,7 +17,6 @@ const headers = () => {
               <img
                 src="/assets/logo-trickynetFooter.svg"
                 className="logoFooter d-block d-lg-none mx-auto"
-                // style={{ width: "220px", height: "53px" }}
               />
             </div>
             <div className="col-lg-6 col-md-7  mx-auto text-center">
@@ -51,8 +50,6 @@ const headers = () => {
           </div>
           <div className="section2 text-center">
             <div className="d-flex text-align-bottom line1">
-              {/* Powered by */}
-              {/* <span class="align-middle" style={{top:"-8px", position:"relative"}}>Powered by</span> */}
               <div className="d-flex mx-auto">
                 <div
                   class="align-middle my-auto"
@@ -78,13 +75,6 @@ const headers = () => {
                     // height={50}
                     quality={50}
                   />
-                  {/* <img
-                  src="/assets/footer-logo.svg"
-                  className="dsLogo"
-                  style={{objectFit:"contain"}}
-                  width="auto"
-                  // height="46"
-                /> */}
                 </div>
               </div>
             </div>

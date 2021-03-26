@@ -20,13 +20,9 @@ const SearchBox = ({ marginTop }) => {
   const searchArticle = async (e, query) => {
     e.preventDefault();
     setSearchBar(!searchBar);
-    // await dispatch({ type: HIT_SEARCH_NEWS, payload: [query, null, null] });
     await setQuery('')
     router.push(`/search/${query}`);
   };
-  // useEffect(() => {
-  //   setQuery(null)
-  // }, [query])
   return (
     <>
       <div
@@ -40,15 +36,12 @@ const SearchBox = ({ marginTop }) => {
           placeholder="Search...."
           onChange={(e) => setQuery(e.target.value)}
           style={{ width: "90%" }}
-          // onClick={setInputMode(false)}
           onKeyPress={(e) => {
             e.key === "Enter" && searchArticle(e, e.target.value);
             e.key === "Enter" && setInputMode(true);
-            // e.key === "Enter" && setQuery(null);
           }}
           inputMode={inputmode && 'none' }
         />
-        {/* </form> */}
         <div className="minify justify-content-center align-self-center" />
       </div>
     </>

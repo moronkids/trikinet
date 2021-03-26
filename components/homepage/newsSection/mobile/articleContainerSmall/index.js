@@ -18,10 +18,7 @@ const Article = ({ data, image, truncatex }) => {
         <a>
           <div className="articleSmall d-flex mb-3">
             <span className="d-flex newsPhoto">
-              {/* <img width={120} height={120} className="position-relative"/> */}
               <Image
-                // class="h-100"
-
                 alt=""
                 src={thumbnailImg}
                 priority={true}
@@ -38,18 +35,14 @@ const Article = ({ data, image, truncatex }) => {
               <Truncate
                 className=" justify-center  d-none d-sm-block"
                 lines={truncatex !== 0 ? truncatex : 3}
-                // style={{ maxWidth: "250px" }}
               >
                 <span className="justify-center d-none d-lg-block">
                   {data && data.title.rendered}
                 </span>
               </Truncate>
-              {/* {data.title.rendered} */}
-
               <span className="justify-center titleSmallArticle d-block d-lg-none">
                 {data && data.title.rendered}
               </span>
-
               <span className="writtenBy position-absolute">{`by ${
                 data && data._embedded.author[0].name
               }`}</span>

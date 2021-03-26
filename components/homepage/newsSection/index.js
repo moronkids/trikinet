@@ -14,14 +14,11 @@ const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
   return (
     <>
       <div className="d-none d-sm-block container h-100 newsSection">
-        {/* <div className="container h-100 newsSection"> */}
         {headlineLatestNews !== undefined ? (
           <>
             <div className="row headline h-100">
               <div className="col-md-6 col-12 w-100 imgHeadline">
                 <div
-                  // src="../assets/section1_1.svg"
-                  // src={headlineLatestNews.yoast_meta[6].content}
                   alt=""
                   className="h-100 w-100"
                   style={{
@@ -88,7 +85,6 @@ const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
                   newsLatest.map((val, i) => {
                     let data;
                     if (i <= 4) {
-                      // data = <div className="list">{val.title.rendered}</div>;
                       data = (
                         <Link href={`post/${val.slug}`}>
                           <a>
@@ -145,8 +141,6 @@ const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
                 className="col-auto float-right mt-3 ml-3"
                 style={{
                   width: "300px",
-                  // height: "100%",
-                  // backgroundColor: "#C4C4C4;",
                 }}
               >
                 <MgidWidget
@@ -164,17 +158,12 @@ const News = ({ headlineLatestNews, newsLatest, publishedDate }) => {
                 </a>
               </Link>
             </div>
-            {/* <div className=""> */}
-
-            {/* <div className="adsBottomz text-left mx-3 mx-sm-0" /> */}
-            {/* </div> */}
           </div>
         </div>
       </div>
       <MobileView
         headlineLatestNews={headlineLatestNews}
         publishedDate={publishedDate}
-        // headlineLatestNews_2={headlineLatestNews_2}
         newsLatest={newsLatest}
       />
       <div className="container d-block pb-5 col-12 col-sm-5 px-4">

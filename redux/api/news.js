@@ -1,13 +1,11 @@
 import React from "react";
 import defaultAxios from "axios";
 import { useReducer } from "react";
-// import { FetchLoading } from 'redux/reducers/loading';
 const axios = defaultAxios.create({
   baseURL: "https://venom.trikinet.com",
   headers: {
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
     "Access-Control-Allow-Origin": "*",
-    // Authorization: `Bearer ${localStorage.getItem("token")}`,
   },
   withCredentials: false,
   crossorigin: true,
@@ -25,22 +23,10 @@ function FetchLoading(state = initialState, { type, payload }) {
   }
 }
 
-// export const useNewsLatestx = (initialRequestConfig, initialData = {}) => {
-//   const [state, dispatch] = useReducer(FetchLoading);
-//   return (
-//     <></>
-//   )
-// };
-
-// export default useNewsLatestx;
-
 export const useNewsLatestx = async (data, props) => {
-  // const [state, dispatch] = useReducer(FetchLoading, { status: false }, {});
-  // dispatch({ type: "DO_LOADING", payload: true });
   const todos = await axios
     .get("news/latest?page=1&limit=16")
     .catch(function (error) {
-      // dispatch({ type: "DO_LOADING", payload: false });
       if (error.response.status !== 200) {
         return {
           newsLatest: {
@@ -49,8 +35,6 @@ export const useNewsLatestx = async (data, props) => {
         };
       }
     });
-
-  // dispatch({ type: "DO_LOADING", payload: false });
   return {
     newsLatest: {
       data: todos.data.data,
@@ -59,11 +43,9 @@ export const useNewsLatestx = async (data, props) => {
   };
 };
 export const useNewsLatest_ = async (page) => {
-
   const todos = await axios
     .get(`news/latest?page=${page}&limit=18`)
     .catch(function (error) {
-      // dispatch({ type: "DO_LOADING", payload: false });
       if (error.response.status !== 200) {
         return {
           newsLatest: {
@@ -72,9 +54,6 @@ export const useNewsLatest_ = async (page) => {
         };
       }
     });
-
-  // dispatch({ type: "DO_LOADING", payload: false });
-
   return {
     data: todos.data.data,
     status: todos.status,
@@ -114,7 +93,6 @@ export const sortByCategory = async (data) => {
           };
         }
       });
-    //
     return {
       data: todos.data.data,
       status: todos.status,
@@ -139,7 +117,6 @@ export const sortByCategory_ = async (data) => {
         };
       }
     });
-  //
   return {
     data: todos.data,
     status: todos.status,
@@ -175,34 +152,21 @@ export const searchNews = async (data) => {
   }
 };
 export const searchNews_ = async (data) => {
-  // console.log(data)
   const query = data;
-  // const page = data[1] !== null ? data[1] : 1;
-  // const limit = data[2] !== null ? data[2] : 18;
-  // try {
   const todos = await axios
     .get(`/news/search?q=${query}&page=${1}&limit=${18}`)
     .catch(function (error) {
       if (error.response.status !== 200) {
         return {
-          data: ["asux"],
+          data: [],
           status: "failed",
         };
       }
     });
-  //
-  console.log(todos);
+
   return {
     data: todos.data.data,
     status: todos.status,
-    // page: page,
     query: query,
   };
-  // } catch (error) {
-  //   console.log(error)
-  //   return {
-  //     data : ["asu"],
-  //     status: "failed",
-  //   };
-  // }
 };
