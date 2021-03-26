@@ -45,7 +45,7 @@ const Search = ({search_data_}) => {
       <SearchContainers />
       <div className="infinite-scroll-component__outerdiv d-none" />
       <div className="container mt-5" id="search">
-        <div className="row mx-0 px-0 result">Result of : {slug}</div>
+        <div className="row mx-2 result">Result of : {slug}</div>
         <div className="row col-12 news m-0 p-0" style={{ width: "100%" }}>
           {search_data_.length < 1 ? (
             <>

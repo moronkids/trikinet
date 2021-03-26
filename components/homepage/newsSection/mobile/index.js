@@ -10,7 +10,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 
 const News = ({headlineLatestNews, newsLatest, publishedDate}) => {
-  if (newsLatest.length > 0) publishedDate = dayjs(headlineLatestNews.date).fromNow(); // 20 years ago
+  // if (newsLatest.length > 0) publishedDate = dayjs(headlineLatestNews.date).fromNow(); // 20 years ago
   let ArticleSmall_;
   if(newsLatest.length > 0) {
     ArticleSmall_ = newsLatest.map((val, i) => {
