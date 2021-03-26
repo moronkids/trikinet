@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import SmallLoader from "components/layouts/contentLoader/loader";
 import SearchContainers from "components/layouts/searchContainers";
-import InfiniteScroll from "react-infinite-scroll-component";
 import LoaderSmallArticle from "components/layouts/contentLoader/loader";
 import { HIT_SEARCH_NEWS } from "redux/actions";
 import ViewMoreButton from "components/viewmore_button";

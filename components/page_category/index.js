@@ -8,7 +8,6 @@ import { HIT_CATEGORY_NEWS, RESET_CATEGORY_NEWS } from "../../redux/actions";
 import { useRouter } from "next/router";
 import SquareLoader from "components/layouts/contentLoader";
 import LoaderSmallArticle from "components/layouts/contentLoader/loader";
-import InfiniteScroll from "react-infinite-scroll-component";
 import ViewMoreButton from "components/viewmore_button";
 // import Spinner from 'public/assets/spinner.svg';
 var dayjs = require("dayjs");
