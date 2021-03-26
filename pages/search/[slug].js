@@ -54,7 +54,7 @@ const Search = ({search_data_}) => {
               </p>
             </>
           ) : null}
-          <div className="row col-12 news m-0">
+          <div className="row col-12 news m-0 p-0">
             {search_data_ &&
               search_data_.map((val, i) => {
                 return (
