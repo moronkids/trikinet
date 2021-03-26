@@ -10,9 +10,9 @@ module.exports = withPWA({
         use: ["style-loader", "css-loader", "postcss-loader"],
       },
     ],
-    images: {
-      domains: ["spiderman.trikinet.com"],
-    },
+  },
+  images: {
+    domains: ["spiderman.trikinet.com"],
   },
 });
 
@@ -21,4 +21,3 @@ module.exports = withPWA({
 //     domains: ["spiderman.trikinet.com"]
 //   },
 // };
-
