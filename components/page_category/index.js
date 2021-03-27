@@ -203,10 +203,7 @@ const Web = ({
       >
         <div className="row col-12 news m-0 p-2 p-sm-0">
           <div className="col-12 col-sm-12 col-md-6 ">
-            {loading ? (
-              // <SquareLoader />
-              <></>
-            ) : (
+            {headlineLatestNews_2 && (
               <ArticleBig
                 data={headlineLatestNews_1}
                 articleBig={articleBig}
@@ -216,10 +213,7 @@ const Web = ({
             )}
           </div>
           <div className="col-12 col-sm-12 col-md-6">
-            {loading ? (
-              // <SquareLoader />
-              <></>
-            ) : (
+            {headlineLatestNews_2 && (
               <ArticleBig
                 data={headlineLatestNews_2}
                 articleBig={articleBig}
@@ -263,7 +257,6 @@ const Web = ({
               </div>
             </>
           ) : null}
-
         </div>
         <div
           id="loadmore"
